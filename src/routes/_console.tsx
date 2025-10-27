@@ -33,6 +33,7 @@ import { useAuthStore } from "@/stores/auth";
 import AppNavigation from "@/ui/navigation";
 import { useImageBlob } from "@/utils/blob";
 import type { WithBreadcrumbEntry } from "@/utils/breadcrumbs";
+import { getFeaturesStatus, useFeaturesStatus } from "@/utils/features";
 
 interface TokenViewProps {
   token: string;
@@ -70,6 +71,10 @@ export const Route = createFileRoute("/_console")({
     );
     const synapseRoot = wellKnown["m.homeserver"].base_url;
 
+    const masFeaturesPromise = getFeaturesStatus(
+      queryClient,
+      credentials.serverName,
+    );
     const essVersionPromise = queryClient.ensureQueryData(
       essVersionQuery(synapseRoot),
     );
@@ -77,7 +82,7 @@ export const Route = createFileRoute("/_console")({
     await queryClient.ensureQueryData(
       profileQuery(synapseRoot, whoami.user_id),
     );
-    await essVersionPromise;
+    await Promise.all([essVersionPromise, masFeaturesPromise]);
 
     return {
       breadcrumb: {
@@ -107,6 +112,7 @@ function RouteComponent() {
 
   const avatarUrl = useImageBlob(avatar);
 
+  const features = useFeaturesStatus(credentials.serverName);
   const variant = useEssVariant(synapseRoot);
 
   // An easter egg to trigger toasts and error boundaries
@@ -172,7 +178,7 @@ function RouteComponent() {
       </Header.Root>
 
       <Navigation.Root>
-        <AppNavigation />
+        <AppNavigation features={features} />
         <Outlet />
       </Navigation.Root>
     </Layout>

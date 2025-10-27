@@ -212,6 +212,30 @@ export const siteConfigQuery = (serverName: string) =>
     },
   });
 
+export const versionQuery = (serverName: string) =>
+  queryOptions({
+    queryKey: ["mas", "version", serverName],
+    queryFn: async ({ client, signal }): Promise<api.Version> => {
+      try {
+        const result = await api.version({
+          ...(await masBaseOptions(client, serverName, signal)),
+        });
+        ensureNoError(result);
+        return result.data;
+      } catch (error) {
+        console.warn(
+          "Version query failed, this is likely because of talking to an older version of MAS, ignoring",
+          error,
+        );
+
+        // Fallback to an unknown version, valid semver
+        return {
+          version: "v0.0.0-unknown",
+        };
+      }
+    },
+  });
+
 export const usersInfiniteQuery = (
   serverName: string,
   parameters: UserListFilters = {},
