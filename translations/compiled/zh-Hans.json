@@ -182,6 +182,12 @@
       "value": "文档"
     }
   ],
+  "navigation.personal_tokens": [
+    {
+      "type": 0,
+      "value": "Personal tokens"
+    }
+  ],
   "navigation.registration_tokens": [
     {
       "type": 0,
@@ -326,6 +332,444 @@
     {
       "type": 0,
       "value": "登录"
+    }
+  ],
+  "pages.personal_tokens.acting_user_column": [
+    {
+      "type": 0,
+      "value": "Acting User"
+    }
+  ],
+  "pages.personal_tokens.acting_user_label": [
+    {
+      "type": 0,
+      "value": "Acting user"
+    }
+  ],
+  "pages.personal_tokens.actor_user_help": [
+    {
+      "type": 0,
+      "value": "The user this token will act on behalf of"
+    }
+  ],
+  "pages.personal_tokens.actor_user_label": [
+    {
+      "type": 0,
+      "value": "Acting user"
+    }
+  ],
+  "pages.personal_tokens.add_token_title": [
+    {
+      "type": 0,
+      "value": "Add personal token"
+    }
+  ],
+  "pages.personal_tokens.cant_regenerate_tooltip": [
+    {
+      "type": 0,
+      "value": "Only "
+    },
+    {
+      "type": 1,
+      "value": "ownerMxid"
+    },
+    {
+      "type": 0,
+      "value": " can regenerate this token"
+    }
+  ],
+  "pages.personal_tokens.cant_regenerate_tooltip_generic": [
+    {
+      "type": 0,
+      "value": "Only the owner of the token can regenerate it"
+    }
+  ],
+  "pages.personal_tokens.count": [
+    {
+      "offset": 0,
+      "options": {
+        "=0": {
+          "value": [
+            {
+              "type": 0,
+              "value": "No personal tokens"
+            }
+          ]
+        },
+        "one": {
+          "value": [
+            {
+              "type": 7
+            },
+            {
+              "type": 0,
+              "value": " personal token"
+            }
+          ]
+        },
+        "other": {
+          "value": [
+            {
+              "type": 7
+            },
+            {
+              "type": 0,
+              "value": " personal tokens"
+            }
+          ]
+        }
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "count"
+    }
+  ],
+  "pages.personal_tokens.create_error": [
+    {
+      "type": 0,
+      "value": "Failed to create personal token"
+    }
+  ],
+  "pages.personal_tokens.create_success": [
+    {
+      "type": 0,
+      "value": "Personal token created successfully"
+    }
+  ],
+  "pages.personal_tokens.create_token": [
+    {
+      "type": 0,
+      "value": "Create token"
+    }
+  ],
+  "pages.personal_tokens.created_at_label": [
+    {
+      "type": 0,
+      "value": "Created at"
+    }
+  ],
+  "pages.personal_tokens.description": [
+    {
+      "type": 0,
+      "value": "Personal tokens are long-lived access tokens with specific access, including Synapse and MAS administration API access. They are useful for automating tasks and for creating integrations."
+    }
+  ],
+  "pages.personal_tokens.device_id_help": [
+    {
+      "type": 0,
+      "value": "Leave empty to generate a random 10-character device ID"
+    }
+  ],
+  "pages.personal_tokens.device_id_label": [
+    {
+      "type": 0,
+      "value": "Device ID"
+    }
+  ],
+  "pages.personal_tokens.device_id_placeholder": [
+    {
+      "type": 0,
+      "value": "ABCDEFGHIJ"
+    }
+  ],
+  "pages.personal_tokens.expires_at_column": [
+    {
+      "type": 0,
+      "value": "Expires at"
+    }
+  ],
+  "pages.personal_tokens.expires_at_label": [
+    {
+      "type": 0,
+      "value": "Expires at"
+    }
+  ],
+  "pages.personal_tokens.expires_in_help": [
+    {
+      "type": 0,
+      "value": "Leave empty for tokens that never expire"
+    }
+  ],
+  "pages.personal_tokens.expires_in_label": [
+    {
+      "type": 0,
+      "value": "Expires in (days)"
+    }
+  ],
+  "pages.personal_tokens.expires_in_placeholder": [
+    {
+      "type": 0,
+      "value": "30"
+    }
+  ],
+  "pages.personal_tokens.filter.active": [
+    {
+      "type": 0,
+      "value": "Active"
+    }
+  ],
+  "pages.personal_tokens.filter.expires": [
+    {
+      "type": 0,
+      "value": "With an expiry date"
+    }
+  ],
+  "pages.personal_tokens.filter.no_expiry": [
+    {
+      "type": 0,
+      "value": "Never expires"
+    }
+  ],
+  "pages.personal_tokens.filter.revoked": [
+    {
+      "type": 0,
+      "value": "Revoked"
+    }
+  ],
+  "pages.personal_tokens.filter.scope_mas_admin": [
+    {
+      "type": 0,
+      "value": "Access to the MAS admin API"
+    }
+  ],
+  "pages.personal_tokens.filter.scope_matrix_client": [
+    {
+      "type": 0,
+      "value": "Access to the Matrix Client-Server API"
+    }
+  ],
+  "pages.personal_tokens.filter.scope_synapse_admin": [
+    {
+      "type": 0,
+      "value": "Access to the Synapse admin API"
+    }
+  ],
+  "pages.personal_tokens.last_active_column": [
+    {
+      "type": 0,
+      "value": "Last Active"
+    }
+  ],
+  "pages.personal_tokens.last_active_ip_label": [
+    {
+      "type": 0,
+      "value": "Last active IP"
+    }
+  ],
+  "pages.personal_tokens.last_active_label": [
+    {
+      "type": 0,
+      "value": "Last active"
+    }
+  ],
+  "pages.personal_tokens.loading_more": [
+    {
+      "type": 0,
+      "value": "Loading more tokens..."
+    }
+  ],
+  "pages.personal_tokens.name_column": [
+    {
+      "type": 0,
+      "value": "Name"
+    }
+  ],
+  "pages.personal_tokens.name_help": [
+    {
+      "type": 0,
+      "value": "A human-readable name for the token, to help you identify it"
+    }
+  ],
+  "pages.personal_tokens.name_label": [
+    {
+      "type": 0,
+      "value": "Token name"
+    }
+  ],
+  "pages.personal_tokens.name_placeholder": [
+    {
+      "type": 0,
+      "value": "My application token"
+    }
+  ],
+  "pages.personal_tokens.never_expires": [
+    {
+      "type": 0,
+      "value": "Never expires"
+    }
+  ],
+  "pages.personal_tokens.never_used": [
+    {
+      "type": 0,
+      "value": "Never used"
+    }
+  ],
+  "pages.personal_tokens.not_found.description": [
+    {
+      "type": 0,
+      "value": "The personal token you're looking for doesn't exist or has been removed."
+    }
+  ],
+  "pages.personal_tokens.not_found.title": [
+    {
+      "type": 0,
+      "value": "Personal token not found"
+    }
+  ],
+  "pages.personal_tokens.owner_user_label": [
+    {
+      "type": 0,
+      "value": "Owner"
+    }
+  ],
+  "pages.personal_tokens.regenerate_confirm": [
+    {
+      "type": 0,
+      "value": "Regenerate token"
+    }
+  ],
+  "pages.personal_tokens.regenerate_error": [
+    {
+      "type": 0,
+      "value": "Failed to regenerate personal token"
+    }
+  ],
+  "pages.personal_tokens.regenerate_expires_help": [
+    {
+      "type": 0,
+      "value": "Leave empty to keep the same expiry as before, or set a new expiry time"
+    }
+  ],
+  "pages.personal_tokens.regenerate_success": [
+    {
+      "type": 0,
+      "value": "Personal token regenerated successfully"
+    }
+  ],
+  "pages.personal_tokens.regenerate_token": [
+    {
+      "type": 0,
+      "value": "Regenerate token"
+    }
+  ],
+  "pages.personal_tokens.regenerate_token_title": [
+    {
+      "type": 0,
+      "value": "Regenerate personal token"
+    }
+  ],
+  "pages.personal_tokens.regenerate_warning": [
+    {
+      "type": 0,
+      "value": "This will generate a new access token and invalidate the current one. Any applications using the current token will need to be updated."
+    }
+  ],
+  "pages.personal_tokens.revoke_success": [
+    {
+      "type": 0,
+      "value": "Personal token revoked successfully"
+    }
+  ],
+  "pages.personal_tokens.revoke_token": [
+    {
+      "type": 0,
+      "value": "Revoke token"
+    }
+  ],
+  "pages.personal_tokens.revoked_at_label": [
+    {
+      "type": 0,
+      "value": "Revoked at"
+    }
+  ],
+  "pages.personal_tokens.scope_device_help": [
+    {
+      "type": 0,
+      "value": "Provision a Matrix device"
+    }
+  ],
+  "pages.personal_tokens.scope_mas_admin_help": [
+    {
+      "type": 0,
+      "value": "Access to the MAS admin API"
+    }
+  ],
+  "pages.personal_tokens.scope_matrix_client_help": [
+    {
+      "type": 0,
+      "value": "Access to the Matrix Client-Server API"
+    }
+  ],
+  "pages.personal_tokens.scope_synapse_admin_help": [
+    {
+      "type": 0,
+      "value": "Access to the Synapse admin API"
+    }
+  ],
+  "pages.personal_tokens.scopes_label": [
+    {
+      "type": 0,
+      "value": "Scopes"
+    }
+  ],
+  "pages.personal_tokens.status.active": [
+    {
+      "type": 0,
+      "value": "Active"
+    }
+  ],
+  "pages.personal_tokens.status.column": [
+    {
+      "type": 0,
+      "value": "Status"
+    }
+  ],
+  "pages.personal_tokens.status.expired": [
+    {
+      "type": 0,
+      "value": "Expired"
+    }
+  ],
+  "pages.personal_tokens.status.label": [
+    {
+      "type": 0,
+      "value": "Status"
+    }
+  ],
+  "pages.personal_tokens.status.revoked": [
+    {
+      "type": 0,
+      "value": "Revoked"
+    }
+  ],
+  "pages.personal_tokens.title": [
+    {
+      "type": 0,
+      "value": "Personal tokens"
+    }
+  ],
+  "pages.personal_tokens.token_created_description": [
+    {
+      "type": 0,
+      "value": "Your personal token has been created. Copy it now as it will not be shown again."
+    }
+  ],
+  "pages.personal_tokens.token_created_title": [
+    {
+      "type": 0,
+      "value": "Personal token created"
+    }
+  ],
+  "pages.personal_tokens.token_regenerated_description": [
+    {
+      "type": 0,
+      "value": "Your personal token has been regenerated. Copy it now as it will not be shown again."
+    }
+  ],
+  "pages.personal_tokens.token_regenerated_title": [
+    {
+      "type": 0,
+      "value": "Token regenerated"
     }
   ],
   "pages.registration_tokens.auto_generate_placeholder": [
@@ -1457,6 +1901,32 @@
     {
       "type": 0,
       "value": "语言设置"
+    }
+  ],
+  "ui.user_picker.loading_list": [
+    {
+      "type": 0,
+      "value": "Loading…"
+    }
+  ],
+  "ui.user_picker.no_match": [
+    {
+      "type": 0,
+      "value": "No match"
+    }
+  ],
+  "ui.user_picker.no_match_help": [
+    {
+      "type": 0,
+      "value": "Try a different search term. This can only lookup active users on "
+    },
+    {
+      "type": 1,
+      "value": "serverName"
+    },
+    {
+      "type": 0,
+      "value": " using their localpart."
     }
   ]
 }
