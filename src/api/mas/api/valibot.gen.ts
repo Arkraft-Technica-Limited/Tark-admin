@@ -32,6 +32,7 @@ export const vVersion = v.object({
 
 /**
  * ULID
+ *
  * A ULID as per https://github.com/ulid/spec
  */
 export const vUlid = v.pipe(
