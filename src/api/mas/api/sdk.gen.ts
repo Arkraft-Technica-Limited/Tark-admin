@@ -294,6 +294,7 @@ export const version = <ThrowOnError extends boolean = false>(
 
 /**
  * List compatibility sessions
+ *
  * Retrieve a list of compatibility sessions.
  * Note that by default, all sessions, including finished ones are returned, with the oldest first.
  * Use the `filter[status]` parameter to filter the sessions by their status and `page[last]` parameter to retrieve the last N sessions.
@@ -353,6 +354,7 @@ export const getCompatSession = <ThrowOnError extends boolean = false>(
 
 /**
  * Finish a compatibility session
+ *
  * Calling this endpoint will finish the compatibility session, preventing any further use. A job will be scheduled to sync the user's devices with the homeserver.
  */
 export const finishCompatSession = <ThrowOnError extends boolean = false>(
@@ -382,6 +384,7 @@ export const finishCompatSession = <ThrowOnError extends boolean = false>(
 
 /**
  * List OAuth 2.0 sessions
+ *
  * Retrieve a list of OAuth 2.0 sessions.
  * Note that by default, all sessions, including finished ones are returned, with the oldest first.
  * Use the `filter[status]` parameter to filter the sessions by their status and `page[last]` parameter to retrieve the last N sessions.
@@ -441,6 +444,7 @@ export const getOAuth2Session = <ThrowOnError extends boolean = false>(
 
 /**
  * Finish an OAuth 2.0 session
+ *
  * Calling this endpoint will finish the OAuth 2.0 session, preventing any further use. If the session has a user associated with it, a job will be scheduled to sync the user's devices with the homeserver.
  */
 export const finishOAuth2Session = <ThrowOnError extends boolean = false>(
@@ -470,6 +474,7 @@ export const finishOAuth2Session = <ThrowOnError extends boolean = false>(
 
 /**
  * List personal sessions
+ *
  * Retrieve a list of personal sessions.
  * Note that by default, all sessions, including revoked ones are returned, with the oldest first.
  * Use the `filter[status]` parameter to filter the sessions by their status and `page[last]` parameter to retrieve the last N sessions.
@@ -849,6 +854,7 @@ export const getUserByUsername = <ThrowOnError extends boolean = false>(
 
 /**
  * Set whether a user can request admin
+ *
  * Calling this endpoint will not have any effect on existing sessions, meaning that their existing sessions will keep admin access if they were granted it.
  */
 export const userSetAdmin = <ThrowOnError extends boolean = false>(
@@ -882,6 +888,7 @@ export const userSetAdmin = <ThrowOnError extends boolean = false>(
 
 /**
  * Deactivate a user
+ *
  * Calling this endpoint will deactivate the user, preventing them from doing any action.
  * This invalidates any existing session, and will ask the homeserver to make them leave all rooms.
  */
@@ -916,6 +923,7 @@ export const deactivateUser = <ThrowOnError extends boolean = false>(
 
 /**
  * Reactivate a user
+ *
  * Calling this endpoint will reactivate a deactivated user.
  * This DOES NOT unlock a locked user, which is still prevented from doing any action until it is explicitly unlocked.
  */
@@ -946,6 +954,7 @@ export const reactivateUser = <ThrowOnError extends boolean = false>(
 
 /**
  * Lock a user
+ *
  * Calling this endpoint will lock the user, preventing them from doing any action.
  * This DOES NOT invalidate any existing session, meaning that all their existing sessions will work again as soon as they get unlocked.
  */
@@ -972,6 +981,7 @@ export const lockUser = <ThrowOnError extends boolean = false>(
 
 /**
  * Unlock a user
+ *
  * Calling this endpoint will lift restrictions on user actions that had imposed by locking.
  * This DOES NOT reactivate a deactivated user, which will remain unavailable until it is explicitly reactivated.
  */
@@ -1002,6 +1012,7 @@ export const unlockUser = <ThrowOnError extends boolean = false>(
 
 /**
  * List user emails
+ *
  * Retrieve a list of user emails.
  */
 export const listUserEmails = <ThrowOnError extends boolean = false>(
@@ -1031,6 +1042,7 @@ export const listUserEmails = <ThrowOnError extends boolean = false>(
 
 /**
  * Add a user email
+ *
  * Add an email address to a user.
  * Note that this endpoint ignores any policy which would normally prevent the email from being added.
  */
@@ -1121,6 +1133,7 @@ export const getUserEmail = <ThrowOnError extends boolean = false>(
 
 /**
  * List user sessions
+ *
  * Retrieve a list of user sessions (browser sessions).
  * Note that by default, all sessions, including finished ones are returned, with the oldest first.
  * Use the `filter[status]` parameter to filter the sessions by their status and `page[last]` parameter to retrieve the last N sessions.
@@ -1180,6 +1193,7 @@ export const getUserSession = <ThrowOnError extends boolean = false>(
 
 /**
  * Finish a user session
+ *
  * Calling this endpoint will finish the user session, preventing any further use.
  */
 export const finishUserSession = <ThrowOnError extends boolean = false>(
@@ -1299,6 +1313,7 @@ export const getUserRegistrationToken = <ThrowOnError extends boolean = false>(
 
 /**
  * Update a user registration token
+ *
  * Update properties of a user registration token such as expiration and usage limit. To set a field to null (removing the limit/expiration), include the field with a null value. To leave a field unchanged, omit it from the request body.
  */
 export const updateUserRegistrationToken = <
@@ -1334,6 +1349,7 @@ export const updateUserRegistrationToken = <
 
 /**
  * Revoke a user registration token
+ *
  * Calling this endpoint will revoke the user registration token, preventing it from being used for new registrations.
  */
 export const revokeUserRegistrationToken = <
@@ -1365,6 +1381,7 @@ export const revokeUserRegistrationToken = <
 
 /**
  * Unrevoke a user registration token
+ *
  * Calling this endpoint will unrevoke a previously revoked user registration token, allowing it to be used for registrations again (subject to its usage limits and expiration).
  */
 export const unrevokeUserRegistrationToken = <
@@ -1396,6 +1413,7 @@ export const unrevokeUserRegistrationToken = <
 
 /**
  * List upstream OAuth 2.0 links
+ *
  * Retrieve a list of upstream OAuth 2.0 links.
  */
 export const listUpstreamOAuthLinks = <ThrowOnError extends boolean = false>(

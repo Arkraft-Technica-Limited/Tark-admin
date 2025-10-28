@@ -38,6 +38,7 @@ export function mergeRefs<T>(
       }
     }
 
+    // eslint-disable-next-line unicorn/consistent-function-scoping
     return () => {
       for (const ref of available) {
         const cleanup = cleanupMap.get(ref);

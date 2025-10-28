@@ -78,6 +78,7 @@ export type PaginationParams = {
 
 /**
  * ULID
+ *
  * A ULID as per https://github.com/ulid/spec
  */
 export type Ulid = string;
