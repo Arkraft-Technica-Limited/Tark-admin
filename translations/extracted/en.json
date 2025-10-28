@@ -231,6 +231,10 @@
     "description": "Label for the token creation date field",
     "message": "Created at"
   },
+  "pages.personal_tokens.description": {
+    "description": "The description of the personal tokens list page",
+    "message": "Personal tokens are long-lived access tokens with specific access, including Synapse and MAS administration API access. They are useful for automating tasks and for creating integrations."
+  },
   "pages.personal_tokens.device_id_help": {
     "description": "Help text for device ID field",
     "message": "Leave empty to generate a random 10-character device ID"

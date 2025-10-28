@@ -22,6 +22,17 @@ export const Title = ({ className, children, ...props }: TitleProps) => (
   </h1>
 );
 
+type DescriptionProps = React.ComponentProps<"p">;
+export const Description = ({
+  className,
+  children,
+  ...props
+}: DescriptionProps) => (
+  <p className={cx(styles["description"], className)} {...props}>
+    {children}
+  </p>
+);
+
 type ControlsProps = React.ComponentProps<"div">;
 export const Controls = ({ className, children, ...props }: ControlsProps) => (
   <div className={cx(styles["controls"], className)} {...props}>

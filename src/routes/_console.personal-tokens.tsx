@@ -80,6 +80,13 @@ const titleMessage = defineMessage({
   description: "The title of the personal tokens list page",
 });
 
+const descriptionMessage = defineMessage({
+  id: "pages.personal_tokens.description",
+  defaultMessage:
+    "Personal tokens are long-lived access tokens with specific access, including Synapse and MAS administration API access. They are useful for automating tasks and for creating integrations.",
+  description: "The description of the personal tokens list page",
+});
+
 export const Route = createFileRoute("/_console/personal-tokens")({
   staticData: {
     breadcrumb: {
@@ -129,6 +136,9 @@ export const Route = createFileRoute("/_console/personal-tokens")({
                 <FormattedMessage {...messages.actionAdd} />
               </Page.Button>
             </Page.Controls>
+            <Page.Description>
+              <FormattedMessage {...descriptionMessage} />
+            </Page.Description>
           </Page.Header>
 
           <Placeholder.LoadingTable />
@@ -892,12 +902,17 @@ function RouteComponent() {
             <Page.Title>
               <FormattedMessage {...titleMessage} />
             </Page.Title>
+
             <Page.Controls>
               <PersonalTokenAddButton
                 serverName={credentials.serverName}
                 synapseRoot={synapseRoot}
               />
             </Page.Controls>
+
+            <Page.Description>
+              <FormattedMessage {...descriptionMessage} />
+            </Page.Description>
           </Page.Header>
 
           <Table.Root>

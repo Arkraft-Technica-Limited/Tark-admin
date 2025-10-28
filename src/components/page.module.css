@@ -29,6 +29,15 @@
   color: var(--cpd-color-text-primary);
 }
 
+.description {
+  font: var(--cpd-font-body-md-regular);
+  letter-spacing: var(--cpd-font-letter-spacing-body-md);
+  color: var(--cpd-color-text-secondary);
+  max-width: 60ch;
+  text-align: justify;
+  grid-column: 1 / span 2;
+}
+
 .search {
   grid-area: search;
   display: flex;
