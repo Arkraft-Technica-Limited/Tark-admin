@@ -38,7 +38,7 @@ import { wellKnownQuery, whoamiQuery } from "@/api/matrix";
 import { CopyToClipboard } from "@/components/copy";
 import * as Data from "@/components/data";
 import * as Dialog from "@/components/dialog";
-import { ButtonLink } from "@/components/link";
+import { ButtonLink, TextLink } from "@/components/link";
 import * as Navigation from "@/components/navigation";
 import * as messages from "@/messages";
 import { computeHumanReadableDateTimeStringFromUtc } from "@/utils/datetime";
@@ -250,7 +250,11 @@ function TokenDetailComponent() {
                 description="Label for the acting user field"
               />
             </Data.Title>
-            <Data.Value>{actorMxid}</Data.Value>
+            <Data.Value>
+              <TextLink to="/users/$userId" params={{ userId: actor.id }}>
+                {actorMxid}
+              </TextLink>
+            </Data.Value>
           </Data.Item>
 
           {ownerData && (
@@ -262,7 +266,14 @@ function TokenDetailComponent() {
                   description="Label for the owner user field"
                 />
               </Data.Title>
-              <Data.Value>{ownerMxid}</Data.Value>
+              <Data.Value>
+                <TextLink
+                  to="/users/$userId"
+                  params={{ userId: ownerData.data.id }}
+                >
+                  {ownerMxid}
+                </TextLink>
+              </Data.Value>
             </Data.Item>
           )}
 
