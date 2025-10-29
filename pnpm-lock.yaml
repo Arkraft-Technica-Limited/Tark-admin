@@ -66,8 +66,8 @@ importers:
         specifier: 6.0.0
         version: 6.0.0(@types/react@19.2.2)(react@19.2.0)
       '@vector-im/compound-web':
-        specifier: 8.2.4
-        version: 8.2.4(@fontsource/inconsolata@5.2.8)(@fontsource/inter@5.2.8)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(@vector-im/compound-design-tokens@6.0.0(@types/react@19.2.2)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: 8.2.5
+        version: 8.2.5(@fontsource/inconsolata@5.2.8)(@fontsource/inter@5.2.8)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(@vector-im/compound-design-tokens@6.0.0(@types/react@19.2.2)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       classnames:
         specifier: 2.5.1
         version: 2.5.1
@@ -1943,8 +1943,8 @@ packages:
       react:
         optional: true
 
-  '@vector-im/compound-web@8.2.4':
-    resolution: {integrity: sha512-Fsb/99r98ICMdtNt/bFcWtLmjyngcye9Ugqm9VDapo1VnrO0wLFJHOcm+J+SvKZwTXCaSndBklygAr5FXk0E9w==}
+  '@vector-im/compound-web@8.2.5':
+    resolution: {integrity: sha512-sfLqaW6bnvF+g+mC0P5RklPOln3yYW9OLzF8pLJ6gL8tJ6Kt1YSSQ+0VpOUy0kLD6E9jvEGJmiFAFdHuDDxS0A==}
     peerDependencies:
       '@fontsource/inconsolata': ^5
       '@fontsource/inter': ^5
@@ -5807,7 +5807,7 @@ snapshots:
       '@types/react': 19.2.2
       react: 19.2.0
 
-  '@vector-im/compound-web@8.2.4(@fontsource/inconsolata@5.2.8)(@fontsource/inter@5.2.8)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(@vector-im/compound-design-tokens@6.0.0(@types/react@19.2.2)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@vector-im/compound-web@8.2.5(@fontsource/inconsolata@5.2.8)(@fontsource/inter@5.2.8)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(@vector-im/compound-design-tokens@6.0.0(@types/react@19.2.2)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@floating-ui/react': 0.27.16(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@fontsource/inconsolata': 5.2.8
