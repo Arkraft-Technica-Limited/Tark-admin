@@ -8,18 +8,31 @@ import {
   type PersistedQuery,
 } from "@tanstack/query-persist-client-core";
 import { QueryClient } from "@tanstack/react-query";
-import { get, set, del, clear } from "idb-keyval";
+import { get, set, del, clear, entries } from "idb-keyval";
+
+const isLikelyPersistedQuery = (what: unknown): what is PersistedQuery =>
+  typeof what === "object" &&
+  what !== null &&
+  Object.hasOwn(what, "queryKey") &&
+  Object.hasOwn(what, "state") &&
+  Object.hasOwn(what, "queryHash");
 
 const storage: AsyncStorage<PersistedQuery> = {
   async getItem(key: string) {
     return await get(key);
   },
   async setItem(key: string, value: PersistedQuery) {
-    // For some reason, awaiting here makes thing hang
-    set(key, value);
+    await set(key, value);
   },
   async removeItem(key: string) {
     await del(key);
+  },
+  async entries(): Promise<[string, PersistedQuery][]> {
+    const list = await entries();
+    return list.filter(
+      (element): element is [string, PersistedQuery] =>
+        typeof element[0] === "string" && isLikelyPersistedQuery(element[1]),
+    );
   },
 };
 
@@ -27,7 +40,13 @@ const persister = experimental_createQueryPersister({
   storage,
   serialize: (value: PersistedQuery) => value,
   deserialize: (value: PersistedQuery) => value,
+
+  // This makes us always reload the data when reloading the page
+  refetchOnRestore: "always",
 });
+
+// Garbage-collect the persister on startup
+persister.persisterGc();
 
 export const queryClient = new QueryClient({
   defaultOptions: {
