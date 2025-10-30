@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 
 import {
+  AdminIcon,
   DocumentIcon,
   HomeIcon,
   InlineCodeIcon,
@@ -41,6 +42,14 @@ const AppNavigation = ({ features }: { features: MasFeaturesStatus }) => (
         id="navigation.rooms"
         defaultMessage="Rooms"
         description="Label for the rooms navigation item in the main navigation sidebar"
+      />
+    </Navigation.NavLink>
+    <Navigation.Divider />
+    <Navigation.NavLink Icon={AdminIcon} to="/moderation">
+      <FormattedMessage
+        id="navigation.moderation"
+        defaultMessage="Moderation"
+        description="Label for the moderation navigation item in the main navigation sidebar"
       />
     </Navigation.NavLink>
     <Navigation.Divider />

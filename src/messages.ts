@@ -28,10 +28,28 @@ export const actionClose = defineMessage({
   description: "Label for a 'close' action/button",
 });
 
+export const actionConfigure = defineMessage({
+  id: "action.configure",
+  defaultMessage: "Configure",
+  description: "Label for a configure action/button",
+});
+
+export const actionCopy = defineMessage({
+  id: "action.copy",
+  defaultMessage: "Copy",
+  description: "Label for a copy action/button",
+});
+
 export const actionGoBack = defineMessage({
   id: "action.go_back",
   defaultMessage: "Go back",
   description: "Label for a go back action/button",
+});
+
+export const actionLearnMore = defineMessage({
+  id: "action.learn_more",
+  defaultMessage: "Learn more",
+  description: "Label for a learn more action/button",
 });
 
 export const actionRetry = defineMessage({
@@ -46,10 +64,22 @@ export const actionRemove = defineMessage({
   description: "Label for the remove action/button",
 });
 
+export const actionSignIn = defineMessage({
+  id: "action.sign_in",
+  defaultMessage: "Sign in",
+  description: "Label for the sign in action/button",
+});
+
 export const actionSignOut = defineMessage({
   id: "action.sign_out",
   defaultMessage: "Sign out",
   description: "Label for the sign out menu item",
+});
+
+export const actionUpgrade = defineMessage({
+  id: "action.upgrade",
+  defaultMessage: "Upgrade",
+  description: "Label for the upgrade action/button",
 });
 
 export const commonEmailAddress = defineMessage({

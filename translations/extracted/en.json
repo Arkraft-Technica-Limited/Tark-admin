@@ -15,9 +15,21 @@
     "description": "Label for a 'close' action/button",
     "message": "Close"
   },
+  "action.configure": {
+    "description": "Label for a configure action/button",
+    "message": "Configure"
+  },
+  "action.copy": {
+    "description": "Label for a copy action/button",
+    "message": "Copy"
+  },
   "action.go_back": {
     "description": "Label for a go back action/button",
     "message": "Go back"
+  },
+  "action.learn_more": {
+    "description": "Label for a learn more action/button",
+    "message": "Learn more"
   },
   "action.remove": {
     "description": "Label for the remove action/button",
@@ -27,9 +39,17 @@
     "description": "Label for a retry action/button",
     "message": "Retry"
   },
+  "action.sign_in": {
+    "description": "Label for the sign in action/button",
+    "message": "Sign in"
+  },
   "action.sign_out": {
     "description": "Label for the sign out menu item",
     "message": "Sign out"
+  },
+  "action.upgrade": {
+    "description": "Label for the upgrade action/button",
+    "message": "Upgrade"
   },
   "common.email_address": {
     "description": "Label for an email address",
@@ -86,6 +106,10 @@
   "navigation.documentation": {
     "description": "Label for the documentation navigation link (to https://docs.element.io/) in the main navigation sidebar",
     "message": "Documentation"
+  },
+  "navigation.moderation": {
+    "description": "Label for the moderation navigation item in the main navigation sidebar",
+    "message": "Moderation"
   },
   "navigation.personal_tokens": {
     "description": "Label for the personal tokens navigation item in the main navigation sidebar",
@@ -182,6 +206,66 @@
   "pages.login.title": {
     "description": "Title for the login page",
     "message": "Login"
+  },
+  "pages.moderation.description": {
+    "description": "The description of the moderation page",
+    "message": "Sign in as <b>{mxid}</b> to perform administrative actions in any room."
+  },
+  "pages.moderation.disabled.description": {
+    "description": "When the feature is disabled, this explains what the feature does",
+    "message": "<p>Moderating enables an organization to administer all rooms from a central point. It is achieved through the customer using a ‘moderator’ account on their homeserver which is automatically given top level permissions. The moderator capability provides admin rights in every room. The moderator account is visible to all end users to ensure transparency.</p><p>This ‘server-side’ access gives an organization complete oversight, and ensures the organization remains in full control of its deployment.</p>{callToAction}"
+  },
+  "pages.moderation.disabled.pro_alert.description": {
+    "description": "When the feature is disabled on an ESS Pro deployment, this explains what the feature does",
+    "message": "Moderation is part of your ESS Pro subscription, but isn't currently enabled on your deployment."
+  },
+  "pages.moderation.disabled.pro_alert.title": {
+    "description": "When the feature is disabled on an ESS Pro deployment, this is the title of the alert message",
+    "message": "Moderation is currently disabled"
+  },
+  "pages.moderation.disabled.title": {
+    "description": "When the feature is disabled, this is the title of the section",
+    "message": "Corporate oversight and management of your organization’s conversations."
+  },
+  "pages.moderation.errors.cant_open.description": {
+    "description": "The description of the error message when the moderation interface can't be opened in a new window",
+    "message": "Your browser is blocking the opening of pop-up windows. Please make sure you allow pop-ups from this site."
+  },
+  "pages.moderation.errors.cant_open.title": {
+    "description": "The title of the error message when the moderation interface can't be opened",
+    "message": "Failed to open the moderation interface in a new window"
+  },
+  "pages.moderation.errors.closed.description": {
+    "description": "The description of the error message when the moderation interface was closed",
+    "message": "Failed to sign in the moderation interface, as it closed before it could finish signing in"
+  },
+  "pages.moderation.errors.closed.title": {
+    "description": "The title of the error message when the moderation interface was closed",
+    "message": "The moderation interface was closed too quickly"
+  },
+  "pages.moderation.errors.generic.title": {
+    "description": "The title of the error message when the moderation interface can't be opened",
+    "message": "An unexpected error occurred whilst opening the moderation interface"
+  },
+  "pages.moderation.passphrase.copied": {
+    "description": "On the moderation page, message displayed when the secure backup passphrase is copied to the clipboard",
+    "message": "Secure backup passphrase copied"
+  },
+  "pages.moderation.passphrase.copy_failed": {
+    "description": "On the moderation page, message displayed when the secure backup passphrase could not be copied to the clipboard",
+    "message": "Could not copy secure backup passphrase"
+  },
+  "pages.moderation.passphrase.help": {
+    "description": "On the moderation page, help text for the secure backup passphrase readonly input field",
+    "message": "This is the passphrase used to unlock backups of encrypted messages for the {mxid} account"
+  },
+  "pages.moderation.passphrase.label": {
+    "description": "On the moderation page, label for the secure backup passphrase readonly input field",
+    "message": "Secure backup passphrase"
+  },
+  "pages.moderation.title": {
+    "description": "The title of the moderation page",
+    "message": "Moderation"
   },
   "pages.personal_tokens.acting_user_column": {
     "description": "Column header for acting user column",

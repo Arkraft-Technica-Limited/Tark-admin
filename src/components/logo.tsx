@@ -158,6 +158,14 @@ export const ElementLogo: React.FC<ElementLogoProps> = ({
   );
 };
 
+export const ProBadge: React.FC = () => (
+  <div data-variant="pro">
+    <div className={styles["badge"]} aria-hidden="true">
+      <ProBadgeText />
+    </div>
+  </div>
+);
+
 /** The "PRO" text for the badge */
 const ProBadgeText: React.FC<React.ComponentProps<"svg">> = (props) => (
   <svg
