@@ -184,12 +184,21 @@ async function openModeration({
   }
 }
 
-interface AdminbotContentProps {
-  config: AdminbotResponse;
-  synapseRoot: string;
+interface LaunchAdminbotProps {
+  instance: string;
+  hostname: string;
+  userId: string;
+  accessToken: string;
+  deviceId: string;
 }
 
-function AdminbotContent({ config, synapseRoot }: AdminbotContentProps) {
+function LaunchAdminbot({
+  instance,
+  hostname,
+  userId,
+  accessToken,
+  deviceId,
+}: LaunchAdminbotProps) {
   const intl = useIntl();
   const { mutate, isPending, error, data } = useMutation({
     mutationFn: openModeration,
@@ -200,22 +209,110 @@ function AdminbotContent({ config, synapseRoot }: AdminbotContentProps) {
       event.preventDefault();
 
       mutate({
-        instance: new URL(config.ui_address),
-        hostname: synapseRoot,
-        userId: config.mxid,
-        accessToken: config.access_token,
-        deviceId: config.device_id,
+        instance: new URL(instance),
+        hostname,
+        userId,
+        accessToken,
+        deviceId,
       });
     },
-    [mutate, config, synapseRoot],
+    [mutate, instance, hostname, userId, accessToken, deviceId],
   );
 
+  return (
+    <>
+      {data === "cant open" && (
+        <Alert
+          type="critical"
+          title={intl.formatMessage({
+            id: "pages.moderation.errors.cant_open.title",
+            defaultMessage:
+              "Failed to open the moderation interface in a new window",
+            description:
+              "The title of the error message when the moderation interface can't be opened",
+          })}
+        >
+          <FormattedMessage
+            id="pages.moderation.errors.cant_open.description"
+            defaultMessage="Your browser is blocking the opening of pop-up windows. Please make sure you allow pop-ups from this site."
+            description="The description of the error message when the moderation interface can't be opened in a new window"
+          />
+        </Alert>
+      )}
+
+      {data === "closed" && (
+        <Alert
+          type="critical"
+          title={intl.formatMessage({
+            id: "pages.moderation.errors.closed.title",
+            defaultMessage: "The moderation interface was closed too quickly",
+            description:
+              "The title of the error message when the moderation interface was closed",
+          })}
+        >
+          <FormattedMessage
+            id="pages.moderation.errors.closed.description"
+            defaultMessage="Failed to sign in the moderation interface, as it closed before it could finish signing in"
+            description="The description of the error message when the moderation interface was closed"
+          />
+        </Alert>
+      )}
+
+      {!!error && (
+        <Alert
+          type="critical"
+          title={intl.formatMessage({
+            id: "pages.moderation.errors.generic.title",
+            defaultMessage:
+              "An unexpected error occurred whilst opening the moderation interface",
+            description:
+              "The title of the error message when the moderation interface can't be opened",
+          })}
+        >
+          {String(error)}
+        </Alert>
+      )}
+
+      <Button
+        className="self-start"
+        onClick={onClick}
+        disabled={isPending}
+        kind="primary"
+        size="sm"
+        Icon={isPending ? undefined : PopOutIcon}
+      >
+        {isPending && <InlineSpinner />}
+        <FormattedMessage {...messages.actionSignIn} />
+      </Button>
+    </>
+  );
+}
+
+interface AdminbotContentProps {
+  config: AdminbotResponse;
+  synapseRoot: string;
+}
+
+function AdminbotContent({ config, synapseRoot }: AdminbotContentProps) {
+  const intl = useIntl();
   return (
     <>
       <Page.Header>
         <Page.Title>
           <FormattedMessage {...titleMessage} />
         </Page.Title>
+
+        <Page.Controls>
+          <Button
+            as="a"
+            target="_blank"
+            href="https://docs.element.io/latest/element-server-suite-pro/configuring-components/configuring-auditbot/"
+            kind="secondary"
+            size="sm"
+          >
+            <FormattedMessage {...messages.actionConfigure} />
+          </Button>
+        </Page.Controls>
       </Page.Header>
 
       <div className="flex flex-col gap-6 max-w-[60ch]">
@@ -231,69 +328,32 @@ function AdminbotContent({ config, synapseRoot }: AdminbotContentProps) {
           />
         </Text>
 
-        {data === "cant open" && (
+        {config.ui_address ? (
+          <LaunchAdminbot
+            instance={config.ui_address}
+            hostname={synapseRoot}
+            userId={config.mxid}
+            accessToken={config.access_token}
+            deviceId={config.device_id}
+          />
+        ) : (
           <Alert
             type="critical"
             title={intl.formatMessage({
-              id: "pages.moderation.errors.cant_open.title",
-              defaultMessage:
-                "Failed to open the moderation interface in a new window",
+              id: "pages.moderation.missing_ui_address.title",
               description:
-                "The title of the error message when the moderation interface can't be opened",
+                "When adminbot is enabled, but the Element Web is not deployed with ESS, we show an alert, as the UI feature relies on it. This is the title of said alert.",
+              defaultMessage:
+                "The moderation interface requires Element Web to be enabled",
             })}
           >
             <FormattedMessage
-              id="pages.moderation.errors.cant_open.description"
-              defaultMessage="Your browser is blocking the opening of pop-up windows. Please make sure you allow pop-ups from this site."
-              description="The description of the error message when the moderation interface can't be opened in a new window"
+              id="pages.moderation.missing_ui_address.description"
+              description="When adminbot is enabled, but the Element Web is not deployed with ESS, we show an alert, as the UI feature relies on it. This is the description of said alert."
+              defaultMessage="Moderation is enabled in your deployment, but not Element Web, which is required for the moderation interface to work."
             />
           </Alert>
         )}
-
-        {data === "closed" && (
-          <Alert
-            type="critical"
-            title={intl.formatMessage({
-              id: "pages.moderation.errors.closed.title",
-              defaultMessage: "The moderation interface was closed too quickly",
-              description:
-                "The title of the error message when the moderation interface was closed",
-            })}
-          >
-            <FormattedMessage
-              id="pages.moderation.errors.closed.description"
-              defaultMessage="Failed to sign in the moderation interface, as it closed before it could finish signing in"
-              description="The description of the error message when the moderation interface was closed"
-            />
-          </Alert>
-        )}
-
-        {!!error && (
-          <Alert
-            type="critical"
-            title={intl.formatMessage({
-              id: "pages.moderation.errors.generic.title",
-              defaultMessage:
-                "An unexpected error occurred whilst opening the moderation interface",
-              description:
-                "The title of the error message when the moderation interface can't be opened",
-            })}
-          >
-            {String(error)}
-          </Alert>
-        )}
-
-        <Button
-          className="self-start"
-          onClick={onClick}
-          disabled={isPending}
-          kind="primary"
-          size="sm"
-          Icon={isPending ? undefined : PopOutIcon}
-        >
-          {isPending && <InlineSpinner />}
-          <FormattedMessage {...messages.actionSignIn} />
-        </Button>
 
         {config.secure_passphrase && (
           <SecurePassphrase

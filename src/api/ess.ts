@@ -64,8 +64,8 @@ const AdminbotResponse = v.object({
   access_token: v.string(),
   device_id: v.string(),
   mxid: v.string(),
-  secure_passphrase: v.optional(v.string()),
-  ui_address: v.pipe(v.string(), v.url()),
+  secure_passphrase: v.nullish(v.string()),
+  ui_address: v.nullish(v.pipe(v.string(), v.url())),
 });
 
 export type AdminbotResponse = v.InferOutput<typeof AdminbotResponse>;
