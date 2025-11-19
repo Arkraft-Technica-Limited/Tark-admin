@@ -69,7 +69,7 @@
     "@tanstack/devtools-vite": "0.3.10",
     "@tanstack/eslint-plugin-query": "5.91.2",
     "@tanstack/eslint-plugin-router": "1.133.19",
-    "@tsconfig/strictest": "2.0.6",
+    "@tsconfig/strictest": "2.0.7",
     "@tsconfig/vite-react": "7.0.1",
     "@types/node": "24.9.2",
     "@types/react": "19.2.2",
