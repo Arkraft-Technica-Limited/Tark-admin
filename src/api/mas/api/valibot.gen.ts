@@ -47,23 +47,23 @@ export const vIncludeCount = v.union([
 ]);
 
 export const vPaginationParams = v.object({
-  "page[before]": v.optional(vUlid),
-  "page[after]": v.optional(vUlid),
+  "page[before]": v.optional(v.union([vUlid, v.null()])),
+  "page[after]": v.optional(v.union([vUlid, v.null()])),
   "page[first]": v.optional(
     v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
   ),
   "page[last]": v.optional(
     v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
   ),
-  count: v.optional(vIncludeCount),
+  count: v.optional(v.union([vIncludeCount, v.null()])),
 });
 
 export const vCompatSessionStatus = v.picklist(["active", "finished"]);
 
 export const vCompatSessionFilter = v.object({
-  "filter[user]": v.optional(vUlid),
-  "filter[user-session]": v.optional(vUlid),
-  "filter[status]": v.optional(vCompatSessionStatus),
+  "filter[user]": v.optional(v.union([vUlid, v.null()])),
+  "filter[user-session]": v.optional(v.union([vUlid, v.null()])),
+  "filter[status]": v.optional(v.union([vCompatSessionStatus, v.null()])),
 });
 
 export const vPaginationMeta = v.object({
@@ -74,6 +74,8 @@ export const vPaginationMeta = v.object({
 
 /**
  * Device ID
+ *
+ * A device ID as per https://matrix.org/docs/spec/client_server/r0.6.0#device-ids
  */
 export const vDeviceId = v.pipe(
   v.string(),
@@ -118,7 +120,7 @@ export const vSingleResourceMetaPage = v.object({
  * Metadata associated with a resource
  */
 export const vSingleResourceMeta = v.object({
-  page: v.optional(vSingleResourceMetaPage),
+  page: v.optional(v.union([vSingleResourceMetaPage, v.null()])),
 });
 
 /**
@@ -129,7 +131,7 @@ export const vSingleResourceForCompatSession = v.object({
   id: vUlid,
   attributes: vCompatSession,
   links: vSelfLinks,
-  meta: v.optional(vSingleResourceMeta),
+  meta: v.optional(v.union([vSingleResourceMeta, v.null()])),
 });
 
 /**
@@ -147,7 +149,7 @@ export const vPaginationLinks = v.object({
  * A top-level response with a page of resources
  */
 export const vPaginatedResponseForCompatSession = v.object({
-  meta: v.optional(vPaginationMeta),
+  meta: v.optional(v.union([vPaginationMeta, v.null()])),
   data: v.optional(
     v.union([v.array(vSingleResourceForCompatSession), v.null()]),
   ),
@@ -185,12 +187,12 @@ export const vOAuth2ClientKind = v.picklist(["dynamic", "static"]);
 export const vOAuth2SessionStatus = v.picklist(["active", "finished"]);
 
 export const vOAuth2SessionFilter = v.object({
-  "filter[user]": v.optional(vUlid),
-  "filter[client]": v.optional(vUlid),
-  "filter[client-kind]": v.optional(vOAuth2ClientKind),
-  "filter[user-session]": v.optional(vUlid),
+  "filter[user]": v.optional(v.union([vUlid, v.null()])),
+  "filter[client]": v.optional(v.union([vUlid, v.null()])),
+  "filter[client-kind]": v.optional(v.union([vOAuth2ClientKind, v.null()])),
+  "filter[user-session]": v.optional(v.union([vUlid, v.null()])),
   "filter[scope]": v.optional(v.array(v.string()), []),
-  "filter[status]": v.optional(vOAuth2SessionStatus),
+  "filter[status]": v.optional(v.union([vOAuth2SessionStatus, v.null()])),
 });
 
 /**
@@ -201,8 +203,8 @@ export const vOAuth2Session = v.object({
   finished_at: v.optional(
     v.union([v.pipe(v.string(), v.isoTimestamp()), v.null()]),
   ),
-  user_id: v.optional(vUlid),
-  user_session_id: v.optional(vUlid),
+  user_id: v.optional(v.union([vUlid, v.null()])),
+  user_session_id: v.optional(v.union([vUlid, v.null()])),
   client_id: vUlid,
   scope: v.string(),
   user_agent: v.optional(v.union([v.string(), v.null()])),
@@ -221,14 +223,14 @@ export const vSingleResourceForOAuth2Session = v.object({
   id: vUlid,
   attributes: vOAuth2Session,
   links: vSelfLinks,
-  meta: v.optional(vSingleResourceMeta),
+  meta: v.optional(v.union([vSingleResourceMeta, v.null()])),
 });
 
 /**
  * A top-level response with a page of resources
  */
 export const vPaginatedResponseForOAuth2Session = v.object({
-  meta: v.optional(vPaginationMeta),
+  meta: v.optional(v.union([vPaginationMeta, v.null()])),
   data: v.optional(
     v.union([v.array(vSingleResourceForOAuth2Session), v.null()]),
   ),
@@ -246,11 +248,11 @@ export const vSingleResponseForOAuth2Session = v.object({
 export const vPersonalSessionStatus = v.picklist(["active", "revoked"]);
 
 export const vPersonalSessionFilter = v.object({
-  "filter[owner_user]": v.optional(vUlid),
-  "filter[owner_client]": v.optional(vUlid),
-  "filter[actor_user]": v.optional(vUlid),
+  "filter[owner_user]": v.optional(v.union([vUlid, v.null()])),
+  "filter[owner_client]": v.optional(v.union([vUlid, v.null()])),
+  "filter[actor_user]": v.optional(v.union([vUlid, v.null()])),
   "filter[scope]": v.optional(v.array(v.string()), []),
-  "filter[status]": v.optional(vPersonalSessionStatus),
+  "filter[status]": v.optional(v.union([vPersonalSessionStatus, v.null()])),
   "filter[expires_before]": v.optional(
     v.union([v.pipe(v.string(), v.isoTimestamp()), v.null()]),
   ),
@@ -268,8 +270,8 @@ export const vPersonalSession = v.object({
   revoked_at: v.optional(
     v.union([v.pipe(v.string(), v.isoTimestamp()), v.null()]),
   ),
-  owner_user_id: v.optional(v.union([v.string(), v.null()])),
-  owner_client_id: v.optional(v.union([v.string(), v.null()])),
+  owner_user_id: v.optional(v.union([vUlid, v.null()])),
+  owner_client_id: v.optional(v.union([vUlid, v.null()])),
   actor_user_id: vUlid,
   human_name: v.string(),
   scope: v.string(),
@@ -291,14 +293,14 @@ export const vSingleResourceForPersonalSession = v.object({
   id: vUlid,
   attributes: vPersonalSession,
   links: vSelfLinks,
-  meta: v.optional(vSingleResourceMeta),
+  meta: v.optional(v.union([vSingleResourceMeta, v.null()])),
 });
 
 /**
  * A top-level response with a page of resources
  */
 export const vPaginatedResponseForPersonalSession = v.object({
-  meta: v.optional(vPaginationMeta),
+  meta: v.optional(v.union([vPaginationMeta, v.null()])),
   data: v.optional(
     v.union([v.array(vSingleResourceForPersonalSession), v.null()]),
   ),
@@ -381,7 +383,7 @@ export const vSingleResourceForPolicyData = v.object({
   id: vUlid,
   attributes: vPolicyData,
   links: vSelfLinks,
-  meta: v.optional(vSingleResourceMeta),
+  meta: v.optional(v.union([vSingleResourceMeta, v.null()])),
 });
 
 /**
@@ -398,7 +400,7 @@ export const vUserFilter = v.object({
   "filter[admin]": v.optional(v.union([v.boolean(), v.null()])),
   "filter[legacy-guest]": v.optional(v.union([v.boolean(), v.null()])),
   "filter[search]": v.optional(v.union([v.string(), v.null()])),
-  "filter[status]": v.optional(vUserStatus),
+  "filter[status]": v.optional(v.union([vUserStatus, v.null()])),
 });
 
 /**
@@ -425,14 +427,14 @@ export const vSingleResourceForUser = v.object({
   id: vUlid,
   attributes: vUser,
   links: vSelfLinks,
-  meta: v.optional(vSingleResourceMeta),
+  meta: v.optional(v.union([vSingleResourceMeta, v.null()])),
 });
 
 /**
  * A top-level response with a page of resources
  */
 export const vPaginatedResponseForUser = v.object({
-  meta: v.optional(vPaginationMeta),
+  meta: v.optional(v.union([vPaginationMeta, v.null()])),
   data: v.optional(v.union([v.array(vSingleResourceForUser), v.null()])),
   links: vPaginationLinks,
 });
@@ -480,7 +482,7 @@ export const vDeactivateUserRequest = v.object({
 });
 
 export const vUserEmailFilter = v.object({
-  "filter[user]": v.optional(vUlid),
+  "filter[user]": v.optional(v.union([vUlid, v.null()])),
   "filter[email]": v.optional(v.union([v.string(), v.null()])),
 });
 
@@ -501,14 +503,14 @@ export const vSingleResourceForUserEmail = v.object({
   id: vUlid,
   attributes: vUserEmail,
   links: vSelfLinks,
-  meta: v.optional(vSingleResourceMeta),
+  meta: v.optional(v.union([vSingleResourceMeta, v.null()])),
 });
 
 /**
  * A top-level response with a page of resources
  */
 export const vPaginatedResponseForUserEmail = v.object({
-  meta: v.optional(vPaginationMeta),
+  meta: v.optional(v.union([vPaginationMeta, v.null()])),
   data: v.optional(v.union([v.array(vSingleResourceForUserEmail), v.null()])),
   links: vPaginationLinks,
 });
@@ -532,8 +534,8 @@ export const vSingleResponseForUserEmail = v.object({
 export const vUserSessionStatus = v.picklist(["active", "finished"]);
 
 export const vUserSessionFilter = v.object({
-  "filter[user]": v.optional(vUlid),
-  "filter[status]": v.optional(vUserSessionStatus),
+  "filter[user]": v.optional(v.union([vUlid, v.null()])),
+  "filter[status]": v.optional(v.union([vUserSessionStatus, v.null()])),
 });
 
 /**
@@ -560,14 +562,14 @@ export const vSingleResourceForUserSession = v.object({
   id: vUlid,
   attributes: vUserSession,
   links: vSelfLinks,
-  meta: v.optional(vSingleResourceMeta),
+  meta: v.optional(v.union([vSingleResourceMeta, v.null()])),
 });
 
 /**
  * A top-level response with a page of resources
  */
 export const vPaginatedResponseForUserSession = v.object({
-  meta: v.optional(vPaginationMeta),
+  meta: v.optional(v.union([vPaginationMeta, v.null()])),
   data: v.optional(v.union([v.array(vSingleResourceForUserSession), v.null()])),
   links: vPaginationLinks,
 });
@@ -635,14 +637,14 @@ export const vSingleResourceForUserRegistrationToken = v.object({
   id: vUlid,
   attributes: vUserRegistrationToken,
   links: vSelfLinks,
-  meta: v.optional(vSingleResourceMeta),
+  meta: v.optional(v.union([vSingleResourceMeta, v.null()])),
 });
 
 /**
  * A top-level response with a page of resources
  */
 export const vPaginatedResponseForUserRegistrationToken = v.object({
-  meta: v.optional(vPaginationMeta),
+  meta: v.optional(v.union([vPaginationMeta, v.null()])),
   data: v.optional(
     v.union([v.array(vSingleResourceForUserRegistrationToken), v.null()]),
   ),
@@ -707,8 +709,8 @@ export const vEditUserRegistrationTokenRequest = v.object({
 });
 
 export const vUpstreamOAuthLinkFilter = v.object({
-  "filter[user]": v.optional(vUlid),
-  "filter[provider]": v.optional(vUlid),
+  "filter[user]": v.optional(v.union([vUlid, v.null()])),
+  "filter[provider]": v.optional(v.union([vUlid, v.null()])),
   "filter[subject]": v.optional(v.union([v.string(), v.null()])),
 });
 
@@ -719,7 +721,7 @@ export const vUpstreamOAuthLink = v.object({
   created_at: v.pipe(v.string(), v.isoTimestamp()),
   provider_id: vUlid,
   subject: v.string(),
-  user_id: v.optional(vUlid),
+  user_id: v.optional(v.union([vUlid, v.null()])),
   human_account_name: v.optional(v.union([v.string(), v.null()])),
 });
 
@@ -731,14 +733,14 @@ export const vSingleResourceForUpstreamOAuthLink = v.object({
   id: vUlid,
   attributes: vUpstreamOAuthLink,
   links: vSelfLinks,
-  meta: v.optional(vSingleResourceMeta),
+  meta: v.optional(v.union([vSingleResourceMeta, v.null()])),
 });
 
 /**
  * A top-level response with a page of resources
  */
 export const vPaginatedResponseForUpstreamOAuthLink = v.object({
-  meta: v.optional(vPaginationMeta),
+  meta: v.optional(v.union([vPaginationMeta, v.null()])),
   data: v.optional(
     v.union([v.array(vSingleResourceForUpstreamOAuthLink), v.null()]),
   ),
@@ -788,14 +790,14 @@ export const vSingleResourceForUpstreamOAuthProvider = v.object({
   id: vUlid,
   attributes: vUpstreamOAuthProvider,
   links: vSelfLinks,
-  meta: v.optional(vSingleResourceMeta),
+  meta: v.optional(v.union([vSingleResourceMeta, v.null()])),
 });
 
 /**
  * A top-level response with a page of resources
  */
 export const vPaginatedResponseForUpstreamOAuthProvider = v.object({
-  meta: v.optional(vPaginationMeta),
+  meta: v.optional(v.union([vPaginationMeta, v.null()])),
   data: v.optional(
     v.union([v.array(vSingleResourceForUpstreamOAuthProvider), v.null()]),
   ),
@@ -831,18 +833,18 @@ export const vListCompatSessionsData = v.object({
   path: v.optional(v.never()),
   query: v.optional(
     v.object({
-      "page[before]": v.optional(vUlid),
-      "page[after]": v.optional(vUlid),
+      "page[before]": v.optional(v.union([vUlid, v.null()])),
+      "page[after]": v.optional(v.union([vUlid, v.null()])),
       "page[first]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
       "page[last]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
-      count: v.optional(vIncludeCount),
-      "filter[user]": v.optional(vUlid),
-      "filter[user-session]": v.optional(vUlid),
-      "filter[status]": v.optional(vCompatSessionStatus),
+      count: v.optional(v.union([vIncludeCount, v.null()])),
+      "filter[user]": v.optional(v.union([vUlid, v.null()])),
+      "filter[user-session]": v.optional(v.union([vUlid, v.null()])),
+      "filter[status]": v.optional(v.union([vCompatSessionStatus, v.null()])),
     }),
   ),
 });
@@ -883,21 +885,21 @@ export const vListOAuth2SessionsData = v.object({
   path: v.optional(v.never()),
   query: v.optional(
     v.object({
-      "page[before]": v.optional(vUlid),
-      "page[after]": v.optional(vUlid),
+      "page[before]": v.optional(v.union([vUlid, v.null()])),
+      "page[after]": v.optional(v.union([vUlid, v.null()])),
       "page[first]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
       "page[last]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
-      count: v.optional(vIncludeCount),
-      "filter[user]": v.optional(vUlid),
-      "filter[client]": v.optional(vUlid),
-      "filter[client-kind]": v.optional(vOAuth2ClientKind),
-      "filter[user-session]": v.optional(vUlid),
+      count: v.optional(v.union([vIncludeCount, v.null()])),
+      "filter[user]": v.optional(v.union([vUlid, v.null()])),
+      "filter[client]": v.optional(v.union([vUlid, v.null()])),
+      "filter[client-kind]": v.optional(v.union([vOAuth2ClientKind, v.null()])),
+      "filter[user-session]": v.optional(v.union([vUlid, v.null()])),
       "filter[scope]": v.optional(v.array(v.string()), []),
-      "filter[status]": v.optional(vOAuth2SessionStatus),
+      "filter[status]": v.optional(v.union([vOAuth2SessionStatus, v.null()])),
     }),
   ),
 });
@@ -938,20 +940,20 @@ export const vListPersonalSessionsData = v.object({
   path: v.optional(v.never()),
   query: v.optional(
     v.object({
-      "page[before]": v.optional(vUlid),
-      "page[after]": v.optional(vUlid),
+      "page[before]": v.optional(v.union([vUlid, v.null()])),
+      "page[after]": v.optional(v.union([vUlid, v.null()])),
       "page[first]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
       "page[last]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
-      count: v.optional(vIncludeCount),
-      "filter[owner_user]": v.optional(vUlid),
-      "filter[owner_client]": v.optional(vUlid),
-      "filter[actor_user]": v.optional(vUlid),
+      count: v.optional(v.union([vIncludeCount, v.null()])),
+      "filter[owner_user]": v.optional(v.union([vUlid, v.null()])),
+      "filter[owner_client]": v.optional(v.union([vUlid, v.null()])),
+      "filter[actor_user]": v.optional(v.union([vUlid, v.null()])),
       "filter[scope]": v.optional(v.array(v.string()), []),
-      "filter[status]": v.optional(vPersonalSessionStatus),
+      "filter[status]": v.optional(v.union([vPersonalSessionStatus, v.null()])),
       "filter[expires_before]": v.optional(
         v.union([v.pipe(v.string(), v.isoTimestamp()), v.null()]),
       ),
@@ -1060,19 +1062,19 @@ export const vListUsersData = v.object({
   path: v.optional(v.never()),
   query: v.optional(
     v.object({
-      "page[before]": v.optional(vUlid),
-      "page[after]": v.optional(vUlid),
+      "page[before]": v.optional(v.union([vUlid, v.null()])),
+      "page[after]": v.optional(v.union([vUlid, v.null()])),
       "page[first]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
       "page[last]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
-      count: v.optional(vIncludeCount),
+      count: v.optional(v.union([vIncludeCount, v.null()])),
       "filter[admin]": v.optional(v.union([v.boolean(), v.null()])),
       "filter[legacy-guest]": v.optional(v.union([v.boolean(), v.null()])),
       "filter[search]": v.optional(v.union([v.string(), v.null()])),
-      "filter[status]": v.optional(vUserStatus),
+      "filter[status]": v.optional(v.union([vUserStatus, v.null()])),
     }),
   ),
 });
@@ -1202,16 +1204,16 @@ export const vListUserEmailsData = v.object({
   path: v.optional(v.never()),
   query: v.optional(
     v.object({
-      "page[before]": v.optional(vUlid),
-      "page[after]": v.optional(vUlid),
+      "page[before]": v.optional(v.union([vUlid, v.null()])),
+      "page[after]": v.optional(v.union([vUlid, v.null()])),
       "page[first]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
       "page[last]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
-      count: v.optional(vIncludeCount),
-      "filter[user]": v.optional(vUlid),
+      count: v.optional(v.union([vIncludeCount, v.null()])),
+      "filter[user]": v.optional(v.union([vUlid, v.null()])),
       "filter[email]": v.optional(v.union([v.string(), v.null()])),
     }),
   ),
@@ -1264,17 +1266,17 @@ export const vListUserSessionsData = v.object({
   path: v.optional(v.never()),
   query: v.optional(
     v.object({
-      "page[before]": v.optional(vUlid),
-      "page[after]": v.optional(vUlid),
+      "page[before]": v.optional(v.union([vUlid, v.null()])),
+      "page[after]": v.optional(v.union([vUlid, v.null()])),
       "page[first]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
       "page[last]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
-      count: v.optional(vIncludeCount),
-      "filter[user]": v.optional(vUlid),
-      "filter[status]": v.optional(vUserSessionStatus),
+      count: v.optional(v.union([vIncludeCount, v.null()])),
+      "filter[user]": v.optional(v.union([vUlid, v.null()])),
+      "filter[status]": v.optional(v.union([vUserSessionStatus, v.null()])),
     }),
   ),
 });
@@ -1315,15 +1317,15 @@ export const vListUserRegistrationTokensData = v.object({
   path: v.optional(v.never()),
   query: v.optional(
     v.object({
-      "page[before]": v.optional(vUlid),
-      "page[after]": v.optional(vUlid),
+      "page[before]": v.optional(v.union([vUlid, v.null()])),
+      "page[after]": v.optional(v.union([vUlid, v.null()])),
       "page[first]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
       "page[last]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
-      count: v.optional(vIncludeCount),
+      count: v.optional(v.union([vIncludeCount, v.null()])),
       "filter[used]": v.optional(v.union([v.boolean(), v.null()])),
       "filter[revoked]": v.optional(v.union([v.boolean(), v.null()])),
       "filter[expired]": v.optional(v.union([v.boolean(), v.null()])),
@@ -1411,17 +1413,17 @@ export const vListUpstreamOAuthLinksData = v.object({
   path: v.optional(v.never()),
   query: v.optional(
     v.object({
-      "page[before]": v.optional(vUlid),
-      "page[after]": v.optional(vUlid),
+      "page[before]": v.optional(v.union([vUlid, v.null()])),
+      "page[after]": v.optional(v.union([vUlid, v.null()])),
       "page[first]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
       "page[last]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
-      count: v.optional(vIncludeCount),
-      "filter[user]": v.optional(vUlid),
-      "filter[provider]": v.optional(vUlid),
+      count: v.optional(v.union([vIncludeCount, v.null()])),
+      "filter[user]": v.optional(v.union([vUlid, v.null()])),
+      "filter[provider]": v.optional(v.union([vUlid, v.null()])),
       "filter[subject]": v.optional(v.union([v.string(), v.null()])),
     }),
   ),
@@ -1477,15 +1479,15 @@ export const vListUpstreamOAuthProvidersData = v.object({
   path: v.optional(v.never()),
   query: v.optional(
     v.object({
-      "page[before]": v.optional(vUlid),
-      "page[after]": v.optional(vUlid),
+      "page[before]": v.optional(v.union([vUlid, v.null()])),
+      "page[after]": v.optional(v.union([vUlid, v.null()])),
       "page[first]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
       "page[last]": v.optional(
         v.union([v.pipe(v.number(), v.integer(), v.minValue(1)), v.null()]),
       ),
-      count: v.optional(vIncludeCount),
+      count: v.optional(v.union([vIncludeCount, v.null()])),
       "filter[enabled]": v.optional(v.union([v.boolean(), v.null()])),
     }),
   ),
