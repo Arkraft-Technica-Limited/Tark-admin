@@ -76,8 +76,8 @@ interface SingleResource {
   readonly meta?: {
     readonly page?: {
       cursor: string;
-    };
-  };
+    } | null;
+  } | null;
 }
 
 // Extracts the cursor from an item on a page. This works with both MAS 1.4.0

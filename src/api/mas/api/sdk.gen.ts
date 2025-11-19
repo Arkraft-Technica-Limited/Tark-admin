@@ -251,12 +251,9 @@ export const siteConfig = <ThrowOnError extends boolean = false>(
   options: Options<SiteConfigData, ThrowOnError>,
 ) => {
   return options.client.get<SiteConfigResponses, unknown, ThrowOnError>({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vSiteConfigData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vSiteConfigResponse, data);
-    },
+    requestValidator: async (data) => await v.parseAsync(vSiteConfigData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vSiteConfigResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -275,12 +272,9 @@ export const version = <ThrowOnError extends boolean = false>(
   options: Options<VersionData, ThrowOnError>,
 ) => {
   return options.client.get<VersionResponses, unknown, ThrowOnError>({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vVersionData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vVersionResponse, data);
-    },
+    requestValidator: async (data) => await v.parseAsync(vVersionData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vVersionResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -307,12 +301,10 @@ export const listCompatSessions = <ThrowOnError extends boolean = false>(
     ListCompatSessionsErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vListCompatSessionsData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vListCompatSessionsResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vListCompatSessionsData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vListCompatSessionsResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -335,12 +327,10 @@ export const getCompatSession = <ThrowOnError extends boolean = false>(
     GetCompatSessionErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vGetCompatSessionData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vGetCompatSessionResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vGetCompatSessionData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vGetCompatSessionResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -365,12 +355,10 @@ export const finishCompatSession = <ThrowOnError extends boolean = false>(
     FinishCompatSessionErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vFinishCompatSessionData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vFinishCompatSessionResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vFinishCompatSessionData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vFinishCompatSessionResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -397,12 +385,10 @@ export const listOAuth2Sessions = <ThrowOnError extends boolean = false>(
     ListOAuth2SessionsErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vListOAuth2SessionsData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vListOAuth2SessionsResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vListOAuth2SessionsData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vListOAuth2SessionsResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -425,12 +411,10 @@ export const getOAuth2Session = <ThrowOnError extends boolean = false>(
     GetOAuth2SessionErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vGetOAuth2SessionData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vGetOAuth2SessionResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vGetOAuth2SessionData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vGetOAuth2SessionResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -455,12 +439,10 @@ export const finishOAuth2Session = <ThrowOnError extends boolean = false>(
     FinishOAuth2SessionErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vFinishOAuth2SessionData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vFinishOAuth2SessionResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vFinishOAuth2SessionData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vFinishOAuth2SessionResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -487,12 +469,10 @@ export const listPersonalSessions = <ThrowOnError extends boolean = false>(
     ListPersonalSessionsErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vListPersonalSessionsData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vListPersonalSessionsResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vListPersonalSessionsData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vListPersonalSessionsResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -515,12 +495,10 @@ export const createPersonalSession = <ThrowOnError extends boolean = false>(
     CreatePersonalSessionErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vCreatePersonalSessionData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vCreatePersonalSessionResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vCreatePersonalSessionData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vCreatePersonalSessionResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -547,12 +525,10 @@ export const getPersonalSession = <ThrowOnError extends boolean = false>(
     GetPersonalSessionErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vGetPersonalSessionData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vGetPersonalSessionResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vGetPersonalSessionData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vGetPersonalSessionResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -575,12 +551,10 @@ export const revokePersonalSession = <ThrowOnError extends boolean = false>(
     RevokePersonalSessionErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vRevokePersonalSessionData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vRevokePersonalSessionResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vRevokePersonalSessionData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vRevokePersonalSessionResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -603,12 +577,10 @@ export const regeneratePersonalSession = <ThrowOnError extends boolean = false>(
     RegeneratePersonalSessionErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vRegeneratePersonalSessionData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vRegeneratePersonalSessionResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vRegeneratePersonalSessionData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vRegeneratePersonalSessionResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -635,12 +607,10 @@ export const setPolicyData = <ThrowOnError extends boolean = false>(
     SetPolicyDataErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vSetPolicyDataData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vSetPolicyDataResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vSetPolicyDataData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vSetPolicyDataResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -667,12 +637,10 @@ export const getLatestPolicyData = <ThrowOnError extends boolean = false>(
     GetLatestPolicyDataErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vGetLatestPolicyDataData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vGetLatestPolicyDataResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vGetLatestPolicyDataData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vGetLatestPolicyDataResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -695,12 +663,10 @@ export const getPolicyData = <ThrowOnError extends boolean = false>(
     GetPolicyDataErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vGetPolicyDataData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vGetPolicyDataResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vGetPolicyDataData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vGetPolicyDataResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -719,12 +685,9 @@ export const listUsers = <ThrowOnError extends boolean = false>(
   options: Options<ListUsersData, ThrowOnError>,
 ) => {
   return options.client.get<ListUsersResponses, unknown, ThrowOnError>({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vListUsersData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vListUsersResponse, data);
-    },
+    requestValidator: async (data) => await v.parseAsync(vListUsersData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vListUsersResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -747,12 +710,9 @@ export const createUser = <ThrowOnError extends boolean = false>(
     CreateUserErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vCreateUserData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vCreateUserResponse, data);
-    },
+    requestValidator: async (data) => await v.parseAsync(vCreateUserData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vCreateUserResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -775,12 +735,9 @@ export const getUser = <ThrowOnError extends boolean = false>(
   options: Options<GetUserData, ThrowOnError>,
 ) => {
   return options.client.get<GetUserResponses, GetUserErrors, ThrowOnError>({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vGetUserData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vGetUserResponse, data);
-    },
+    requestValidator: async (data) => await v.parseAsync(vGetUserData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vGetUserResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -803,12 +760,10 @@ export const setUserPassword = <ThrowOnError extends boolean = false>(
     SetUserPasswordErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vSetUserPasswordData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vSetUserPasswordResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vSetUserPasswordData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vSetUserPasswordResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -835,12 +790,10 @@ export const getUserByUsername = <ThrowOnError extends boolean = false>(
     GetUserByUsernameErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vGetUserByUsernameData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vGetUserByUsernameResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vGetUserByUsernameData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vGetUserByUsernameResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -865,12 +818,10 @@ export const userSetAdmin = <ThrowOnError extends boolean = false>(
     UserSetAdminErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vUserSetAdminData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vUserSetAdminResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vUserSetAdminData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vUserSetAdminResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -900,12 +851,10 @@ export const deactivateUser = <ThrowOnError extends boolean = false>(
     DeactivateUserErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vDeactivateUserData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vDeactivateUserResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vDeactivateUserData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vDeactivateUserResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -935,12 +884,10 @@ export const reactivateUser = <ThrowOnError extends boolean = false>(
     ReactivateUserErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vReactivateUserData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vReactivateUserResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vReactivateUserData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vReactivateUserResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -962,12 +909,9 @@ export const lockUser = <ThrowOnError extends boolean = false>(
   options: Options<LockUserData, ThrowOnError>,
 ) => {
   return options.client.post<LockUserResponses, LockUserErrors, ThrowOnError>({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vLockUserData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vLockUserResponse, data);
-    },
+    requestValidator: async (data) => await v.parseAsync(vLockUserData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vLockUserResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -993,12 +937,9 @@ export const unlockUser = <ThrowOnError extends boolean = false>(
     UnlockUserErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vUnlockUserData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vUnlockUserResponse, data);
-    },
+    requestValidator: async (data) => await v.parseAsync(vUnlockUserData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vUnlockUserResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1023,12 +964,10 @@ export const listUserEmails = <ThrowOnError extends boolean = false>(
     ListUserEmailsErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vListUserEmailsData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vListUserEmailsResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vListUserEmailsData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vListUserEmailsResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1054,12 +993,10 @@ export const addUserEmail = <ThrowOnError extends boolean = false>(
     AddUserEmailErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vAddUserEmailData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vAddUserEmailResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vAddUserEmailData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vAddUserEmailResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1086,12 +1023,10 @@ export const deleteUserEmail = <ThrowOnError extends boolean = false>(
     DeleteUserEmailErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vDeleteUserEmailData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vDeleteUserEmailResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vDeleteUserEmailData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vDeleteUserEmailResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1114,12 +1049,10 @@ export const getUserEmail = <ThrowOnError extends boolean = false>(
     GetUserEmailErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vGetUserEmailData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vGetUserEmailResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vGetUserEmailData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vGetUserEmailResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1146,12 +1079,10 @@ export const listUserSessions = <ThrowOnError extends boolean = false>(
     ListUserSessionsErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vListUserSessionsData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vListUserSessionsResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vListUserSessionsData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vListUserSessionsResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1174,12 +1105,10 @@ export const getUserSession = <ThrowOnError extends boolean = false>(
     GetUserSessionErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vGetUserSessionData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vGetUserSessionResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vGetUserSessionData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vGetUserSessionResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1204,12 +1133,10 @@ export const finishUserSession = <ThrowOnError extends boolean = false>(
     FinishUserSessionErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vFinishUserSessionData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vFinishUserSessionResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vFinishUserSessionData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vFinishUserSessionResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1234,12 +1161,10 @@ export const listUserRegistrationTokens = <
     unknown,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vListUserRegistrationTokensData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vListUserRegistrationTokensResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vListUserRegistrationTokensData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vListUserRegistrationTokensResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1262,12 +1187,10 @@ export const addUserRegistrationToken = <ThrowOnError extends boolean = false>(
     unknown,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vAddUserRegistrationTokenData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vAddUserRegistrationTokenResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vAddUserRegistrationTokenData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vAddUserRegistrationTokenResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1294,12 +1217,10 @@ export const getUserRegistrationToken = <ThrowOnError extends boolean = false>(
     GetUserRegistrationTokenErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vGetUserRegistrationTokenData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vGetUserRegistrationTokenResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vGetUserRegistrationTokenData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vGetUserRegistrationTokenResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1326,12 +1247,10 @@ export const updateUserRegistrationToken = <
     UpdateUserRegistrationTokenErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vUpdateUserRegistrationTokenData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vUpdateUserRegistrationTokenResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vUpdateUserRegistrationTokenData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vUpdateUserRegistrationTokenResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1362,12 +1281,10 @@ export const revokeUserRegistrationToken = <
     RevokeUserRegistrationTokenErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vRevokeUserRegistrationTokenData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vRevokeUserRegistrationTokenResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vRevokeUserRegistrationTokenData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vRevokeUserRegistrationTokenResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1394,12 +1311,10 @@ export const unrevokeUserRegistrationToken = <
     UnrevokeUserRegistrationTokenErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vUnrevokeUserRegistrationTokenData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vUnrevokeUserRegistrationTokenResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vUnrevokeUserRegistrationTokenData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vUnrevokeUserRegistrationTokenResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1424,12 +1339,10 @@ export const listUpstreamOAuthLinks = <ThrowOnError extends boolean = false>(
     ListUpstreamOAuthLinksErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vListUpstreamOAuthLinksData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vListUpstreamOAuthLinksResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vListUpstreamOAuthLinksData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vListUpstreamOAuthLinksResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1452,12 +1365,10 @@ export const addUpstreamOAuthLink = <ThrowOnError extends boolean = false>(
     AddUpstreamOAuthLinkErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vAddUpstreamOAuthLinkData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vAddUpstreamOAuthLinkResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vAddUpstreamOAuthLinkData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vAddUpstreamOAuthLinkResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1484,12 +1395,10 @@ export const deleteUpstreamOAuthLink = <ThrowOnError extends boolean = false>(
     DeleteUpstreamOAuthLinkErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vDeleteUpstreamOAuthLinkData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vDeleteUpstreamOAuthLinkResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vDeleteUpstreamOAuthLinkData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vDeleteUpstreamOAuthLinkResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1512,12 +1421,10 @@ export const getUpstreamOAuthLink = <ThrowOnError extends boolean = false>(
     GetUpstreamOAuthLinkErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vGetUpstreamOAuthLinkData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vGetUpstreamOAuthLinkResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vGetUpstreamOAuthLinkData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vGetUpstreamOAuthLinkResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1542,12 +1449,10 @@ export const listUpstreamOAuthProviders = <
     unknown,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vListUpstreamOAuthProvidersData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vListUpstreamOAuthProvidersResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vListUpstreamOAuthProvidersData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vListUpstreamOAuthProvidersResponse, data),
     security: [
       {
         scheme: "bearer",
@@ -1570,12 +1475,10 @@ export const getUpstreamOAuthProvider = <ThrowOnError extends boolean = false>(
     GetUpstreamOAuthProviderErrors,
     ThrowOnError
   >({
-    requestValidator: async (data) => {
-      return await v.parseAsync(vGetUpstreamOAuthProviderData, data);
-    },
-    responseValidator: async (data) => {
-      return await v.parseAsync(vGetUpstreamOAuthProviderResponse, data);
-    },
+    requestValidator: async (data) =>
+      await v.parseAsync(vGetUpstreamOAuthProviderData, data),
+    responseValidator: async (data) =>
+      await v.parseAsync(vGetUpstreamOAuthProviderResponse, data),
     security: [
       {
         scheme: "bearer",
