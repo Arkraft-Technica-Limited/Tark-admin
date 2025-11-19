@@ -50,7 +50,8 @@ export type SiteConfig = {
    */
   captcha_enabled?: boolean;
   /**
-   * Minimum password complexity, between 0 and 4. This is a score from zxcvbn.
+   * Minimum password complexity, between 0 and 4.
+   * This is a score from zxcvbn.
    */
   minimum_password_complexity?: number;
 };
@@ -63,8 +64,14 @@ export type Version = {
 };
 
 export type PaginationParams = {
-  "page[before]"?: Ulid;
-  "page[after]"?: Ulid;
+  /**
+   * Retrieve the items before the given ID
+   */
+  "page[before]"?: Ulid | null;
+  /**
+   * Retrieve the items after the given ID
+   */
+  "page[after]"?: Ulid | null;
   /**
    * Retrieve the first N items
    */
@@ -73,7 +80,10 @@ export type PaginationParams = {
    * Retrieve the last N items
    */
   "page[last]"?: number | null;
-  count?: IncludeCount;
+  /**
+   * Include the total number of items. Defaults to `true`.
+   */
+  count?: IncludeCount | null;
 };
 
 /**
@@ -86,9 +96,24 @@ export type Ulid = string;
 export type IncludeCount = "true" | "false" | "only";
 
 export type CompatSessionFilter = {
-  "filter[user]"?: Ulid;
-  "filter[user-session]"?: Ulid;
-  "filter[status]"?: CompatSessionStatus;
+  /**
+   * Retrieve the items for the given user
+   */
+  "filter[user]"?: Ulid | null;
+  /**
+   * Retrieve the items started from the given browser session
+   */
+  "filter[user-session]"?: Ulid | null;
+  /**
+   * Retrieve the items with the given status
+   *
+   * Defaults to retrieve all sessions, including finished ones.
+   *
+   * * `active`: Only retrieve active sessions
+   *
+   * * `finished`: Only retrieve finished sessions
+   */
+  "filter[status]"?: CompatSessionStatus | null;
 };
 
 export type CompatSessionStatus = "active" | "finished";
@@ -97,11 +122,17 @@ export type CompatSessionStatus = "active" | "finished";
  * A top-level response with a page of resources
  */
 export type PaginatedResponseForCompatSession = {
-  meta?: PaginationMeta;
+  /**
+   * Response metadata
+   */
+  meta?: PaginationMeta | null;
   /**
    * The list of resources
    */
   data?: Array<SingleResourceForCompatSession> | null;
+  /**
+   * Related links
+   */
   links: PaginationLinks;
 };
 
@@ -120,18 +151,39 @@ export type SingleResourceForCompatSession = {
    * The type of the resource
    */
   type: string;
+  /**
+   * The ID of the resource
+   */
   id: Ulid;
+  /**
+   * The attributes of the resource
+   */
   attributes: CompatSession;
+  /**
+   * Related links
+   */
   links: SelfLinks;
-  meta?: SingleResourceMeta;
+  /**
+   * Metadata about the resource
+   */
+  meta?: SingleResourceMeta | null;
 };
 
 /**
  * A compatibility session for legacy clients
  */
 export type CompatSession = {
+  /**
+   * The ID of the user that owns this session
+   */
   user_id: Ulid;
+  /**
+   * The Matrix device ID of this session
+   */
   device_id: DeviceId;
+  /**
+   * The ID of the user session that started this session, if any
+   */
   user_session_id: Ulid;
   /**
    * The redirect URI used to login in the client, if it was an SSO login
@@ -165,6 +217,8 @@ export type CompatSession = {
 
 /**
  * Device ID
+ *
+ * A device ID as per https://matrix.org/docs/spec/client_server/r0.6.0#device-ids
  */
 export type DeviceId = string;
 
@@ -182,7 +236,10 @@ export type SelfLinks = {
  * Metadata associated with a resource
  */
 export type SingleResourceMeta = {
-  page?: SingleResourceMetaPage;
+  /**
+   * Information about the pagination of the resource
+   */
+  page?: SingleResourceMetaPage | null;
 };
 
 /**
@@ -246,6 +303,9 @@ export type _Error = {
 };
 
 export type UlidInPath = {
+  /**
+   * The ID of the resource
+   */
   id: Ulid;
 };
 
@@ -258,15 +318,36 @@ export type SingleResponseForCompatSession = {
 };
 
 export type OAuth2SessionFilter = {
-  "filter[user]"?: Ulid;
-  "filter[client]"?: Ulid;
-  "filter[client-kind]"?: OAuth2ClientKind;
-  "filter[user-session]"?: Ulid;
+  /**
+   * Retrieve the items for the given user
+   */
+  "filter[user]"?: Ulid | null;
+  /**
+   * Retrieve the items for the given client
+   */
+  "filter[client]"?: Ulid | null;
+  /**
+   * Retrieve the items only for a specific client kind
+   */
+  "filter[client-kind]"?: OAuth2ClientKind | null;
+  /**
+   * Retrieve the items started from the given browser session
+   */
+  "filter[user-session]"?: Ulid | null;
   /**
    * Retrieve the items with the given scope
    */
   "filter[scope]"?: Array<string>;
-  "filter[status]"?: OAuth2SessionStatus;
+  /**
+   * Retrieve the items with the given status
+   *
+   * Defaults to retrieve all sessions, including finished ones.
+   *
+   * * `active`: Only retrieve active sessions
+   *
+   * * `finished`: Only retrieve finished sessions
+   */
+  "filter[status]"?: OAuth2SessionStatus | null;
 };
 
 export type OAuth2ClientKind = "dynamic" | "static";
@@ -277,11 +358,17 @@ export type OAuth2SessionStatus = "active" | "finished";
  * A top-level response with a page of resources
  */
 export type PaginatedResponseForOAuth2Session = {
-  meta?: PaginationMeta;
+  /**
+   * Response metadata
+   */
+  meta?: PaginationMeta | null;
   /**
    * The list of resources
    */
   data?: Array<SingleResourceForOAuth2Session> | null;
+  /**
+   * Related links
+   */
   links: PaginationLinks;
 };
 
@@ -293,10 +380,22 @@ export type SingleResourceForOAuth2Session = {
    * The type of the resource
    */
   type: string;
+  /**
+   * The ID of the resource
+   */
   id: Ulid;
+  /**
+   * The attributes of the resource
+   */
   attributes: OAuth2Session;
+  /**
+   * Related links
+   */
   links: SelfLinks;
-  meta?: SingleResourceMeta;
+  /**
+   * Metadata about the resource
+   */
+  meta?: SingleResourceMeta | null;
 };
 
 /**
@@ -311,8 +410,17 @@ export type OAuth2Session = {
    * When the session was finished
    */
   finished_at?: string | null;
-  user_id?: Ulid;
-  user_session_id?: Ulid;
+  /**
+   * The ID of the user who owns the session
+   */
+  user_id?: Ulid | null;
+  /**
+   * The ID of the browser session which started this session
+   */
+  user_session_id?: Ulid | null;
+  /**
+   * The ID of the client which requested this session
+   */
   client_id: Ulid;
   /**
    * The scope granted for this session
@@ -345,14 +453,26 @@ export type SingleResponseForOAuth2Session = {
 };
 
 export type PersonalSessionFilter = {
-  "filter[owner_user]"?: Ulid;
-  "filter[owner_client]"?: Ulid;
-  "filter[actor_user]"?: Ulid;
+  /**
+   * Filter by owner user ID
+   */
+  "filter[owner_user]"?: Ulid | null;
+  /**
+   * Filter by owner `OAuth2` client ID
+   */
+  "filter[owner_client]"?: Ulid | null;
+  /**
+   * Filter by actor user ID
+   */
+  "filter[actor_user]"?: Ulid | null;
   /**
    * Retrieve the items with the given scope
    */
   "filter[scope]"?: Array<string>;
-  "filter[status]"?: PersonalSessionStatus;
+  /**
+   * Filter by session status
+   */
+  "filter[status]"?: PersonalSessionStatus | null;
   /**
    * Filter by access token expiry date
    */
@@ -373,11 +493,17 @@ export type PersonalSessionStatus = "active" | "revoked";
  * A top-level response with a page of resources
  */
 export type PaginatedResponseForPersonalSession = {
-  meta?: PaginationMeta;
+  /**
+   * Response metadata
+   */
+  meta?: PaginationMeta | null;
   /**
    * The list of resources
    */
   data?: Array<SingleResourceForPersonalSession> | null;
+  /**
+   * Related links
+   */
   links: PaginationLinks;
 };
 
@@ -389,10 +515,22 @@ export type SingleResourceForPersonalSession = {
    * The type of the resource
    */
   type: string;
+  /**
+   * The ID of the resource
+   */
   id: Ulid;
+  /**
+   * The attributes of the resource
+   */
   attributes: PersonalSession;
+  /**
+   * Related links
+   */
   links: SelfLinks;
-  meta?: SingleResourceMeta;
+  /**
+   * Metadata about the resource
+   */
+  meta?: SingleResourceMeta | null;
 };
 
 /**
@@ -410,11 +548,14 @@ export type PersonalSession = {
   /**
    * The ID of the user who owns this session (if user-owned)
    */
-  owner_user_id?: string | null;
+  owner_user_id?: Ulid | null;
   /**
-   * The ID of the `OAuth2` client who owns this session (if client-owned)
+   * The ID of the `OAuth2` client that owns this session (if client-owned)
    */
-  owner_client_id?: string | null;
+  owner_client_id?: Ulid | null;
+  /**
+   * The ID of the user that the session acts on behalf of
+   */
   actor_user_id: Ulid;
   /**
    * Human-readable name for the session
@@ -433,7 +574,10 @@ export type PersonalSession = {
    */
   last_active_ip?: string | null;
   /**
-   * When the current token for this session expires. The session will need to be regenerated, producing a new access token, after this time. None if the current token won't expire or if the session is revoked.
+   * When the current token for this session expires.
+   * The session will need to be regenerated, producing a new access token,
+   * after this time.
+   * None if the current token won't expire or if the session is revoked.
    */
   expires_at?: string | null;
   /**
@@ -446,6 +590,9 @@ export type PersonalSession = {
  * JSON payload for the `POST /api/admin/v1/personal-sessions` endpoint
  */
 export type CreatePersonalSessionRequest = {
+  /**
+   * The user this session will act on behalf of
+   */
   actor_user_id: Ulid;
   /**
    * Human-readable name for the session
@@ -456,7 +603,8 @@ export type CreatePersonalSessionRequest = {
    */
   scope: string;
   /**
-   * Token expiry time in seconds. If not set, the token won't expire.
+   * Token expiry time in seconds.
+   * If not set, the token won't expire.
    */
   expires_in?: number | null;
 };
@@ -474,7 +622,8 @@ export type SingleResponseForPersonalSession = {
  */
 export type RegeneratePersonalSessionRequest = {
   /**
-   * Token expiry time in seconds. If not set, the token won't expire.
+   * Token expiry time in seconds.
+   * If not set, the token won't expire.
    */
   expires_in?: number | null;
 };
@@ -502,10 +651,22 @@ export type SingleResourceForPolicyData = {
    * The type of the resource
    */
   type: string;
+  /**
+   * The ID of the resource
+   */
   id: Ulid;
+  /**
+   * The attributes of the resource
+   */
   attributes: PolicyData;
+  /**
+   * Related links
+   */
   links: SelfLinks;
-  meta?: SingleResourceMeta;
+  /**
+   * Metadata about the resource
+   */
+  meta?: SingleResourceMeta | null;
 };
 
 /**
@@ -534,10 +695,22 @@ export type UserFilter = {
   /**
    * Retrieve users where the username matches contains the given string
    *
-   * Note that this doesn't change the ordering of the result, which are still ordered by ID.
+   * Note that this doesn't change the ordering of the result, which are
+   * still ordered by ID.
    */
   "filter[search]"?: string | null;
-  "filter[status]"?: UserStatus;
+  /**
+   * Retrieve the items with the given status
+   *
+   * Defaults to retrieve all users, including locked ones.
+   *
+   * * `active`: Only retrieve active users
+   *
+   * * `locked`: Only retrieve locked users (includes deactivated users)
+   *
+   * * `deactivated`: Only retrieve deactivated users
+   */
+  "filter[status]"?: UserStatus | null;
 };
 
 export type UserStatus = "active" | "locked" | "deactivated";
@@ -546,11 +719,17 @@ export type UserStatus = "active" | "locked" | "deactivated";
  * A top-level response with a page of resources
  */
 export type PaginatedResponseForUser = {
-  meta?: PaginationMeta;
+  /**
+   * Response metadata
+   */
+  meta?: PaginationMeta | null;
   /**
    * The list of resources
    */
   data?: Array<SingleResourceForUser> | null;
+  /**
+   * Related links
+   */
   links: PaginationLinks;
 };
 
@@ -562,10 +741,22 @@ export type SingleResourceForUser = {
    * The type of the resource
    */
   type: string;
+  /**
+   * The ID of the resource
+   */
   id: Ulid;
+  /**
+   * The attributes of the resource
+   */
   attributes: User;
+  /**
+   * Related links
+   */
   links: SelfLinks;
-  meta?: SingleResourceMeta;
+  /**
+   * Metadata about the resource
+   */
+  meta?: SingleResourceMeta | null;
 };
 
 /**
@@ -609,7 +800,9 @@ export type AddUserRequest = {
   /**
    * Skip checking with the homeserver whether the username is available.
    *
-   * Use this with caution! The main reason to use this, is when a user used by an application service needs to exist in MAS to craft special tokens (like with admin access) for them
+   * Use this with caution! The main reason to use this, is when a user used
+   * by an application service needs to exist in MAS to craft special
+   * tokens (like with admin access) for them
    */
   skip_homeserver_check?: boolean;
 };
@@ -658,13 +851,17 @@ export type UserSetAdminRequest = {
  */
 export type DeactivateUserRequest = {
   /**
-   * Whether to skip requesting the homeserver to GDPR-erase the user upon deactivation.
+   * Whether to skip requesting the homeserver to GDPR-erase the user upon
+   * deactivation.
    */
   skip_erase?: boolean;
 };
 
 export type UserEmailFilter = {
-  "filter[user]"?: Ulid;
+  /**
+   * Retrieve the items for the given user
+   */
+  "filter[user]"?: Ulid | null;
   /**
    * Retrieve the user email with the given email address
    */
@@ -675,11 +872,17 @@ export type UserEmailFilter = {
  * A top-level response with a page of resources
  */
 export type PaginatedResponseForUserEmail = {
-  meta?: PaginationMeta;
+  /**
+   * Response metadata
+   */
+  meta?: PaginationMeta | null;
   /**
    * The list of resources
    */
   data?: Array<SingleResourceForUserEmail> | null;
+  /**
+   * Related links
+   */
   links: PaginationLinks;
 };
 
@@ -691,10 +894,22 @@ export type SingleResourceForUserEmail = {
    * The type of the resource
    */
   type: string;
+  /**
+   * The ID of the resource
+   */
   id: Ulid;
+  /**
+   * The attributes of the resource
+   */
   attributes: UserEmail;
+  /**
+   * Related links
+   */
   links: SelfLinks;
-  meta?: SingleResourceMeta;
+  /**
+   * Metadata about the resource
+   */
+  meta?: SingleResourceMeta | null;
 };
 
 /**
@@ -705,6 +920,9 @@ export type UserEmail = {
    * When the object was created
    */
   created_at: string;
+  /**
+   * The ID of the user who owns this email address
+   */
   user_id: Ulid;
   /**
    * The email address
@@ -716,6 +934,9 @@ export type UserEmail = {
  * JSON payload for the `POST /api/admin/v1/user-emails`
  */
 export type AddUserEmailRequest = {
+  /**
+   * The ID of the user to which the email should be added.
+   */
   user_id: Ulid;
   /**
    * The email address of the user to add.
@@ -732,8 +953,20 @@ export type SingleResponseForUserEmail = {
 };
 
 export type UserSessionFilter = {
-  "filter[user]"?: Ulid;
-  "filter[status]"?: UserSessionStatus;
+  /**
+   * Retrieve the items for the given user
+   */
+  "filter[user]"?: Ulid | null;
+  /**
+   * Retrieve the items with the given status
+   *
+   * Defaults to retrieve all sessions, including finished ones.
+   *
+   * * `active`: Only retrieve active sessions
+   *
+   * * `finished`: Only retrieve finished sessions
+   */
+  "filter[status]"?: UserSessionStatus | null;
 };
 
 export type UserSessionStatus = "active" | "finished";
@@ -742,11 +975,17 @@ export type UserSessionStatus = "active" | "finished";
  * A top-level response with a page of resources
  */
 export type PaginatedResponseForUserSession = {
-  meta?: PaginationMeta;
+  /**
+   * Response metadata
+   */
+  meta?: PaginationMeta | null;
   /**
    * The list of resources
    */
   data?: Array<SingleResourceForUserSession> | null;
+  /**
+   * Related links
+   */
   links: PaginationLinks;
 };
 
@@ -758,10 +997,22 @@ export type SingleResourceForUserSession = {
    * The type of the resource
    */
   type: string;
+  /**
+   * The ID of the resource
+   */
   id: Ulid;
+  /**
+   * The attributes of the resource
+   */
   attributes: UserSession;
+  /**
+   * Related links
+   */
   links: SelfLinks;
-  meta?: SingleResourceMeta;
+  /**
+   * Metadata about the resource
+   */
+  meta?: SingleResourceMeta | null;
 };
 
 /**
@@ -776,6 +1027,9 @@ export type UserSession = {
    * When the session was finished
    */
   finished_at?: string | null;
+  /**
+   * The ID of the user who owns the session
+   */
   user_id: Ulid;
   /**
    * The user agent string of the client which started this session
@@ -815,7 +1069,8 @@ export type RegistrationTokenFilter = {
   /**
    * Retrieve tokens that are (or are not) valid
    *
-   * Valid means that the token has not expired, is not revoked, and has not reached its usage limit.
+   * Valid means that the token has not expired, is not revoked, and has not
+   * reached its usage limit.
    */
   "filter[valid]"?: boolean | null;
 };
@@ -824,11 +1079,17 @@ export type RegistrationTokenFilter = {
  * A top-level response with a page of resources
  */
 export type PaginatedResponseForUserRegistrationToken = {
-  meta?: PaginationMeta;
+  /**
+   * Response metadata
+   */
+  meta?: PaginationMeta | null;
   /**
    * The list of resources
    */
   data?: Array<SingleResourceForUserRegistrationToken> | null;
+  /**
+   * Related links
+   */
   links: PaginationLinks;
 };
 
@@ -840,10 +1101,22 @@ export type SingleResourceForUserRegistrationToken = {
    * The type of the resource
    */
   type: string;
+  /**
+   * The ID of the resource
+   */
   id: Ulid;
+  /**
+   * The attributes of the resource
+   */
   attributes: UserRegistrationToken;
+  /**
+   * Related links
+   */
   links: SelfLinks;
-  meta?: SingleResourceMeta;
+  /**
+   * Metadata about the resource
+   */
+  meta?: SingleResourceMeta | null;
 };
 
 /**
@@ -893,7 +1166,8 @@ export type AddUserRegistrationTokenRequest = {
    */
   token?: string | null;
   /**
-   * Maximum number of times this token can be used. If not provided, the token can be used an unlimited number of times.
+   * Maximum number of times this token can be used. If not provided, the
+   * token can be used an unlimited number of times.
    */
   usage_limit?: number | null;
   /**
@@ -925,8 +1199,14 @@ export type EditUserRegistrationTokenRequest = {
 };
 
 export type UpstreamOAuthLinkFilter = {
-  "filter[user]"?: Ulid;
-  "filter[provider]"?: Ulid;
+  /**
+   * Retrieve the items for the given user
+   */
+  "filter[user]"?: Ulid | null;
+  /**
+   * Retrieve the items for the given provider
+   */
+  "filter[provider]"?: Ulid | null;
   /**
    * Retrieve the items with the given subject
    */
@@ -937,11 +1217,17 @@ export type UpstreamOAuthLinkFilter = {
  * A top-level response with a page of resources
  */
 export type PaginatedResponseForUpstreamOAuthLink = {
-  meta?: PaginationMeta;
+  /**
+   * Response metadata
+   */
+  meta?: PaginationMeta | null;
   /**
    * The list of resources
    */
   data?: Array<SingleResourceForUpstreamOAuthLink> | null;
+  /**
+   * Related links
+   */
   links: PaginationLinks;
 };
 
@@ -953,10 +1239,22 @@ export type SingleResourceForUpstreamOAuthLink = {
    * The type of the resource
    */
   type: string;
+  /**
+   * The ID of the resource
+   */
   id: Ulid;
+  /**
+   * The attributes of the resource
+   */
   attributes: UpstreamOAuthLink;
+  /**
+   * Related links
+   */
   links: SelfLinks;
-  meta?: SingleResourceMeta;
+  /**
+   * Metadata about the resource
+   */
+  meta?: SingleResourceMeta | null;
 };
 
 /**
@@ -967,12 +1265,18 @@ export type UpstreamOAuthLink = {
    * When the object was created
    */
   created_at: string;
+  /**
+   * The ID of the provider
+   */
   provider_id: Ulid;
   /**
    * The subject of the upstream account, unique per provider
    */
   subject: string;
-  user_id?: Ulid;
+  /**
+   * The ID of the user who owns this link, if any
+   */
+  user_id?: Ulid | null;
   /**
    * A human-readable name of the upstream account
    */
@@ -983,7 +1287,13 @@ export type UpstreamOAuthLink = {
  * JSON payload for the `POST /api/admin/v1/upstream-oauth-links`
  */
 export type AddUpstreamOauthLinkRequest = {
+  /**
+   * The ID of the user to which the link should be added.
+   */
   user_id: Ulid;
+  /**
+   * The ID of the upstream provider to which the link is for.
+   */
   provider_id: Ulid;
   /**
    * The subject (sub) claim of the user on the provider.
@@ -1014,11 +1324,17 @@ export type UpstreamOAuthProviderFilter = {
  * A top-level response with a page of resources
  */
 export type PaginatedResponseForUpstreamOAuthProvider = {
-  meta?: PaginationMeta;
+  /**
+   * Response metadata
+   */
+  meta?: PaginationMeta | null;
   /**
    * The list of resources
    */
   data?: Array<SingleResourceForUpstreamOAuthProvider> | null;
+  /**
+   * Related links
+   */
   links: PaginationLinks;
 };
 
@@ -1030,10 +1346,22 @@ export type SingleResourceForUpstreamOAuthProvider = {
    * The type of the resource
    */
   type: string;
+  /**
+   * The ID of the resource
+   */
   id: Ulid;
+  /**
+   * The attributes of the resource
+   */
   attributes: UpstreamOAuthProvider;
+  /**
+   * Related links
+   */
   links: SelfLinks;
-  meta?: SingleResourceMeta;
+  /**
+   * Metadata about the resource
+   */
+  meta?: SingleResourceMeta | null;
 };
 
 /**
@@ -1103,11 +1431,11 @@ export type ListCompatSessionsData = {
     /**
      * Retrieve the items before the given ID
      */
-    "page[before]"?: Ulid;
+    "page[before]"?: Ulid | null;
     /**
      * Retrieve the items after the given ID
      */
-    "page[after]"?: Ulid;
+    "page[after]"?: Ulid | null;
     /**
      * Retrieve the first N items
      */
@@ -1119,15 +1447,15 @@ export type ListCompatSessionsData = {
     /**
      * Include the total number of items. Defaults to `true`.
      */
-    count?: IncludeCount;
+    count?: IncludeCount | null;
     /**
      * Retrieve the items for the given user
      */
-    "filter[user]"?: Ulid;
+    "filter[user]"?: Ulid | null;
     /**
      * Retrieve the items started from the given browser session
      */
-    "filter[user-session]"?: Ulid;
+    "filter[user-session]"?: Ulid | null;
     /**
      * Retrieve the items with the given status
      *
@@ -1137,7 +1465,7 @@ export type ListCompatSessionsData = {
      *
      * * `finished`: Only retrieve finished sessions
      */
-    "filter[status]"?: CompatSessionStatus;
+    "filter[status]"?: CompatSessionStatus | null;
   };
   url: "/api/admin/v1/compat-sessions";
 };
@@ -1165,6 +1493,9 @@ export type ListCompatSessionsResponse =
 export type GetCompatSessionData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1194,6 +1525,9 @@ export type GetCompatSessionResponse =
 export type FinishCompatSessionData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1231,11 +1565,11 @@ export type ListOAuth2SessionsData = {
     /**
      * Retrieve the items before the given ID
      */
-    "page[before]"?: Ulid;
+    "page[before]"?: Ulid | null;
     /**
      * Retrieve the items after the given ID
      */
-    "page[after]"?: Ulid;
+    "page[after]"?: Ulid | null;
     /**
      * Retrieve the first N items
      */
@@ -1247,23 +1581,23 @@ export type ListOAuth2SessionsData = {
     /**
      * Include the total number of items. Defaults to `true`.
      */
-    count?: IncludeCount;
+    count?: IncludeCount | null;
     /**
      * Retrieve the items for the given user
      */
-    "filter[user]"?: Ulid;
+    "filter[user]"?: Ulid | null;
     /**
      * Retrieve the items for the given client
      */
-    "filter[client]"?: Ulid;
+    "filter[client]"?: Ulid | null;
     /**
      * Retrieve the items only for a specific client kind
      */
-    "filter[client-kind]"?: OAuth2ClientKind;
+    "filter[client-kind]"?: OAuth2ClientKind | null;
     /**
      * Retrieve the items started from the given browser session
      */
-    "filter[user-session]"?: Ulid;
+    "filter[user-session]"?: Ulid | null;
     /**
      * Retrieve the items with the given scope
      */
@@ -1277,7 +1611,7 @@ export type ListOAuth2SessionsData = {
      *
      * * `finished`: Only retrieve finished sessions
      */
-    "filter[status]"?: OAuth2SessionStatus;
+    "filter[status]"?: OAuth2SessionStatus | null;
   };
   url: "/api/admin/v1/oauth2-sessions";
 };
@@ -1309,6 +1643,9 @@ export type ListOAuth2SessionsResponse =
 export type GetOAuth2SessionData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1338,6 +1675,9 @@ export type GetOAuth2SessionResponse =
 export type FinishOAuth2SessionData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1375,11 +1715,11 @@ export type ListPersonalSessionsData = {
     /**
      * Retrieve the items before the given ID
      */
-    "page[before]"?: Ulid;
+    "page[before]"?: Ulid | null;
     /**
      * Retrieve the items after the given ID
      */
-    "page[after]"?: Ulid;
+    "page[after]"?: Ulid | null;
     /**
      * Retrieve the first N items
      */
@@ -1391,19 +1731,19 @@ export type ListPersonalSessionsData = {
     /**
      * Include the total number of items. Defaults to `true`.
      */
-    count?: IncludeCount;
+    count?: IncludeCount | null;
     /**
      * Filter by owner user ID
      */
-    "filter[owner_user]"?: Ulid;
+    "filter[owner_user]"?: Ulid | null;
     /**
      * Filter by owner `OAuth2` client ID
      */
-    "filter[owner_client]"?: Ulid;
+    "filter[owner_client]"?: Ulid | null;
     /**
      * Filter by actor user ID
      */
-    "filter[actor_user]"?: Ulid;
+    "filter[actor_user]"?: Ulid | null;
     /**
      * Retrieve the items with the given scope
      */
@@ -1411,7 +1751,7 @@ export type ListPersonalSessionsData = {
     /**
      * Filter by session status
      */
-    "filter[status]"?: PersonalSessionStatus;
+    "filter[status]"?: PersonalSessionStatus | null;
     /**
      * Filter by access token expiry date
      */
@@ -1482,6 +1822,9 @@ export type CreatePersonalSessionResponse =
 export type GetPersonalSessionData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1511,6 +1854,9 @@ export type GetPersonalSessionResponse =
 export type RevokePersonalSessionData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1544,6 +1890,9 @@ export type RevokePersonalSessionResponse =
 export type RegeneratePersonalSessionData = {
   body: RegeneratePersonalSessionRequest;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1626,6 +1975,9 @@ export type GetLatestPolicyDataResponse =
 export type GetPolicyDataData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1658,11 +2010,11 @@ export type ListUsersData = {
     /**
      * Retrieve the items before the given ID
      */
-    "page[before]"?: Ulid;
+    "page[before]"?: Ulid | null;
     /**
      * Retrieve the items after the given ID
      */
-    "page[after]"?: Ulid;
+    "page[after]"?: Ulid | null;
     /**
      * Retrieve the first N items
      */
@@ -1674,7 +2026,7 @@ export type ListUsersData = {
     /**
      * Include the total number of items. Defaults to `true`.
      */
-    count?: IncludeCount;
+    count?: IncludeCount | null;
     /**
      * Retrieve users with (or without) the `admin` flag set
      */
@@ -1686,7 +2038,8 @@ export type ListUsersData = {
     /**
      * Retrieve users where the username matches contains the given string
      *
-     * Note that this doesn't change the ordering of the result, which are still ordered by ID.
+     * Note that this doesn't change the ordering of the result, which are
+     * still ordered by ID.
      */
     "filter[search]"?: string | null;
     /**
@@ -1700,7 +2053,7 @@ export type ListUsersData = {
      *
      * * `deactivated`: Only retrieve deactivated users
      */
-    "filter[status]"?: UserStatus;
+    "filter[status]"?: UserStatus | null;
   };
   url: "/api/admin/v1/users";
 };
@@ -1746,6 +2099,9 @@ export type CreateUserResponse = CreateUserResponses[keyof CreateUserResponses];
 export type GetUserData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1773,6 +2129,9 @@ export type GetUserResponse = GetUserResponses[keyof GetUserResponses];
 export type SetUserPasswordData = {
   body: SetUserPasswordRequest;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1842,6 +2201,9 @@ export type GetUserByUsernameResponse =
 export type UserSetAdminData = {
   body: UserSetAdminRequest;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1870,6 +2232,9 @@ export type UserSetAdminResponse =
 export type DeactivateUserData = {
   body?: DeactivateUserRequest;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1899,6 +2264,9 @@ export type DeactivateUserResponse =
 export type ReactivateUserData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1928,6 +2296,9 @@ export type ReactivateUserResponse =
 export type LockUserData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1955,6 +2326,9 @@ export type LockUserResponse = LockUserResponses[keyof LockUserResponses];
 export type UnlockUserData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -1986,11 +2360,11 @@ export type ListUserEmailsData = {
     /**
      * Retrieve the items before the given ID
      */
-    "page[before]"?: Ulid;
+    "page[before]"?: Ulid | null;
     /**
      * Retrieve the items after the given ID
      */
-    "page[after]"?: Ulid;
+    "page[after]"?: Ulid | null;
     /**
      * Retrieve the first N items
      */
@@ -2002,11 +2376,11 @@ export type ListUserEmailsData = {
     /**
      * Include the total number of items. Defaults to `true`.
      */
-    count?: IncludeCount;
+    count?: IncludeCount | null;
     /**
      * Retrieve the items for the given user
      */
-    "filter[user]"?: Ulid;
+    "filter[user]"?: Ulid | null;
     /**
      * Retrieve the user email with the given email address
      */
@@ -2072,6 +2446,9 @@ export type AddUserEmailResponse =
 export type DeleteUserEmailData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -2101,6 +2478,9 @@ export type DeleteUserEmailResponse =
 export type GetUserEmailData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -2133,11 +2513,11 @@ export type ListUserSessionsData = {
     /**
      * Retrieve the items before the given ID
      */
-    "page[before]"?: Ulid;
+    "page[before]"?: Ulid | null;
     /**
      * Retrieve the items after the given ID
      */
-    "page[after]"?: Ulid;
+    "page[after]"?: Ulid | null;
     /**
      * Retrieve the first N items
      */
@@ -2149,11 +2529,11 @@ export type ListUserSessionsData = {
     /**
      * Include the total number of items. Defaults to `true`.
      */
-    count?: IncludeCount;
+    count?: IncludeCount | null;
     /**
      * Retrieve the items for the given user
      */
-    "filter[user]"?: Ulid;
+    "filter[user]"?: Ulid | null;
     /**
      * Retrieve the items with the given status
      *
@@ -2163,7 +2543,7 @@ export type ListUserSessionsData = {
      *
      * * `finished`: Only retrieve finished sessions
      */
-    "filter[status]"?: UserSessionStatus;
+    "filter[status]"?: UserSessionStatus | null;
   };
   url: "/api/admin/v1/user-sessions";
 };
@@ -2191,6 +2571,9 @@ export type ListUserSessionsResponse =
 export type GetUserSessionData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -2220,6 +2603,9 @@ export type GetUserSessionResponse =
 export type FinishUserSessionData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -2257,11 +2643,11 @@ export type ListUserRegistrationTokensData = {
     /**
      * Retrieve the items before the given ID
      */
-    "page[before]"?: Ulid;
+    "page[before]"?: Ulid | null;
     /**
      * Retrieve the items after the given ID
      */
-    "page[after]"?: Ulid;
+    "page[after]"?: Ulid | null;
     /**
      * Retrieve the first N items
      */
@@ -2273,7 +2659,7 @@ export type ListUserRegistrationTokensData = {
     /**
      * Include the total number of items. Defaults to `true`.
      */
-    count?: IncludeCount;
+    count?: IncludeCount | null;
     /**
      * Retrieve tokens that have (or have not) been used at least once
      */
@@ -2289,7 +2675,8 @@ export type ListUserRegistrationTokensData = {
     /**
      * Retrieve tokens that are (or are not) valid
      *
-     * Valid means that the token has not expired, is not revoked, and has not reached its usage limit.
+     * Valid means that the token has not expired, is not revoked, and has not
+     * reached its usage limit.
      */
     "filter[valid]"?: boolean | null;
   };
@@ -2326,6 +2713,9 @@ export type AddUserRegistrationTokenResponse =
 export type GetUserRegistrationTokenData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -2355,6 +2745,9 @@ export type GetUserRegistrationTokenResponse =
 export type UpdateUserRegistrationTokenData = {
   body: EditUserRegistrationTokenRequest;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -2384,6 +2777,9 @@ export type UpdateUserRegistrationTokenResponse =
 export type RevokeUserRegistrationTokenData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -2417,6 +2813,9 @@ export type RevokeUserRegistrationTokenResponse =
 export type UnrevokeUserRegistrationTokenData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -2454,11 +2853,11 @@ export type ListUpstreamOAuthLinksData = {
     /**
      * Retrieve the items before the given ID
      */
-    "page[before]"?: Ulid;
+    "page[before]"?: Ulid | null;
     /**
      * Retrieve the items after the given ID
      */
-    "page[after]"?: Ulid;
+    "page[after]"?: Ulid | null;
     /**
      * Retrieve the first N items
      */
@@ -2470,15 +2869,15 @@ export type ListUpstreamOAuthLinksData = {
     /**
      * Include the total number of items. Defaults to `true`.
      */
-    count?: IncludeCount;
+    count?: IncludeCount | null;
     /**
      * Retrieve the items for the given user
      */
-    "filter[user]"?: Ulid;
+    "filter[user]"?: Ulid | null;
     /**
      * Retrieve the items for the given provider
      */
-    "filter[provider]"?: Ulid;
+    "filter[provider]"?: Ulid | null;
     /**
      * Retrieve the items with the given subject
      */
@@ -2545,6 +2944,9 @@ export type AddUpstreamOAuthLinkResponse =
 export type DeleteUpstreamOAuthLinkData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -2574,6 +2976,9 @@ export type DeleteUpstreamOAuthLinkResponse =
 export type GetUpstreamOAuthLinkData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
@@ -2607,11 +3012,11 @@ export type ListUpstreamOAuthProvidersData = {
     /**
      * Retrieve the items before the given ID
      */
-    "page[before]"?: Ulid;
+    "page[before]"?: Ulid | null;
     /**
      * Retrieve the items after the given ID
      */
-    "page[after]"?: Ulid;
+    "page[after]"?: Ulid | null;
     /**
      * Retrieve the first N items
      */
@@ -2623,7 +3028,7 @@ export type ListUpstreamOAuthProvidersData = {
     /**
      * Include the total number of items. Defaults to `true`.
      */
-    count?: IncludeCount;
+    count?: IncludeCount | null;
     /**
      * Retrieve providers that are (or are not) enabled
      */
@@ -2645,6 +3050,9 @@ export type ListUpstreamOAuthProvidersResponse =
 export type GetUpstreamOAuthProviderData = {
   body?: never;
   path: {
+    /**
+     * The ID of the resource
+     */
     id: Ulid;
   };
   query?: never;
