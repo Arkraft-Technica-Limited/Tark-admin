@@ -279,21 +279,21 @@
     "description": "When adminbot is enabled, but the Element Web is not deployed with ESS, we show an alert, as the UI feature relies on it. This is the title of said alert.",
     "message": "The moderation interface requires Element Web to be enabled"
   },
-  "pages.moderation.passphrase.copied": {
-    "description": "On the moderation page, message displayed when the secure backup passphrase is copied to the clipboard",
-    "message": "Secure backup passphrase copied"
+  "pages.moderation.recovery_key.copied": {
+    "description": "On the moderation page, message displayed when the recovery key is copied to the clipboard",
+    "message": "Recovery key copied"
   },
-  "pages.moderation.passphrase.copy_failed": {
-    "description": "On the moderation page, message displayed when the secure backup passphrase could not be copied to the clipboard",
-    "message": "Could not copy secure backup passphrase"
+  "pages.moderation.recovery_key.copy_failed": {
+    "description": "On the moderation page, message displayed when the recovery key could not be copied to the clipboard",
+    "message": "Could not copy recovery key"
   },
-  "pages.moderation.passphrase.help": {
-    "description": "On the moderation page, help text for the secure backup passphrase readonly input field",
-    "message": "This is the passphrase used to unlock backups of encrypted messages for the {mxid} account"
+  "pages.moderation.recovery_key.help": {
+    "description": "On the moderation page, help text for the recovery key readonly input field",
+    "message": "This is the recovery key used to unlock backups of encrypted messages for the {mxid} account"
   },
-  "pages.moderation.passphrase.label": {
-    "description": "On the moderation page, label for the secure backup passphrase readonly input field",
-    "message": "Secure backup passphrase"
+  "pages.moderation.recovery_key.label": {
+    "description": "On the moderation page, label for the recovery key readonly input field",
+    "message": "Recovery key"
   },
   "pages.moderation.title": {
     "description": "The title of the moderation page",
