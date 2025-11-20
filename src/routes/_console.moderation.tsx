@@ -300,22 +300,10 @@ function AdminbotContent({ config, synapseRoot }: AdminbotContentProps) {
         <Page.Title>
           <FormattedMessage {...titleMessage} />
         </Page.Title>
-
-        <Page.Controls>
-          <Button
-            as="a"
-            target="_blank"
-            href="https://docs.element.io/latest/element-server-suite-pro/configuring-components/configuring-auditbot/"
-            kind="secondary"
-            size="sm"
-          >
-            <FormattedMessage {...messages.actionConfigure} />
-          </Button>
-        </Page.Controls>
       </Page.Header>
 
       <div className="flex flex-col gap-6 max-w-[60ch]">
-        <Text size="md">
+        <Text size="md" className="text-pretty">
           <FormattedMessage
             id="pages.moderation.description"
             defaultMessage="Sign in as <b>{mxid}</b> to perform administrative actions in any room."
@@ -430,7 +418,7 @@ function SecurePassphrase({ value, mxid }: SecurePassphraseProps) {
             />
           </Tooltip>
         </div>
-        <Form.HelpMessage>
+        <Form.HelpMessage className="text-pretty">
           <FormattedMessage
             id="pages.moderation.passphrase.help"
             description="On the moderation page, help text for the secure backup passphrase readonly input field"

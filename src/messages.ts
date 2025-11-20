@@ -28,12 +28,6 @@ export const actionClose = defineMessage({
   description: "Label for a 'close' action/button",
 });
 
-export const actionConfigure = defineMessage({
-  id: "action.configure",
-  defaultMessage: "Configure",
-  description: "Label for a configure action/button",
-});
-
 export const actionCopy = defineMessage({
   id: "action.copy",
   defaultMessage: "Copy",

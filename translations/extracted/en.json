@@ -15,10 +15,6 @@
     "description": "Label for a 'close' action/button",
     "message": "Close"
   },
-  "action.configure": {
-    "description": "Label for a configure action/button",
-    "message": "Configure"
-  },
   "action.copy": {
     "description": "Label for a copy action/button",
     "message": "Copy"
