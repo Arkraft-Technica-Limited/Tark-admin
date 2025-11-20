@@ -52,7 +52,13 @@ compliance, scalability, high availability and multi-tenancy.</p>"
     </Card.Body>
 
     <Card.Footer>
-      <Button as="a" target="_blank" href="#" kind="primary" size="sm">
+      <Button
+        as="a"
+        target="_blank"
+        href="https://try.element.io/upgrade-ess-community"
+        kind="primary"
+        size="sm"
+      >
         <FormattedMessage
           id="marketing.also_available_in_pro.upgrade"
           defaultMessage="Upgrade to Pro"
