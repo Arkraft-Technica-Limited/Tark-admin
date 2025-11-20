@@ -28,6 +28,12 @@ export const actionClose = defineMessage({
   description: "Label for a 'close' action/button",
 });
 
+export const actionCopy = defineMessage({
+  id: "action.copy",
+  defaultMessage: "Copy",
+  description: "Label for a copy action/button",
+});
+
 export const actionGoBack = defineMessage({
   id: "action.go_back",
   defaultMessage: "Go back",
@@ -44,6 +50,12 @@ export const actionRemove = defineMessage({
   id: "action.remove",
   defaultMessage: "Remove",
   description: "Label for the remove action/button",
+});
+
+export const actionSignIn = defineMessage({
+  id: "action.sign_in",
+  defaultMessage: "Sign in",
+  description: "Label for the sign in action/button",
 });
 
 export const actionSignOut = defineMessage({

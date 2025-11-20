@@ -17,6 +17,7 @@ import { Route as ConsoleUsersRouteImport } from './routes/_console.users'
 import { Route as ConsoleRoomsRouteImport } from './routes/_console.rooms'
 import { Route as ConsoleRegistrationTokensRouteImport } from './routes/_console.registration-tokens'
 import { Route as ConsolePersonalTokensRouteImport } from './routes/_console.personal-tokens'
+import { Route as ConsoleModerationRouteImport } from './routes/_console.moderation'
 import { Route as AuthLoginIndexRouteImport } from './routes/_auth.login.index'
 import { Route as ConsoleUsersUserIdRouteImport } from './routes/_console.users.$userId'
 import { Route as ConsoleRoomsRoomIdRouteImport } from './routes/_console.rooms.$roomId'
@@ -62,6 +63,11 @@ const ConsolePersonalTokensRoute = ConsolePersonalTokensRouteImport.update({
   path: '/personal-tokens',
   getParentRoute: () => ConsoleRoute,
 } as any)
+const ConsoleModerationRoute = ConsoleModerationRouteImport.update({
+  id: '/moderation',
+  path: '/moderation',
+  getParentRoute: () => ConsoleRoute,
+} as any)
 const AuthLoginIndexRoute = AuthLoginIndexRouteImport.update({
   id: '/login/',
   path: '/login/',
@@ -92,6 +98,7 @@ const ConsolePersonalTokensTokenIdRoute =
 
 export interface FileRoutesByFullPath {
   '/callback': typeof CallbackRoute
+  '/moderation': typeof ConsoleModerationRoute
   '/personal-tokens': typeof ConsolePersonalTokensRouteWithChildren
   '/registration-tokens': typeof ConsoleRegistrationTokensRouteWithChildren
   '/rooms': typeof ConsoleRoomsRouteWithChildren
@@ -105,6 +112,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/callback': typeof CallbackRoute
+  '/moderation': typeof ConsoleModerationRoute
   '/personal-tokens': typeof ConsolePersonalTokensRouteWithChildren
   '/registration-tokens': typeof ConsoleRegistrationTokensRouteWithChildren
   '/rooms': typeof ConsoleRoomsRouteWithChildren
@@ -121,6 +129,7 @@ export interface FileRoutesById {
   '/_auth': typeof AuthRouteWithChildren
   '/_console': typeof ConsoleRouteWithChildren
   '/callback': typeof CallbackRoute
+  '/_console/moderation': typeof ConsoleModerationRoute
   '/_console/personal-tokens': typeof ConsolePersonalTokensRouteWithChildren
   '/_console/registration-tokens': typeof ConsoleRegistrationTokensRouteWithChildren
   '/_console/rooms': typeof ConsoleRoomsRouteWithChildren
@@ -136,6 +145,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/callback'
+    | '/moderation'
     | '/personal-tokens'
     | '/registration-tokens'
     | '/rooms'
@@ -149,6 +159,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/callback'
+    | '/moderation'
     | '/personal-tokens'
     | '/registration-tokens'
     | '/rooms'
@@ -164,6 +175,7 @@ export interface FileRouteTypes {
     | '/_auth'
     | '/_console'
     | '/callback'
+    | '/_console/moderation'
     | '/_console/personal-tokens'
     | '/_console/registration-tokens'
     | '/_console/rooms'
@@ -238,6 +250,13 @@ declare module '@tanstack/react-router' {
       path: '/personal-tokens'
       fullPath: '/personal-tokens'
       preLoaderRoute: typeof ConsolePersonalTokensRouteImport
+      parentRoute: typeof ConsoleRoute
+    }
+    '/_console/moderation': {
+      id: '/_console/moderation'
+      path: '/moderation'
+      fullPath: '/moderation'
+      preLoaderRoute: typeof ConsoleModerationRouteImport
       parentRoute: typeof ConsoleRoute
     }
     '/_auth/login/': {
@@ -341,6 +360,7 @@ const ConsoleUsersRouteWithChildren = ConsoleUsersRoute._addFileChildren(
 )
 
 interface ConsoleRouteChildren {
+  ConsoleModerationRoute: typeof ConsoleModerationRoute
   ConsolePersonalTokensRoute: typeof ConsolePersonalTokensRouteWithChildren
   ConsoleRegistrationTokensRoute: typeof ConsoleRegistrationTokensRouteWithChildren
   ConsoleRoomsRoute: typeof ConsoleRoomsRouteWithChildren
@@ -349,6 +369,7 @@ interface ConsoleRouteChildren {
 }
 
 const ConsoleRouteChildren: ConsoleRouteChildren = {
+  ConsoleModerationRoute: ConsoleModerationRoute,
   ConsolePersonalTokensRoute: ConsolePersonalTokensRouteWithChildren,
   ConsoleRegistrationTokensRoute: ConsoleRegistrationTokensRouteWithChildren,
   ConsoleRoomsRoute: ConsoleRoomsRouteWithChildren,

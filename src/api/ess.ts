@@ -59,3 +59,38 @@ export const useEssVersion = (synapseRoot: string): null | SemVer => {
   if (!data) return null;
   return parseSemver(data.version);
 };
+
+const AdminbotResponse = v.object({
+  access_token: v.string(),
+  device_id: v.string(),
+  mxid: v.string(),
+  secure_passphrase: v.nullish(v.string()),
+  ui_address: v.nullish(v.pipe(v.string(), v.url())),
+});
+
+export type AdminbotResponse = v.InferOutput<typeof AdminbotResponse>;
+
+export const adminbotQuery = (synapseRoot: string) =>
+  queryOptions({
+    queryKey: ["ess", "adminbot", synapseRoot],
+    queryFn: async ({ client, signal }) => {
+      const adminbotUrl = new URL("/_synapse/ess/adminbot", synapseRoot);
+      const token = await accessToken(client, signal);
+      const response = await fetch(adminbotUrl, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        signal,
+      });
+
+      if (response.status === 404) {
+        return null;
+      }
+
+      ensureResponseOk(response);
+
+      const adminbotData = v.parse(AdminbotResponse, await response.json());
+
+      return adminbotData;
+    },
+  });
