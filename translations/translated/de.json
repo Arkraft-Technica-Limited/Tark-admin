@@ -216,7 +216,7 @@
     "message": "Der Wiederherstellungsschlüssel konnte nicht kopiert werden."
   },
   "pages.moderation.recovery_key.help": {
-    "message": "Dies ist der Wiederherstellungsschlüssel, der zum Entschlüsseln verschlüsselter Nachrichten des {mxid} Kontos verwendet wird."
+    "message": "Dies ist der Wiederherstellungsschlüssel, der zum Lesen verschlüsselter Nachrichten benötigt wird."
   },
   "pages.moderation.recovery_key.label": {
     "message": "Wiederherstellungsschlüssel"
