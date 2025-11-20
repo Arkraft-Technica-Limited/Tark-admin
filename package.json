@@ -68,7 +68,7 @@
     "@playwright/test": "1.56.1",
     "@tanstack/devtools-vite": "0.3.11",
     "@tanstack/eslint-plugin-query": "5.91.2",
-    "@tanstack/eslint-plugin-router": "1.133.19",
+    "@tanstack/eslint-plugin-router": "1.139.0",
     "@tsconfig/strictest": "2.0.8",
     "@tsconfig/vite-react": "7.0.2",
     "@types/node": "24.10.1",
