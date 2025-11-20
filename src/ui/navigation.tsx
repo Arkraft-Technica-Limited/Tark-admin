@@ -5,6 +5,7 @@
 import {
   AdminIcon,
   DocumentIcon,
+  ExportArchiveIcon,
   HomeIcon,
   InlineCodeIcon,
   KeyIcon,
@@ -45,6 +46,13 @@ const AppNavigation = ({ features }: { features: MasFeaturesStatus }) => (
       />
     </Navigation.NavLink>
     <Navigation.Divider />
+    <Navigation.NavLink Icon={ExportArchiveIcon} to="/auditing">
+      <FormattedMessage
+        id="navigation.auditing"
+        defaultMessage="Auditing"
+        description="Label for the auditing navigation item in the main navigation sidebar"
+      />
+    </Navigation.NavLink>
     <Navigation.NavLink Icon={AdminIcon} to="/moderation">
       <FormattedMessage
         id="navigation.moderation"
