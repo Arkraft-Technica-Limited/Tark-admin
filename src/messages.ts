@@ -46,12 +46,6 @@ export const actionGoBack = defineMessage({
   description: "Label for a go back action/button",
 });
 
-export const actionLearnMore = defineMessage({
-  id: "action.learn_more",
-  defaultMessage: "Learn more",
-  description: "Label for a learn more action/button",
-});
-
 export const actionRetry = defineMessage({
   id: "action.retry",
   defaultMessage: "Retry",
@@ -74,12 +68,6 @@ export const actionSignOut = defineMessage({
   id: "action.sign_out",
   defaultMessage: "Sign out",
   description: "Label for the sign out menu item",
-});
-
-export const actionUpgrade = defineMessage({
-  id: "action.upgrade",
-  defaultMessage: "Upgrade",
-  description: "Label for the upgrade action/button",
 });
 
 export const commonEmailAddress = defineMessage({

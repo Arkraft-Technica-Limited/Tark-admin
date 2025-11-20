@@ -13,7 +13,6 @@ import {
   Button,
   Form,
   InlineSpinner,
-  Link,
   Text,
   Tooltip,
 } from "@vector-im/compound-web";
@@ -29,12 +28,12 @@ import {
   type AdminbotResponse,
 } from "@/api/ess";
 import { wellKnownQuery } from "@/api/matrix";
-import { ProBadge } from "@/components/logo";
+import * as Card from "@/components/card";
 import * as Navigation from "@/components/navigation";
 import * as Page from "@/components/page";
-import * as Table from "@/components/table";
 import * as messages from "@/messages";
 import AppFooter from "@/ui/footer";
+import * as Marketing from "@/ui/marketing";
 import { assertNever } from "@/utils/never";
 
 const titleMessage = defineMessage({
@@ -455,84 +454,46 @@ function AdminbotDisabled({ variant }: AdminbotDisabledProps) {
   const isPro = variant === "pro";
   return (
     <>
-      <Page.Header>
-        <Page.Title className="flex items-center gap-2">
-          <FormattedMessage {...titleMessage} />
-          {!isPro && <ProBadge />}
-        </Page.Title>
-
-        <Page.Controls>
-          {isPro ? (
-            <Button
-              as="a"
-              target="_blank"
-              href="https://docs.element.io/latest/element-server-suite-pro/configuring-components/configuring-auditbot/"
-              kind="secondary"
-              size="sm"
-            >
-              <FormattedMessage {...messages.actionConfigure} />
-            </Button>
-          ) : (
-            <Button
-              as="a"
-              target="_blank"
-              href="https://try.element.io/upgrade-ess-community"
-              kind="primary"
-              size="sm"
-            >
-              <FormattedMessage {...messages.actionUpgrade} />
-            </Button>
-          )}
-        </Page.Controls>
-      </Page.Header>
-
-      {isPro && (
+      {isPro ? (
         <Alert
           type="info"
           className="max-w-[80ch]"
           title={intl.formatMessage({
-            id: "pages.moderation.disabled.pro_alert.title",
+            id: "pages.moderation.disabled_alert.title",
             description:
-              "When the feature is disabled on an ESS Pro deployment, this is the title of the alert message",
+              "When the feature is disabled on an ESS Pro deployment, this is the title of the alert message telling admins to configure it",
             defaultMessage: "Moderation is currently disabled",
           })}
         >
           <FormattedMessage
-            id="pages.moderation.disabled.pro_alert.description"
-            description="When the feature is disabled on an ESS Pro deployment, this explains what the feature does"
-            defaultMessage="Moderation is part of your ESS Pro subscription, but isn't currently enabled on your deployment."
+            id="pages.moderation.disabled_alert.description"
+            description="When the feature is disabled on an ESS Pro deployment, this is the description of the alert message telling admins to configure it"
+            defaultMessage="This feature is part of your subscription. You can ask an administrator to enable it."
+          />
+        </Alert>
+      ) : (
+        <Alert
+          type="info"
+          className="max-w-[80ch]"
+          title={intl.formatMessage({
+            id: "pages.moderation.unavailable_alert.title",
+            description:
+              "Title of the alert explaining that the moderation feature is only available in ESS Pro",
+            defaultMessage: "Moderation is a feature available in ESS Pro",
+          })}
+        >
+          <FormattedMessage
+            id="pages.moderation.unavailable_alert.description"
+            description="Description of the alert explaining that the moderation feature is only available in ESS Pro"
+            defaultMessage="This feature is not available in ESS Community. Upgrade to ESS Pro to enable it."
           />
         </Alert>
       )}
 
-      <Table.Header>
-        <Table.Title>
-          <FormattedMessage
-            id="pages.moderation.disabled.title"
-            description="When the feature is disabled, this is the title of the section"
-            defaultMessage="Corporate oversight and management of your organization’s conversations."
-          />
-        </Table.Title>
-      </Table.Header>
-
-      <div className="max-w-[80ch] text-balance flex flex-col gap-4 items-start">
-        <FormattedMessage
-          id="pages.moderation.disabled.description"
-          description="When the feature is disabled, this explains what the feature does"
-          defaultMessage="<p>Moderating enables an organization to administer all rooms from a central point. It is achieved through the customer using a ‘moderator’ account on their homeserver which is automatically given top level permissions. The moderator capability provides admin rights in every room. The moderator account is visible to all end users to ensure transparency.</p><p>This ‘server-side’ access gives an organization complete oversight, and ensures the organization remains in full control of its deployment.</p>{callToAction}"
-          values={{
-            callToAction: (
-              <Link
-                target="_blank"
-                href="https://element.io/server-suite/moderating"
-              >
-                <FormattedMessage {...messages.actionLearnMore} />
-              </Link>
-            ),
-            p: (chunks) => <Text size="md">{...chunks}</Text>,
-          }}
-        />
-      </div>
+      <Card.Stack>
+        <Marketing.ModerationCard proBadge={!isPro} />
+        {!isPro && <Marketing.AlsoAvailableInPro />}
+      </Card.Stack>
     </>
   );
 }

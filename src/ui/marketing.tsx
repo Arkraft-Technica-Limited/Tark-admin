@@ -1,0 +1,99 @@
+// SPDX-FileCopyrightText: Copyright 2025 New Vector Ltd.
+//
+// SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+
+import { AdminIcon } from "@vector-im/compound-design-tokens/assets/web/icons";
+import { Button } from "@vector-im/compound-web";
+import { FormattedMessage } from "react-intl";
+
+import * as Card from "@/components/card";
+import { ProBadge } from "@/components/logo";
+
+export const AlsoAvailableInPro = () => (
+  <Card.Root kind="primary" narrow>
+    <Card.Header>
+      <Card.Title>
+        <FormattedMessage
+          id="marketing.also_available_in_pro.title"
+          defaultMessage="Also available in Pro…"
+          description="When we show off a feature that is only available in ESS Pro, this is the title of the card explaining what ESS Pro is"
+        />
+      </Card.Title>
+      <ProBadge />
+    </Card.Header>
+
+    <Card.Body>
+      <FormattedMessage
+        id="marketing.also_available_in_pro.description"
+        defaultMessage="
+<p><link>ESS Pro</link> is the commercial backend distribution from Element.</p>
+<p>It includes everything in ESS Community plus additional features and
+services that are tailored to professional environments with more than 100 users
+up to massive scale in the millions.</p>
+<p>It is designed to support enterprise requirements in terms of advanced IAM,
+compliance, scalability, high availability and multi-tenancy.</p>"
+        description="When we show off a feature that is only available in ESS Pro, this is the description of the card explaining what ESS Pro is"
+        values={{
+          p: (chunks) => <p>{...chunks}</p>,
+          link: (chunks) => (
+            <a
+              target="_blank"
+              href="https://element.io/pro"
+              rel="noreferrer noopener"
+            >
+              {...chunks}
+            </a>
+          ),
+        }}
+      />
+    </Card.Body>
+
+    <Card.Footer>
+      <Button as="a" target="_blank" href="#" kind="primary" size="sm">
+        <FormattedMessage
+          id="marketing.also_available_in_pro.upgrade"
+          defaultMessage="Upgrade to Pro"
+          description="When we show off a feature that is only available in ESS Pro, this is the button to lead the user to the ESS Pro upgrade page"
+        />
+      </Button>
+    </Card.Footer>
+  </Card.Root>
+);
+
+export const ModerationCard = ({ proBadge }: { proBadge?: boolean }) => (
+  <Card.Root kind="secondary">
+    <Card.Header>
+      <Card.Icon icon={AdminIcon} />
+      <Card.Title>
+        <FormattedMessage
+          id="marketing.moderation.title"
+          defaultMessage="Moderation"
+          description="Title of the card explaining what moderation is"
+        />
+      </Card.Title>
+      {proBadge && <ProBadge />}
+    </Card.Header>
+
+    <FormattedMessage
+      id="marketing.moderation.description"
+      defaultMessage="
+<p>Moderation enables an organisation to administer all rooms from a central
+point. A ‘moderator’ account will join defined rooms with room admin privileges.
+Server administrators can seamlessly impersonate the account from the admin
+console to manage and moderate their rooms.</p>
+<ul>
+<li>Manage rooms and their settings (name, topic, permissions, etc.)</li>
+<li>Manage room memberships</li>
+<li>Remove unwanted messages and uploaded media</li>
+<li>Recover abandoned rooms (all users have left)</li>
+<li>Moderator account can or cannot read encrypted message contents (configurable)</li>
+</ul>"
+      values={{
+        p: (chunks) => <Card.Body>{...chunks}</Card.Body>,
+        ul: (chunks) => <Card.Checklist>{...chunks}</Card.Checklist>,
+        li: (chunks) => <Card.ChecklistItem>{...chunks}</Card.ChecklistItem>,
+      }}
+      description="Description of the card explaining what moderation is"
+    />
+  </Card.Root>
+);

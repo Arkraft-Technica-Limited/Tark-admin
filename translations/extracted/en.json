@@ -27,10 +27,6 @@
     "description": "Label for a go back action/button",
     "message": "Go back"
   },
-  "action.learn_more": {
-    "description": "Label for a learn more action/button",
-    "message": "Learn more"
-  },
   "action.remove": {
     "description": "Label for the remove action/button",
     "message": "Remove"
@@ -46,10 +42,6 @@
   "action.sign_out": {
     "description": "Label for the sign out menu item",
     "message": "Sign out"
-  },
-  "action.upgrade": {
-    "description": "Label for the upgrade action/button",
-    "message": "Upgrade"
   },
   "common.email_address": {
     "description": "Label for an email address",
@@ -98,6 +90,26 @@
   "header.user_menu.title": {
     "description": "The title of the menu which shows what account is logged in and have a few options like signing out",
     "message": "Account menu"
+  },
+  "marketing.also_available_in_pro.description": {
+    "description": "When we show off a feature that is only available in ESS Pro, this is the description of the card explaining what ESS Pro is",
+    "message": "<p><link>ESS Pro</link> is the commercial backend distribution from Element.</p> <p>It includes everything in ESS Community plus additional features and services that are tailored to professional environments with more than 100 users up to massive scale in the millions.</p> <p>It is designed to support enterprise requirements in terms of advanced IAM, compliance, scalability, high availability and multi-tenancy.</p>"
+  },
+  "marketing.also_available_in_pro.title": {
+    "description": "When we show off a feature that is only available in ESS Pro, this is the title of the card explaining what ESS Pro is",
+    "message": "Also available in Pro…"
+  },
+  "marketing.also_available_in_pro.upgrade": {
+    "description": "When we show off a feature that is only available in ESS Pro, this is the button to lead the user to the ESS Pro upgrade page",
+    "message": "Upgrade to Pro"
+  },
+  "marketing.moderation.description": {
+    "description": "Description of the card explaining what moderation is",
+    "message": "<p>Moderation enables an organisation to administer all rooms from a central point. A ‘moderator’ account will join defined rooms with room admin privileges. Server administrators can seamlessly impersonate the account from the admin console to manage and moderate their rooms.</p> <ul> <li>Manage rooms and their settings (name, topic, permissions, etc.)</li> <li>Manage room memberships</li> <li>Remove unwanted messages and uploaded media</li> <li>Recover abandoned rooms (all users have left)</li> <li>Moderator account can or cannot read encrypted message contents (configurable)</li> </ul>"
+  },
+  "marketing.moderation.title": {
+    "description": "Title of the card explaining what moderation is",
+    "message": "Moderation"
   },
   "navigation.dashboard": {
     "description": "Label for the dashboard navigation item in the main navigation sidebar",
@@ -211,21 +223,13 @@
     "description": "The description of the moderation page",
     "message": "Sign in as <b>{mxid}</b> to perform administrative actions in any room."
   },
-  "pages.moderation.disabled.description": {
-    "description": "When the feature is disabled, this explains what the feature does",
-    "message": "<p>Moderating enables an organization to administer all rooms from a central point. It is achieved through the customer using a ‘moderator’ account on their homeserver which is automatically given top level permissions. The moderator capability provides admin rights in every room. The moderator account is visible to all end users to ensure transparency.</p><p>This ‘server-side’ access gives an organization complete oversight, and ensures the organization remains in full control of its deployment.</p>{callToAction}"
+  "pages.moderation.disabled_alert.description": {
+    "description": "When the feature is disabled on an ESS Pro deployment, this is the description of the alert message telling admins to configure it",
+    "message": "This feature is part of your subscription. You can ask an administrator to enable it."
   },
-  "pages.moderation.disabled.pro_alert.description": {
-    "description": "When the feature is disabled on an ESS Pro deployment, this explains what the feature does",
-    "message": "Moderation is part of your ESS Pro subscription, but isn't currently enabled on your deployment."
-  },
-  "pages.moderation.disabled.pro_alert.title": {
-    "description": "When the feature is disabled on an ESS Pro deployment, this is the title of the alert message",
+  "pages.moderation.disabled_alert.title": {
+    "description": "When the feature is disabled on an ESS Pro deployment, this is the title of the alert message telling admins to configure it",
     "message": "Moderation is currently disabled"
-  },
-  "pages.moderation.disabled.title": {
-    "description": "When the feature is disabled, this is the title of the section",
-    "message": "Corporate oversight and management of your organization’s conversations."
   },
   "pages.moderation.errors.cant_open.description": {
     "description": "The description of the error message when the moderation interface can't be opened in a new window",
@@ -274,6 +278,14 @@
   "pages.moderation.title": {
     "description": "The title of the moderation page",
     "message": "Moderation"
+  },
+  "pages.moderation.unavailable_alert.description": {
+    "description": "Description of the alert explaining that the moderation feature is only available in ESS Pro",
+    "message": "This feature is not available in ESS Community. Upgrade to ESS Pro to enable it."
+  },
+  "pages.moderation.unavailable_alert.title": {
+    "description": "Title of the alert explaining that the moderation feature is only available in ESS Pro",
+    "message": "Moderation is a feature available in ESS Pro"
   },
   "pages.personal_tokens.acting_user_column": {
     "description": "Column header for acting user column",

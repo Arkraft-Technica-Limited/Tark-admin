@@ -1,0 +1,104 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2025 New Vector Ltd.
+ *
+ * SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+ */
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cpd-space-4x);
+  padding: var(--cpd-space-8x);
+  border-radius: var(--cpd-space-2x);
+  border: 1px solid var(--cpd-color-border-interactive-secondary);
+
+  /* data-kind="primary" */
+  background-color: var(--cpd-color-bg-canvas-default);
+  color: var(--cpd-color-text-primary);
+  font: var(--cpd-font-body-md-regular);
+  letter-spacing: var(--cpd-font-letter-spacing-body-md);
+
+  &[data-kind="secondary"] {
+    background-color: var(--cpd-color-bg-canvas-disabled);
+  }
+
+  .header {
+    display: flex;
+    gap: var(--cpd-space-2x);
+
+    .icon {
+      height: var(--cpd-space-6x);
+      width: var(--cpd-space-6x);
+      align-self: center;
+    }
+
+    .title {
+      font: var(--cpd-font-heading-md-semibold);
+      letter-spacing: var(--cpd-font-letter-spacing-heading-md);
+      margin-inline-end: auto;
+    }
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--cpd-space-4x);
+  }
+
+  .footer {
+    margin-block-start: auto;
+
+    /* I hate this so much */
+    a[href] {
+      inline-size: initial;
+    }
+  }
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cpd-space-2x);
+
+  .checklist-item {
+    display: flex;
+    gap: var(--cpd-space-4x);
+    align-items: center;
+
+    .icon {
+      height: var(--cpd-space-6x);
+      width: var(--cpd-space-6x);
+    }
+
+    & > div {
+      flex: 1;
+    }
+  }
+}
+
+.stack {
+  display: flex;
+  gap: var(--cpd-space-6x);
+  align-items: stretch;
+  justify-content: flex-start;
+
+  & > .root {
+    flex-basis: 60ch;
+    flex-shrink: 2;
+
+    &.narrow {
+      flex-basis: 40ch;
+      flex-shrink: 1;
+    }
+  }
+
+  @media screen and (width <= 768px) {
+    flex-direction: column;
+    gap: var(--cpd-space-8x);
+
+    & > .root,
+    & > .root.narrow {
+      flex-basis: unset;
+    }
+  }
+}
