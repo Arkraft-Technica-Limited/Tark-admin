@@ -11,6 +11,9 @@
   "action.close": {
     "message": "Fermer"
   },
+  "action.copy": {
+    "message": "Copier"
+  },
   "action.go_back": {
     "message": "Retour"
   },
@@ -19,6 +22,9 @@
   },
   "action.retry": {
     "message": "Réessayer"
+  },
+  "action.sign_in": {
+    "message": "Se connecter"
   },
   "action.sign_out": {
     "message": "Se déconnecter"
@@ -59,11 +65,38 @@
   "header.user_menu.title": {
     "message": "Paramètres du compte"
   },
+  "marketing.also_available_in_pro.description": {
+    "message": "<p><link>ESS Pro</link> est la distribution serveur commerciale d'Element.</p> <p>Elle comprend tout ce qui se trouve dans ESS Community, ainsi que des fonctionnalités et services supplémentaires adaptés aux environnements professionnels comptant plus de 100 utilisateurs, jusqu'à des millions.</p> <p>Elle est conçue pour répondre aux exigences des entreprises en matière de gestion d'accès avancé, de conformité, de passage à l'échelle, de haute disponibilité et de mutualisation.</p>"
+  },
+  "marketing.also_available_in_pro.title": {
+    "message": "Également disponible dans Pro..."
+  },
+  "marketing.also_available_in_pro.upgrade": {
+    "message": "Passez à la version Pro"
+  },
+  "marketing.auditing.description": {
+    "message": "<p>L'audit permet aux organisations de conserver des enregistrements des conversations chiffrées de bout en bout et des événements dans les salons afin de respecter des exigences légales ou de conformité.</p> <p>Lorsqu'il est activé, tous les utilisateurs du serveur peuvent voir quelles salles sont enregistrées afin de garantir la transparence du processus d'audit.</p> <p>L'audit peut être configuré pour répondre aux exigences spécifiques d'une organisation. Par exemple, les messages directs entre deux personnes peuvent être exclus afin que seules les conversations de groupe soient enregistrées.</p> <p>Les données d'audit sont stockées sous forme de flux d'événements lisibles par machine au format JSON, soit sur un stockage de fichiers, soit sur S3, et peuvent être transmises à des outils d'analyse de journaux pour un filtrage et une analyse plus approfondis.</p>"
+  },
+  "marketing.auditing.title": {
+    "message": "Audit"
+  },
+  "marketing.moderation.description": {
+    "message": "<p>La modération permet à une organisation de gérer tous les salons de manière centralisée. Un compte « modérateur » rejoindra les salons définis avec des privilèges d'administrateur de salon. Les administrateurs de serveur peuvent ainsi facilement utiliser ce compte depuis la console d'administration afin de gérer et de modérer leurs salons.</p> <ul> <li>Gestion les salons et leurs paramètres (nom, topic, autorisation, etc.)</li> <li>Gestion des membres des salons</li> <li>Suppression des messages et médias indésirables</li> <li>Récupération des salons abandonnés (dont tous les membres sont partis)</li> <li>Accès (ou non) aux messages chiffrés par le compte de modération (configurable)</li> </ul>"
+  },
+  "marketing.moderation.title": {
+    "message": "Modération"
+  },
+  "navigation.auditing": {
+    "message": "Audit"
+  },
   "navigation.dashboard": {
     "message": "Tableau de bord"
   },
   "navigation.documentation": {
     "message": "Documentation"
+  },
+  "navigation.moderation": {
+    "message": "Modération"
   },
   "navigation.personal_tokens": {
     "message": "Jetons personels"
@@ -76,6 +109,15 @@
   },
   "navigation.users": {
     "message": "Utilisateurs"
+  },
+  "pages.auditing.title": {
+    "message": "Audit"
+  },
+  "pages.auditing.unavailable_alert.description": {
+    "message": "Cette fonctionnalité n'est pas disponible dans ESS Community. Passez à ESS Pro pour l'activer."
+  },
+  "pages.auditing.unavailable_alert.title": {
+    "message": "L'audit est une fonctionnalité disponible dans ESS Pro"
   },
   "pages.dashboard.current_ess_version": {
     "message": "Version d'ESS"
@@ -136,6 +178,57 @@
   },
   "pages.login.title": {
     "message": "Connexion"
+  },
+  "pages.moderation.description": {
+    "message": "Veuillez vous connecter en tant que <b>{mxid}</b> pour effectuer des actions administratives dans n'importe quel salon."
+  },
+  "pages.moderation.disabled_alert.description": {
+    "message": "Cette fonctionnalité est incluse dans votre souscription. Vous pouvez demander à un administrateur de l'activer."
+  },
+  "pages.moderation.disabled_alert.title": {
+    "message": "La modération est actuellement désactivée."
+  },
+  "pages.moderation.errors.cant_open.description": {
+    "message": "Votre navigateur bloque l'ouverture des fenêtres pop-up. Veuillez vous assurer que vous autorisez les fenêtres pop-up provenant de ce site."
+  },
+  "pages.moderation.errors.cant_open.title": {
+    "message": "Impossible d'ouvrir l'interface de modération dans une nouvelle fenêtre"
+  },
+  "pages.moderation.errors.closed.description": {
+    "message": "Impossible de se connecter à l'interface de modération, car celle-ci s'est fermée avant la fin de la connexion."
+  },
+  "pages.moderation.errors.closed.title": {
+    "message": "L'interface de modération a été fermée prématurément."
+  },
+  "pages.moderation.errors.generic.title": {
+    "message": "Une erreur inattendue s'est produite lors de l'ouverture de l'interface de modération."
+  },
+  "pages.moderation.missing_ui_address.description": {
+    "message": "La modération est activée dans votre déploiement, mais pas Element Web, qui est nécessaire au fonctionnement de l'interface de modération."
+  },
+  "pages.moderation.missing_ui_address.title": {
+    "message": "L'interface de modération nécessite qu'Element Web soit activé."
+  },
+  "pages.moderation.recovery_key.copied": {
+    "message": "Clé de récupération copiée"
+  },
+  "pages.moderation.recovery_key.copy_failed": {
+    "message": "Impossible de copier la clé de récupération"
+  },
+  "pages.moderation.recovery_key.help": {
+    "message": "Il s'agit de la clé de récupération utilisée pour déverrouiller les sauvegardes des messages chiffrés pour le compte {mxid}."
+  },
+  "pages.moderation.recovery_key.label": {
+    "message": "Clé de récupération"
+  },
+  "pages.moderation.title": {
+    "message": "Modération"
+  },
+  "pages.moderation.unavailable_alert.description": {
+    "message": "Cette fonctionnalité n'est pas disponible dans ESS Community. Passez à ESS Pro pour l'activer."
+  },
+  "pages.moderation.unavailable_alert.title": {
+    "message": "La modération est une fonctionnalité disponible dans ESS Pro"
   },
   "pages.personal_tokens.acting_user_column": {
     "message": "Utilisateur contrôlé"

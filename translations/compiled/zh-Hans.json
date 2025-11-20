@@ -23,6 +23,12 @@
       "value": "关闭"
     }
   ],
+  "action.copy": [
+    {
+      "type": 0,
+      "value": "Copy"
+    }
+  ],
   "action.go_back": [
     {
       "type": 0,
@@ -39,6 +45,12 @@
     {
       "type": 0,
       "value": "重试"
+    }
+  ],
+  "action.sign_in": [
+    {
+      "type": 0,
+      "value": "Sign in"
     }
   ],
   "action.sign_out": [
@@ -170,6 +182,236 @@
       "value": "账户菜单"
     }
   ],
+  "marketing.also_available_in_pro.description": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": 0,
+              "value": "ESS Pro"
+            }
+          ],
+          "type": 8,
+          "value": "link"
+        },
+        {
+          "type": 0,
+          "value": " is the commercial backend distribution from Element."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "It includes everything in ESS Community plus additional features and services that are tailored to professional environments with more than 100 users up to massive scale in the millions."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "It is designed to support enterprise requirements in terms of advanced IAM, compliance, scalability, high availability and multi-tenancy."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    }
+  ],
+  "marketing.also_available_in_pro.title": [
+    {
+      "type": 0,
+      "value": "Also available in Pro…"
+    }
+  ],
+  "marketing.also_available_in_pro.upgrade": [
+    {
+      "type": 0,
+      "value": "Upgrade to Pro"
+    }
+  ],
+  "marketing.auditing.description": [
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "Auditing gives organizations the ability to keep records of end-to-end encrypted conversations and room events to meet compliance or legal requirements."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "When enabled, it is visible to all end users which rooms are being recorded to ensure transparency of the auditing process."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "Auditing can be configured to suit an organization’s specific requirements. For instance direct messages between two individuals can be excluded so that only group conversations are recorded."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "Audit data is being stored as a stream of machine-readable events in the JSON format either on file storage or S3 and can be forwarded to log analyzer tooling for further filtering and analysis."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    }
+  ],
+  "marketing.auditing.title": [
+    {
+      "type": 0,
+      "value": "Auditing"
+    }
+  ],
+  "marketing.moderation.description": [
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "Moderation enables an organisation to administer all rooms from a central point. A ‘moderator’ account will join defined rooms with room admin privileges. Server administrators can seamlessly impersonate the account from the admin console to manage and moderate their rooms."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": " "
+        },
+        {
+          "children": [
+            {
+              "type": 0,
+              "value": "Manage rooms and their settings (name, topic, permissions, etc.)"
+            }
+          ],
+          "type": 8,
+          "value": "li"
+        },
+        {
+          "type": 0,
+          "value": " "
+        },
+        {
+          "children": [
+            {
+              "type": 0,
+              "value": "Manage room memberships"
+            }
+          ],
+          "type": 8,
+          "value": "li"
+        },
+        {
+          "type": 0,
+          "value": " "
+        },
+        {
+          "children": [
+            {
+              "type": 0,
+              "value": "Remove unwanted messages and uploaded media"
+            }
+          ],
+          "type": 8,
+          "value": "li"
+        },
+        {
+          "type": 0,
+          "value": " "
+        },
+        {
+          "children": [
+            {
+              "type": 0,
+              "value": "Recover abandoned rooms (all users have left)"
+            }
+          ],
+          "type": 8,
+          "value": "li"
+        },
+        {
+          "type": 0,
+          "value": " "
+        },
+        {
+          "children": [
+            {
+              "type": 0,
+              "value": "Moderator account can or cannot read encrypted message contents (configurable)"
+            }
+          ],
+          "type": 8,
+          "value": "li"
+        },
+        {
+          "type": 0,
+          "value": " "
+        }
+      ],
+      "type": 8,
+      "value": "ul"
+    }
+  ],
+  "marketing.moderation.title": [
+    {
+      "type": 0,
+      "value": "Moderation"
+    }
+  ],
+  "navigation.auditing": [
+    {
+      "type": 0,
+      "value": "Auditing"
+    }
+  ],
   "navigation.dashboard": [
     {
       "type": 0,
@@ -182,10 +424,16 @@
       "value": "文档"
     }
   ],
+  "navigation.moderation": [
+    {
+      "type": 0,
+      "value": "Moderation"
+    }
+  ],
   "navigation.personal_tokens": [
     {
       "type": 0,
-      "value": "Personal tokens"
+      "value": "个人 Token"
     }
   ],
   "navigation.registration_tokens": [
@@ -204,6 +452,24 @@
     {
       "type": 0,
       "value": "用户"
+    }
+  ],
+  "pages.auditing.title": [
+    {
+      "type": 0,
+      "value": "Auditing"
+    }
+  ],
+  "pages.auditing.unavailable_alert.description": [
+    {
+      "type": 0,
+      "value": "This feature is not available in ESS Community. Upgrade to ESS Pro to enable it."
+    }
+  ],
+  "pages.auditing.unavailable_alert.title": [
+    {
+      "type": 0,
+      "value": "Auditing is a feature available in ESS Pro"
     }
   ],
   "pages.dashboard.current_ess_version": [
@@ -334,6 +600,130 @@
       "value": "登录"
     }
   ],
+  "pages.moderation.description": [
+    {
+      "type": 0,
+      "value": "Sign in as "
+    },
+    {
+      "children": [
+        {
+          "type": 1,
+          "value": "mxid"
+        }
+      ],
+      "type": 8,
+      "value": "b"
+    },
+    {
+      "type": 0,
+      "value": " to perform administrative actions in any room."
+    }
+  ],
+  "pages.moderation.disabled_alert.description": [
+    {
+      "type": 0,
+      "value": "This feature is part of your subscription. You can ask an administrator to enable it."
+    }
+  ],
+  "pages.moderation.disabled_alert.title": [
+    {
+      "type": 0,
+      "value": "Moderation is currently disabled"
+    }
+  ],
+  "pages.moderation.errors.cant_open.description": [
+    {
+      "type": 0,
+      "value": "Your browser is blocking the opening of pop-up windows. Please make sure you allow pop-ups from this site."
+    }
+  ],
+  "pages.moderation.errors.cant_open.title": [
+    {
+      "type": 0,
+      "value": "Failed to open the moderation interface in a new window"
+    }
+  ],
+  "pages.moderation.errors.closed.description": [
+    {
+      "type": 0,
+      "value": "Failed to sign in the moderation interface, as it closed before it could finish signing in"
+    }
+  ],
+  "pages.moderation.errors.closed.title": [
+    {
+      "type": 0,
+      "value": "The moderation interface was closed too quickly"
+    }
+  ],
+  "pages.moderation.errors.generic.title": [
+    {
+      "type": 0,
+      "value": "An unexpected error occurred whilst opening the moderation interface"
+    }
+  ],
+  "pages.moderation.missing_ui_address.description": [
+    {
+      "type": 0,
+      "value": "Moderation is enabled in your deployment, but not Element Web, which is required for the moderation interface to work."
+    }
+  ],
+  "pages.moderation.missing_ui_address.title": [
+    {
+      "type": 0,
+      "value": "The moderation interface requires Element Web to be enabled"
+    }
+  ],
+  "pages.moderation.recovery_key.copied": [
+    {
+      "type": 0,
+      "value": "Recovery key copied"
+    }
+  ],
+  "pages.moderation.recovery_key.copy_failed": [
+    {
+      "type": 0,
+      "value": "Could not copy recovery key"
+    }
+  ],
+  "pages.moderation.recovery_key.help": [
+    {
+      "type": 0,
+      "value": "This is the recovery key used to unlock backups of encrypted messages for the "
+    },
+    {
+      "type": 1,
+      "value": "mxid"
+    },
+    {
+      "type": 0,
+      "value": " account"
+    }
+  ],
+  "pages.moderation.recovery_key.label": [
+    {
+      "type": 0,
+      "value": "Recovery key"
+    }
+  ],
+  "pages.moderation.title": [
+    {
+      "type": 0,
+      "value": "Moderation"
+    }
+  ],
+  "pages.moderation.unavailable_alert.description": [
+    {
+      "type": 0,
+      "value": "This feature is not available in ESS Community. Upgrade to ESS Pro to enable it."
+    }
+  ],
+  "pages.moderation.unavailable_alert.title": [
+    {
+      "type": 0,
+      "value": "Moderation is a feature available in ESS Pro"
+    }
+  ],
   "pages.personal_tokens.acting_user_column": [
     {
       "type": 0,
@@ -349,7 +739,7 @@
   "pages.personal_tokens.actor_user_help": [
     {
       "type": 0,
-      "value": "The user this token will act on behalf of"
+      "value": "此 Token 将以用户的名义执行以下操作"
     }
   ],
   "pages.personal_tokens.actor_user_label": [
@@ -361,13 +751,13 @@
   "pages.personal_tokens.add_token_title": [
     {
       "type": 0,
-      "value": "Add personal token"
+      "value": "添加个人 Token"
     }
   ],
   "pages.personal_tokens.cant_regenerate_tooltip": [
     {
       "type": 0,
-      "value": "Only "
+      "value": "仅"
     },
     {
       "type": 1,
@@ -375,13 +765,13 @@
     },
     {
       "type": 0,
-      "value": " can regenerate this token"
+      "value": " 可重新生成此 Token"
     }
   ],
   "pages.personal_tokens.cant_regenerate_tooltip_generic": [
     {
       "type": 0,
-      "value": "Only the owner of the token can regenerate it"
+      "value": "仅 Token 的所有者可以重新生成"
     }
   ],
   "pages.personal_tokens.count": [
@@ -427,43 +817,43 @@
   "pages.personal_tokens.create_error": [
     {
       "type": 0,
-      "value": "Failed to create personal token"
+      "value": "个人 Token 创建失败"
     }
   ],
   "pages.personal_tokens.create_success": [
     {
       "type": 0,
-      "value": "Personal token created successfully"
+      "value": "个人 Token 创建成功"
     }
   ],
   "pages.personal_tokens.create_token": [
     {
       "type": 0,
-      "value": "Create token"
+      "value": "创建 Token"
     }
   ],
   "pages.personal_tokens.created_at_label": [
     {
       "type": 0,
-      "value": "Created at"
+      "value": "创建于"
     }
   ],
   "pages.personal_tokens.description": [
     {
       "type": 0,
-      "value": "Personal tokens are long-lived access tokens with specific access, including Synapse and MAS administration API access. They are useful for automating tasks and for creating integrations."
+      "value": "个人 Token是具有特定权限的长效访问 Token，包括 Synapse 与 MAS 管理 API 的访问权限。他们可以用于自动化任务与集成的创建。"
     }
   ],
   "pages.personal_tokens.device_id_help": [
     {
       "type": 0,
-      "value": "Leave empty to generate a random 10-character device ID"
+      "value": "留空以随机生成 10 个字符的设备 ID"
     }
   ],
   "pages.personal_tokens.device_id_label": [
     {
       "type": 0,
-      "value": "Device ID"
+      "value": "设备 ID"
     }
   ],
   "pages.personal_tokens.device_id_placeholder": [
@@ -475,25 +865,25 @@
   "pages.personal_tokens.expires_at_column": [
     {
       "type": 0,
-      "value": "Expires at"
+      "value": "有效期到"
     }
   ],
   "pages.personal_tokens.expires_at_label": [
     {
       "type": 0,
-      "value": "Expires at"
+      "value": "有效期到"
     }
   ],
   "pages.personal_tokens.expires_in_help": [
     {
       "type": 0,
-      "value": "Leave empty for tokens that never expire"
+      "value": "留空表示 Token 永不过期"
     }
   ],
   "pages.personal_tokens.expires_in_label": [
     {
       "type": 0,
-      "value": "Expires in (days)"
+      "value": "剩余有效期（天）"
     }
   ],
   "pages.personal_tokens.expires_in_placeholder": [
@@ -505,169 +895,169 @@
   "pages.personal_tokens.filter.active": [
     {
       "type": 0,
-      "value": "Active"
+      "value": "活跃"
     }
   ],
   "pages.personal_tokens.filter.expires": [
     {
       "type": 0,
-      "value": "With an expiry date"
+      "value": "含有效期"
     }
   ],
   "pages.personal_tokens.filter.no_expiry": [
     {
       "type": 0,
-      "value": "Never expires"
+      "value": "永不过期"
     }
   ],
   "pages.personal_tokens.filter.revoked": [
     {
       "type": 0,
-      "value": "Revoked"
+      "value": "已撤消"
     }
   ],
   "pages.personal_tokens.filter.scope_mas_admin": [
     {
       "type": 0,
-      "value": "Access to the MAS admin API"
+      "value": "访问 MAS 管理 API"
     }
   ],
   "pages.personal_tokens.filter.scope_matrix_client": [
     {
       "type": 0,
-      "value": "Access to the Matrix Client-Server API"
+      "value": "访问 Matrix 客户端 - 服务器 API"
     }
   ],
   "pages.personal_tokens.filter.scope_synapse_admin": [
     {
       "type": 0,
-      "value": "Access to the Synapse admin API"
+      "value": "访问 Synapse 管理 API"
     }
   ],
   "pages.personal_tokens.last_active_column": [
     {
       "type": 0,
-      "value": "Last Active"
+      "value": "最后活跃"
     }
   ],
   "pages.personal_tokens.last_active_ip_label": [
     {
       "type": 0,
-      "value": "Last active IP"
+      "value": "最后活跃 IP"
     }
   ],
   "pages.personal_tokens.last_active_label": [
     {
       "type": 0,
-      "value": "Last active"
+      "value": "最后活跃"
     }
   ],
   "pages.personal_tokens.loading_more": [
     {
       "type": 0,
-      "value": "Loading more tokens..."
+      "value": "载入更多 Token…"
     }
   ],
   "pages.personal_tokens.name_column": [
     {
       "type": 0,
-      "value": "Name"
+      "value": "名称"
     }
   ],
   "pages.personal_tokens.name_help": [
     {
       "type": 0,
-      "value": "A human-readable name for the token, to help you identify it"
+      "value": "为 Token 添加一个易于理解的名称以用于识别"
     }
   ],
   "pages.personal_tokens.name_label": [
     {
       "type": 0,
-      "value": "Token name"
+      "value": "Token 名称"
     }
   ],
   "pages.personal_tokens.name_placeholder": [
     {
       "type": 0,
-      "value": "My application token"
+      "value": "我的应用程序 Token"
     }
   ],
   "pages.personal_tokens.never_expires": [
     {
       "type": 0,
-      "value": "Never expires"
+      "value": "永不过期"
     }
   ],
   "pages.personal_tokens.never_used": [
     {
       "type": 0,
-      "value": "Never used"
+      "value": "从未使用过"
     }
   ],
   "pages.personal_tokens.not_found.description": [
     {
       "type": 0,
-      "value": "The personal token you're looking for doesn't exist or has been removed."
+      "value": "你要查找的 Token 不存在或已被删除。"
     }
   ],
   "pages.personal_tokens.not_found.title": [
     {
       "type": 0,
-      "value": "Personal token not found"
+      "value": "个人 Token 未找到"
     }
   ],
   "pages.personal_tokens.owner_user_label": [
     {
       "type": 0,
-      "value": "Owner"
+      "value": "所有者"
     }
   ],
   "pages.personal_tokens.regenerate_confirm": [
     {
       "type": 0,
-      "value": "Regenerate token"
+      "value": "重新生成 Token"
     }
   ],
   "pages.personal_tokens.regenerate_error": [
     {
       "type": 0,
-      "value": "Failed to regenerate personal token"
+      "value": "个人 Token 重新生成失败"
     }
   ],
   "pages.personal_tokens.regenerate_expires_help": [
     {
       "type": 0,
-      "value": "Leave empty to keep the same expiry as before, or set a new expiry time"
+      "value": "留空以保持与之前相同的有效期，或设置新的有效期"
     }
   ],
   "pages.personal_tokens.regenerate_success": [
     {
       "type": 0,
-      "value": "Personal token regenerated successfully"
+      "value": "个人 Token 已成功重新生成"
     }
   ],
   "pages.personal_tokens.regenerate_token": [
     {
       "type": 0,
-      "value": "Regenerate token"
+      "value": "重新生成 Token"
     }
   ],
   "pages.personal_tokens.regenerate_token_title": [
     {
       "type": 0,
-      "value": "Regenerate personal token"
+      "value": "重新生成个人 Token"
     }
   ],
   "pages.personal_tokens.regenerate_warning": [
     {
       "type": 0,
-      "value": "This will generate a new access token and invalidate the current one. Any applications using the current token will need to be updated."
+      "value": "将生成新的访问 Token，并使当前的访问 Token 失效。所有使用当前 Token 的应用程序都需要更新。"
     }
   ],
   "pages.personal_tokens.revoke_success": [
     {
       "type": 0,
-      "value": "Personal token revoked successfully"
+      "value": "个人 Token 已成功撤消"
     }
   ],
   "pages.personal_tokens.revoke_token": [

@@ -11,6 +11,9 @@
   "action.close": {
     "message": "关闭"
   },
+  "action.copy": {
+    "message": "Copy"
+  },
   "action.go_back": {
     "message": "后退"
   },
@@ -19,6 +22,9 @@
   },
   "action.retry": {
     "message": "重试"
+  },
+  "action.sign_in": {
+    "message": "Sign in"
   },
   "action.sign_out": {
     "message": "注销"
@@ -59,14 +65,41 @@
   "header.user_menu.title": {
     "message": "账户菜单"
   },
+  "marketing.also_available_in_pro.description": {
+    "message": "<p><link>ESS Pro</link> is the commercial backend distribution from Element.</p> <p>It includes everything in ESS Community plus additional features and services that are tailored to professional environments with more than 100 users up to massive scale in the millions.</p> <p>It is designed to support enterprise requirements in terms of advanced IAM, compliance, scalability, high availability and multi-tenancy.</p>"
+  },
+  "marketing.also_available_in_pro.title": {
+    "message": "Also available in Pro…"
+  },
+  "marketing.also_available_in_pro.upgrade": {
+    "message": "Upgrade to Pro"
+  },
+  "marketing.auditing.description": {
+    "message": "<p>Auditing gives organizations the ability to keep records of end-to-end encrypted conversations and room events to meet compliance or legal requirements.</p> <p>When enabled, it is visible to all end users which rooms are being recorded to ensure transparency of the auditing process.</p> <p>Auditing can be configured to suit an organization’s specific requirements. For instance direct messages between two individuals can be excluded so that only group conversations are recorded.</p> <p>Audit data is being stored as a stream of machine-readable events in the JSON format either on file storage or S3 and can be forwarded to log analyzer tooling for further filtering and analysis.</p>"
+  },
+  "marketing.auditing.title": {
+    "message": "Auditing"
+  },
+  "marketing.moderation.description": {
+    "message": "<p>Moderation enables an organisation to administer all rooms from a central point. A ‘moderator’ account will join defined rooms with room admin privileges. Server administrators can seamlessly impersonate the account from the admin console to manage and moderate their rooms.</p> <ul> <li>Manage rooms and their settings (name, topic, permissions, etc.)</li> <li>Manage room memberships</li> <li>Remove unwanted messages and uploaded media</li> <li>Recover abandoned rooms (all users have left)</li> <li>Moderator account can or cannot read encrypted message contents (configurable)</li> </ul>"
+  },
+  "marketing.moderation.title": {
+    "message": "Moderation"
+  },
+  "navigation.auditing": {
+    "message": "Auditing"
+  },
   "navigation.dashboard": {
     "message": "仪表盘"
   },
   "navigation.documentation": {
     "message": "文档"
   },
+  "navigation.moderation": {
+    "message": "Moderation"
+  },
   "navigation.personal_tokens": {
-    "message": "Personal tokens"
+    "message": "个人 Token"
   },
   "navigation.registration_tokens": {
     "message": "注册 Tokens"
@@ -76,6 +109,15 @@
   },
   "navigation.users": {
     "message": "用户"
+  },
+  "pages.auditing.title": {
+    "message": "Auditing"
+  },
+  "pages.auditing.unavailable_alert.description": {
+    "message": "This feature is not available in ESS Community. Upgrade to ESS Pro to enable it."
+  },
+  "pages.auditing.unavailable_alert.title": {
+    "message": "Auditing is a feature available in ESS Pro"
   },
   "pages.dashboard.current_ess_version": {
     "message": "ESS 版本"
@@ -137,6 +179,57 @@
   "pages.login.title": {
     "message": "登录"
   },
+  "pages.moderation.description": {
+    "message": "Sign in as <b>{mxid}</b> to perform administrative actions in any room."
+  },
+  "pages.moderation.disabled_alert.description": {
+    "message": "This feature is part of your subscription. You can ask an administrator to enable it."
+  },
+  "pages.moderation.disabled_alert.title": {
+    "message": "Moderation is currently disabled"
+  },
+  "pages.moderation.errors.cant_open.description": {
+    "message": "Your browser is blocking the opening of pop-up windows. Please make sure you allow pop-ups from this site."
+  },
+  "pages.moderation.errors.cant_open.title": {
+    "message": "Failed to open the moderation interface in a new window"
+  },
+  "pages.moderation.errors.closed.description": {
+    "message": "Failed to sign in the moderation interface, as it closed before it could finish signing in"
+  },
+  "pages.moderation.errors.closed.title": {
+    "message": "The moderation interface was closed too quickly"
+  },
+  "pages.moderation.errors.generic.title": {
+    "message": "An unexpected error occurred whilst opening the moderation interface"
+  },
+  "pages.moderation.missing_ui_address.description": {
+    "message": "Moderation is enabled in your deployment, but not Element Web, which is required for the moderation interface to work."
+  },
+  "pages.moderation.missing_ui_address.title": {
+    "message": "The moderation interface requires Element Web to be enabled"
+  },
+  "pages.moderation.recovery_key.copied": {
+    "message": "Recovery key copied"
+  },
+  "pages.moderation.recovery_key.copy_failed": {
+    "message": "Could not copy recovery key"
+  },
+  "pages.moderation.recovery_key.help": {
+    "message": "This is the recovery key used to unlock backups of encrypted messages for the {mxid} account"
+  },
+  "pages.moderation.recovery_key.label": {
+    "message": "Recovery key"
+  },
+  "pages.moderation.title": {
+    "message": "Moderation"
+  },
+  "pages.moderation.unavailable_alert.description": {
+    "message": "This feature is not available in ESS Community. Upgrade to ESS Pro to enable it."
+  },
+  "pages.moderation.unavailable_alert.title": {
+    "message": "Moderation is a feature available in ESS Pro"
+  },
   "pages.personal_tokens.acting_user_column": {
     "message": "Acting User"
   },
@@ -144,145 +237,145 @@
     "message": "Acting user"
   },
   "pages.personal_tokens.actor_user_help": {
-    "message": "The user this token will act on behalf of"
+    "message": "此 Token 将以用户的名义执行以下操作"
   },
   "pages.personal_tokens.actor_user_label": {
     "message": "Acting user"
   },
   "pages.personal_tokens.add_token_title": {
-    "message": "Add personal token"
+    "message": "添加个人 Token"
   },
   "pages.personal_tokens.cant_regenerate_tooltip": {
-    "message": "Only {ownerMxid} can regenerate this token"
+    "message": "仅{ownerMxid} 可重新生成此 Token"
   },
   "pages.personal_tokens.cant_regenerate_tooltip_generic": {
-    "message": "Only the owner of the token can regenerate it"
+    "message": "仅 Token 的所有者可以重新生成"
   },
   "pages.personal_tokens.count": {
     "message": "{count, plural, =0 {No personal tokens} one {# personal token} other {# personal tokens}}"
   },
   "pages.personal_tokens.create_error": {
-    "message": "Failed to create personal token"
+    "message": "个人 Token 创建失败"
   },
   "pages.personal_tokens.create_success": {
-    "message": "Personal token created successfully"
+    "message": "个人 Token 创建成功"
   },
   "pages.personal_tokens.create_token": {
-    "message": "Create token"
+    "message": "创建 Token"
   },
   "pages.personal_tokens.created_at_label": {
-    "message": "Created at"
+    "message": "创建于"
   },
   "pages.personal_tokens.description": {
-    "message": "Personal tokens are long-lived access tokens with specific access, including Synapse and MAS administration API access. They are useful for automating tasks and for creating integrations."
+    "message": "个人 Token是具有特定权限的长效访问 Token，包括 Synapse 与 MAS 管理 API 的访问权限。他们可以用于自动化任务与集成的创建。"
   },
   "pages.personal_tokens.device_id_help": {
-    "message": "Leave empty to generate a random 10-character device ID"
+    "message": "留空以随机生成 10 个字符的设备 ID"
   },
   "pages.personal_tokens.device_id_label": {
-    "message": "Device ID"
+    "message": "设备 ID"
   },
   "pages.personal_tokens.device_id_placeholder": {
     "message": "ABCDEFGHIJ"
   },
   "pages.personal_tokens.expires_at_column": {
-    "message": "Expires at"
+    "message": "有效期到"
   },
   "pages.personal_tokens.expires_at_label": {
-    "message": "Expires at"
+    "message": "有效期到"
   },
   "pages.personal_tokens.expires_in_help": {
-    "message": "Leave empty for tokens that never expire"
+    "message": "留空表示 Token 永不过期"
   },
   "pages.personal_tokens.expires_in_label": {
-    "message": "Expires in (days)"
+    "message": "剩余有效期（天）"
   },
   "pages.personal_tokens.expires_in_placeholder": {
     "message": "30"
   },
   "pages.personal_tokens.filter.active": {
-    "message": "Active"
+    "message": "活跃"
   },
   "pages.personal_tokens.filter.expires": {
-    "message": "With an expiry date"
+    "message": "含有效期"
   },
   "pages.personal_tokens.filter.no_expiry": {
-    "message": "Never expires"
+    "message": "永不过期"
   },
   "pages.personal_tokens.filter.revoked": {
-    "message": "Revoked"
+    "message": "已撤消"
   },
   "pages.personal_tokens.filter.scope_mas_admin": {
-    "message": "Access to the MAS admin API"
+    "message": "访问 MAS 管理 API"
   },
   "pages.personal_tokens.filter.scope_matrix_client": {
-    "message": "Access to the Matrix Client-Server API"
+    "message": "访问 Matrix 客户端 - 服务器 API"
   },
   "pages.personal_tokens.filter.scope_synapse_admin": {
-    "message": "Access to the Synapse admin API"
+    "message": "访问 Synapse 管理 API"
   },
   "pages.personal_tokens.last_active_column": {
-    "message": "Last Active"
+    "message": "最后活跃"
   },
   "pages.personal_tokens.last_active_ip_label": {
-    "message": "Last active IP"
+    "message": "最后活跃 IP"
   },
   "pages.personal_tokens.last_active_label": {
-    "message": "Last active"
+    "message": "最后活跃"
   },
   "pages.personal_tokens.loading_more": {
-    "message": "Loading more tokens..."
+    "message": "载入更多 Token…"
   },
   "pages.personal_tokens.name_column": {
-    "message": "Name"
+    "message": "名称"
   },
   "pages.personal_tokens.name_help": {
-    "message": "A human-readable name for the token, to help you identify it"
+    "message": "为 Token 添加一个易于理解的名称以用于识别"
   },
   "pages.personal_tokens.name_label": {
-    "message": "Token name"
+    "message": "Token 名称"
   },
   "pages.personal_tokens.name_placeholder": {
-    "message": "My application token"
+    "message": "我的应用程序 Token"
   },
   "pages.personal_tokens.never_expires": {
-    "message": "Never expires"
+    "message": "永不过期"
   },
   "pages.personal_tokens.never_used": {
-    "message": "Never used"
+    "message": "从未使用过"
   },
   "pages.personal_tokens.not_found.description": {
-    "message": "The personal token you're looking for doesn't exist or has been removed."
+    "message": "你要查找的 Token 不存在或已被删除。"
   },
   "pages.personal_tokens.not_found.title": {
-    "message": "Personal token not found"
+    "message": "个人 Token 未找到"
   },
   "pages.personal_tokens.owner_user_label": {
-    "message": "Owner"
+    "message": "所有者"
   },
   "pages.personal_tokens.regenerate_confirm": {
-    "message": "Regenerate token"
+    "message": "重新生成 Token"
   },
   "pages.personal_tokens.regenerate_error": {
-    "message": "Failed to regenerate personal token"
+    "message": "个人 Token 重新生成失败"
   },
   "pages.personal_tokens.regenerate_expires_help": {
-    "message": "Leave empty to keep the same expiry as before, or set a new expiry time"
+    "message": "留空以保持与之前相同的有效期，或设置新的有效期"
   },
   "pages.personal_tokens.regenerate_success": {
-    "message": "Personal token regenerated successfully"
+    "message": "个人 Token 已成功重新生成"
   },
   "pages.personal_tokens.regenerate_token": {
-    "message": "Regenerate token"
+    "message": "重新生成 Token"
   },
   "pages.personal_tokens.regenerate_token_title": {
-    "message": "Regenerate personal token"
+    "message": "重新生成个人 Token"
   },
   "pages.personal_tokens.regenerate_warning": {
-    "message": "This will generate a new access token and invalidate the current one. Any applications using the current token will need to be updated."
+    "message": "将生成新的访问 Token，并使当前的访问 Token 失效。所有使用当前 Token 的应用程序都需要更新。"
   },
   "pages.personal_tokens.revoke_success": {
-    "message": "Personal token revoked successfully"
+    "message": "个人 Token 已成功撤消"
   },
   "pages.personal_tokens.revoke_token": {
     "message": "Revoke token"

@@ -11,6 +11,9 @@
   "action.close": {
     "message": "Lukk"
   },
+  "action.copy": {
+    "message": "Copy"
+  },
   "action.go_back": {
     "message": "Gå tilbake"
   },
@@ -19,6 +22,9 @@
   },
   "action.retry": {
     "message": "Prøv på nytt"
+  },
+  "action.sign_in": {
+    "message": "Sign in"
   },
   "action.sign_out": {
     "message": "Logg ut"
@@ -59,14 +65,41 @@
   "header.user_menu.title": {
     "message": "Konto-meny"
   },
+  "marketing.also_available_in_pro.description": {
+    "message": "<p><link>ESS Pro</link> is the commercial backend distribution from Element.</p> <p>It includes everything in ESS Community plus additional features and services that are tailored to professional environments with more than 100 users up to massive scale in the millions.</p> <p>It is designed to support enterprise requirements in terms of advanced IAM, compliance, scalability, high availability and multi-tenancy.</p>"
+  },
+  "marketing.also_available_in_pro.title": {
+    "message": "Also available in Pro…"
+  },
+  "marketing.also_available_in_pro.upgrade": {
+    "message": "Upgrade to Pro"
+  },
+  "marketing.auditing.description": {
+    "message": "<p>Auditing gives organizations the ability to keep records of end-to-end encrypted conversations and room events to meet compliance or legal requirements.</p> <p>When enabled, it is visible to all end users which rooms are being recorded to ensure transparency of the auditing process.</p> <p>Auditing can be configured to suit an organization’s specific requirements. For instance direct messages between two individuals can be excluded so that only group conversations are recorded.</p> <p>Audit data is being stored as a stream of machine-readable events in the JSON format either on file storage or S3 and can be forwarded to log analyzer tooling for further filtering and analysis.</p>"
+  },
+  "marketing.auditing.title": {
+    "message": "Auditing"
+  },
+  "marketing.moderation.description": {
+    "message": "<p>Moderation enables an organisation to administer all rooms from a central point. A ‘moderator’ account will join defined rooms with room admin privileges. Server administrators can seamlessly impersonate the account from the admin console to manage and moderate their rooms.</p> <ul> <li>Manage rooms and their settings (name, topic, permissions, etc.)</li> <li>Manage room memberships</li> <li>Remove unwanted messages and uploaded media</li> <li>Recover abandoned rooms (all users have left)</li> <li>Moderator account can or cannot read encrypted message contents (configurable)</li> </ul>"
+  },
+  "marketing.moderation.title": {
+    "message": "Moderation"
+  },
+  "navigation.auditing": {
+    "message": "Auditing"
+  },
   "navigation.dashboard": {
     "message": "Dashbord"
   },
   "navigation.documentation": {
     "message": "Dokumentasjon"
   },
+  "navigation.moderation": {
+    "message": "Moderation"
+  },
   "navigation.personal_tokens": {
-    "message": "Personal tokens"
+    "message": "Personlige tokens"
   },
   "navigation.registration_tokens": {
     "message": "Registreringstokener"
@@ -76,6 +109,15 @@
   },
   "navigation.users": {
     "message": "Brukere"
+  },
+  "pages.auditing.title": {
+    "message": "Auditing"
+  },
+  "pages.auditing.unavailable_alert.description": {
+    "message": "This feature is not available in ESS Community. Upgrade to ESS Pro to enable it."
+  },
+  "pages.auditing.unavailable_alert.title": {
+    "message": "Auditing is a feature available in ESS Pro"
   },
   "pages.dashboard.current_ess_version": {
     "message": "ESS-versjon"
@@ -137,6 +179,57 @@
   "pages.login.title": {
     "message": "Logg inn"
   },
+  "pages.moderation.description": {
+    "message": "Sign in as <b>{mxid}</b> to perform administrative actions in any room."
+  },
+  "pages.moderation.disabled_alert.description": {
+    "message": "This feature is part of your subscription. You can ask an administrator to enable it."
+  },
+  "pages.moderation.disabled_alert.title": {
+    "message": "Moderation is currently disabled"
+  },
+  "pages.moderation.errors.cant_open.description": {
+    "message": "Your browser is blocking the opening of pop-up windows. Please make sure you allow pop-ups from this site."
+  },
+  "pages.moderation.errors.cant_open.title": {
+    "message": "Failed to open the moderation interface in a new window"
+  },
+  "pages.moderation.errors.closed.description": {
+    "message": "Failed to sign in the moderation interface, as it closed before it could finish signing in"
+  },
+  "pages.moderation.errors.closed.title": {
+    "message": "The moderation interface was closed too quickly"
+  },
+  "pages.moderation.errors.generic.title": {
+    "message": "An unexpected error occurred whilst opening the moderation interface"
+  },
+  "pages.moderation.missing_ui_address.description": {
+    "message": "Moderation is enabled in your deployment, but not Element Web, which is required for the moderation interface to work."
+  },
+  "pages.moderation.missing_ui_address.title": {
+    "message": "The moderation interface requires Element Web to be enabled"
+  },
+  "pages.moderation.recovery_key.copied": {
+    "message": "Recovery key copied"
+  },
+  "pages.moderation.recovery_key.copy_failed": {
+    "message": "Could not copy recovery key"
+  },
+  "pages.moderation.recovery_key.help": {
+    "message": "This is the recovery key used to unlock backups of encrypted messages for the {mxid} account"
+  },
+  "pages.moderation.recovery_key.label": {
+    "message": "Recovery key"
+  },
+  "pages.moderation.title": {
+    "message": "Moderation"
+  },
+  "pages.moderation.unavailable_alert.description": {
+    "message": "This feature is not available in ESS Community. Upgrade to ESS Pro to enable it."
+  },
+  "pages.moderation.unavailable_alert.title": {
+    "message": "Moderation is a feature available in ESS Pro"
+  },
   "pages.personal_tokens.acting_user_column": {
     "message": "Acting User"
   },
@@ -144,43 +237,43 @@
     "message": "Acting user"
   },
   "pages.personal_tokens.actor_user_help": {
-    "message": "The user this token will act on behalf of"
+    "message": "Brukeren dette tokenet vil handle på vegne av"
   },
   "pages.personal_tokens.actor_user_label": {
     "message": "Acting user"
   },
   "pages.personal_tokens.add_token_title": {
-    "message": "Add personal token"
+    "message": "Legg til personlig token"
   },
   "pages.personal_tokens.cant_regenerate_tooltip": {
-    "message": "Only {ownerMxid} can regenerate this token"
+    "message": "Bare {ownerMxid} kan regenerere dette tokenet"
   },
   "pages.personal_tokens.cant_regenerate_tooltip_generic": {
-    "message": "Only the owner of the token can regenerate it"
+    "message": "Bare eieren av tokenet kan generere det på nytt"
   },
   "pages.personal_tokens.count": {
     "message": "{count, plural, =0 {No personal tokens} one {# personal token} other {# personal tokens}}"
   },
   "pages.personal_tokens.create_error": {
-    "message": "Failed to create personal token"
+    "message": "Kunne ikke opprette personlig token"
   },
   "pages.personal_tokens.create_success": {
-    "message": "Personal token created successfully"
+    "message": "Personlig token opprettet"
   },
   "pages.personal_tokens.create_token": {
-    "message": "Create token"
+    "message": "Opprett token"
   },
   "pages.personal_tokens.created_at_label": {
     "message": "Created at"
   },
   "pages.personal_tokens.description": {
-    "message": "Personal tokens are long-lived access tokens with specific access, including Synapse and MAS administration API access. They are useful for automating tasks and for creating integrations."
+    "message": "Personlige tokener er tilgangstokener med lang levetid og spesifikk tilgang, inkludert Synapse- og MAS-administrasjons-API-tilgang. De er nyttige for å automatisere oppgaver og for å lage integrasjoner."
   },
   "pages.personal_tokens.device_id_help": {
-    "message": "Leave empty to generate a random 10-character device ID"
+    "message": "La feltet stå tomt for å generere en tilfeldig enhets-ID på 10 tegn"
   },
   "pages.personal_tokens.device_id_label": {
-    "message": "Device ID"
+    "message": "Enhets-ID"
   },
   "pages.personal_tokens.device_id_placeholder": {
     "message": "ABCDEFGHIJ"
@@ -192,64 +285,64 @@
     "message": "Expires at"
   },
   "pages.personal_tokens.expires_in_help": {
-    "message": "Leave empty for tokens that never expire"
+    "message": "La feltet stå tomt for tokens som aldri utløper"
   },
   "pages.personal_tokens.expires_in_label": {
-    "message": "Expires in (days)"
+    "message": "Utløper om (dager)"
   },
   "pages.personal_tokens.expires_in_placeholder": {
     "message": "30"
   },
   "pages.personal_tokens.filter.active": {
-    "message": "Active"
+    "message": "Aktiv"
   },
   "pages.personal_tokens.filter.expires": {
-    "message": "With an expiry date"
+    "message": "Med en utløpsdato"
   },
   "pages.personal_tokens.filter.no_expiry": {
-    "message": "Never expires"
+    "message": "Utløper aldri"
   },
   "pages.personal_tokens.filter.revoked": {
-    "message": "Revoked"
+    "message": "Tilbakekalt"
   },
   "pages.personal_tokens.filter.scope_mas_admin": {
-    "message": "Access to the MAS admin API"
+    "message": "Tilgang til MAS admin APIet"
   },
   "pages.personal_tokens.filter.scope_matrix_client": {
-    "message": "Access to the Matrix Client-Server API"
+    "message": "Tilgang til Matrix Client-Server APIet"
   },
   "pages.personal_tokens.filter.scope_synapse_admin": {
-    "message": "Access to the Synapse admin API"
+    "message": "Tilgang til Synapse admin APIet"
   },
   "pages.personal_tokens.last_active_column": {
-    "message": "Last Active"
+    "message": "Sist aktiv"
   },
   "pages.personal_tokens.last_active_ip_label": {
-    "message": "Last active IP"
+    "message": "Siste aktive IP-adresse"
   },
   "pages.personal_tokens.last_active_label": {
-    "message": "Last active"
+    "message": "Sist aktiv"
   },
   "pages.personal_tokens.loading_more": {
-    "message": "Loading more tokens..."
+    "message": "Laster inn flere tokens..."
   },
   "pages.personal_tokens.name_column": {
-    "message": "Name"
+    "message": "Navn"
   },
   "pages.personal_tokens.name_help": {
-    "message": "A human-readable name for the token, to help you identify it"
+    "message": "Et menneskelig lesbart navn for tokenet, for å hjelpe deg med å identifisere det"
   },
   "pages.personal_tokens.name_label": {
-    "message": "Token name"
+    "message": "Navn på token"
   },
   "pages.personal_tokens.name_placeholder": {
-    "message": "My application token"
+    "message": "Mitt applikasjonstoken"
   },
   "pages.personal_tokens.never_expires": {
-    "message": "Never expires"
+    "message": "Utløper aldri"
   },
   "pages.personal_tokens.never_used": {
-    "message": "Never used"
+    "message": "Aldri brukt"
   },
   "pages.personal_tokens.not_found.description": {
     "message": "The personal token you're looking for doesn't exist or has been removed."

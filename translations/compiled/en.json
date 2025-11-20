@@ -23,6 +23,12 @@
       "value": "Close"
     }
   ],
+  "action.copy": [
+    {
+      "type": 0,
+      "value": "Copy"
+    }
+  ],
   "action.go_back": [
     {
       "type": 0,
@@ -39,6 +45,12 @@
     {
       "type": 0,
       "value": "Retry"
+    }
+  ],
+  "action.sign_in": [
+    {
+      "type": 0,
+      "value": "Sign in"
     }
   ],
   "action.sign_out": [
@@ -166,6 +178,236 @@
       "value": "Account menu"
     }
   ],
+  "marketing.also_available_in_pro.description": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": 0,
+              "value": "ESS Pro"
+            }
+          ],
+          "type": 8,
+          "value": "link"
+        },
+        {
+          "type": 0,
+          "value": " is the commercial backend distribution from Element."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "It includes everything in ESS Community plus additional features and services that are tailored to professional environments with more than 100 users up to massive scale in the millions."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "It is designed to support enterprise requirements in terms of advanced IAM, compliance, scalability, high availability and multi-tenancy."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    }
+  ],
+  "marketing.also_available_in_pro.title": [
+    {
+      "type": 0,
+      "value": "Also available in Pro…"
+    }
+  ],
+  "marketing.also_available_in_pro.upgrade": [
+    {
+      "type": 0,
+      "value": "Upgrade to Pro"
+    }
+  ],
+  "marketing.auditing.description": [
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "Auditing gives organizations the ability to keep records of end-to-end encrypted conversations and room events to meet compliance or legal requirements."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "When enabled, it is visible to all end users which rooms are being recorded to ensure transparency of the auditing process."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "Auditing can be configured to suit an organization’s specific requirements. For instance direct messages between two individuals can be excluded so that only group conversations are recorded."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "Audit data is being stored as a stream of machine-readable events in the JSON format either on file storage or S3 and can be forwarded to log analyzer tooling for further filtering and analysis."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    }
+  ],
+  "marketing.auditing.title": [
+    {
+      "type": 0,
+      "value": "Auditing"
+    }
+  ],
+  "marketing.moderation.description": [
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "Moderation enables an organisation to administer all rooms from a central point. A ‘moderator’ account will join defined rooms with room admin privileges. Server administrators can seamlessly impersonate the account from the admin console to manage and moderate their rooms."
+        }
+      ],
+      "type": 8,
+      "value": "p"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": " "
+        },
+        {
+          "children": [
+            {
+              "type": 0,
+              "value": "Manage rooms and their settings (name, topic, permissions, etc.)"
+            }
+          ],
+          "type": 8,
+          "value": "li"
+        },
+        {
+          "type": 0,
+          "value": " "
+        },
+        {
+          "children": [
+            {
+              "type": 0,
+              "value": "Manage room memberships"
+            }
+          ],
+          "type": 8,
+          "value": "li"
+        },
+        {
+          "type": 0,
+          "value": " "
+        },
+        {
+          "children": [
+            {
+              "type": 0,
+              "value": "Remove unwanted messages and uploaded media"
+            }
+          ],
+          "type": 8,
+          "value": "li"
+        },
+        {
+          "type": 0,
+          "value": " "
+        },
+        {
+          "children": [
+            {
+              "type": 0,
+              "value": "Recover abandoned rooms (all users have left)"
+            }
+          ],
+          "type": 8,
+          "value": "li"
+        },
+        {
+          "type": 0,
+          "value": " "
+        },
+        {
+          "children": [
+            {
+              "type": 0,
+              "value": "Moderator account can or cannot read encrypted message contents (configurable)"
+            }
+          ],
+          "type": 8,
+          "value": "li"
+        },
+        {
+          "type": 0,
+          "value": " "
+        }
+      ],
+      "type": 8,
+      "value": "ul"
+    }
+  ],
+  "marketing.moderation.title": [
+    {
+      "type": 0,
+      "value": "Moderation"
+    }
+  ],
+  "navigation.auditing": [
+    {
+      "type": 0,
+      "value": "Auditing"
+    }
+  ],
   "navigation.dashboard": [
     {
       "type": 0,
@@ -176,6 +418,12 @@
     {
       "type": 0,
       "value": "Documentation"
+    }
+  ],
+  "navigation.moderation": [
+    {
+      "type": 0,
+      "value": "Moderation"
     }
   ],
   "navigation.personal_tokens": [
@@ -200,6 +448,24 @@
     {
       "type": 0,
       "value": "Users"
+    }
+  ],
+  "pages.auditing.title": [
+    {
+      "type": 0,
+      "value": "Auditing"
+    }
+  ],
+  "pages.auditing.unavailable_alert.description": [
+    {
+      "type": 0,
+      "value": "This feature is not available in ESS Community. Upgrade to ESS Pro to enable it."
+    }
+  ],
+  "pages.auditing.unavailable_alert.title": [
+    {
+      "type": 0,
+      "value": "Auditing is a feature available in ESS Pro"
     }
   ],
   "pages.dashboard.current_ess_version": [
@@ -328,6 +594,130 @@
     {
       "type": 0,
       "value": "Login"
+    }
+  ],
+  "pages.moderation.description": [
+    {
+      "type": 0,
+      "value": "Sign in as "
+    },
+    {
+      "children": [
+        {
+          "type": 1,
+          "value": "mxid"
+        }
+      ],
+      "type": 8,
+      "value": "b"
+    },
+    {
+      "type": 0,
+      "value": " to perform administrative actions in any room."
+    }
+  ],
+  "pages.moderation.disabled_alert.description": [
+    {
+      "type": 0,
+      "value": "This feature is part of your subscription. You can ask an administrator to enable it."
+    }
+  ],
+  "pages.moderation.disabled_alert.title": [
+    {
+      "type": 0,
+      "value": "Moderation is currently disabled"
+    }
+  ],
+  "pages.moderation.errors.cant_open.description": [
+    {
+      "type": 0,
+      "value": "Your browser is blocking the opening of pop-up windows. Please make sure you allow pop-ups from this site."
+    }
+  ],
+  "pages.moderation.errors.cant_open.title": [
+    {
+      "type": 0,
+      "value": "Failed to open the moderation interface in a new window"
+    }
+  ],
+  "pages.moderation.errors.closed.description": [
+    {
+      "type": 0,
+      "value": "Failed to sign in the moderation interface, as it closed before it could finish signing in"
+    }
+  ],
+  "pages.moderation.errors.closed.title": [
+    {
+      "type": 0,
+      "value": "The moderation interface was closed too quickly"
+    }
+  ],
+  "pages.moderation.errors.generic.title": [
+    {
+      "type": 0,
+      "value": "An unexpected error occurred whilst opening the moderation interface"
+    }
+  ],
+  "pages.moderation.missing_ui_address.description": [
+    {
+      "type": 0,
+      "value": "Moderation is enabled in your deployment, but not Element Web, which is required for the moderation interface to work."
+    }
+  ],
+  "pages.moderation.missing_ui_address.title": [
+    {
+      "type": 0,
+      "value": "The moderation interface requires Element Web to be enabled"
+    }
+  ],
+  "pages.moderation.recovery_key.copied": [
+    {
+      "type": 0,
+      "value": "Recovery key copied"
+    }
+  ],
+  "pages.moderation.recovery_key.copy_failed": [
+    {
+      "type": 0,
+      "value": "Could not copy recovery key"
+    }
+  ],
+  "pages.moderation.recovery_key.help": [
+    {
+      "type": 0,
+      "value": "This is the recovery key used to unlock backups of encrypted messages for the "
+    },
+    {
+      "type": 1,
+      "value": "mxid"
+    },
+    {
+      "type": 0,
+      "value": " account"
+    }
+  ],
+  "pages.moderation.recovery_key.label": [
+    {
+      "type": 0,
+      "value": "Recovery key"
+    }
+  ],
+  "pages.moderation.title": [
+    {
+      "type": 0,
+      "value": "Moderation"
+    }
+  ],
+  "pages.moderation.unavailable_alert.description": [
+    {
+      "type": 0,
+      "value": "This feature is not available in ESS Community. Upgrade to ESS Pro to enable it."
+    }
+  ],
+  "pages.moderation.unavailable_alert.title": [
+    {
+      "type": 0,
+      "value": "Moderation is a feature available in ESS Pro"
     }
   ],
   "pages.personal_tokens.acting_user_column": [

@@ -11,6 +11,9 @@
   "action.close": {
     "message": "Close"
   },
+  "action.copy": {
+    "message": "Copy"
+  },
   "action.go_back": {
     "message": "Go back"
   },
@@ -19,6 +22,9 @@
   },
   "action.retry": {
     "message": "Retry"
+  },
+  "action.sign_in": {
+    "message": "Sign in"
   },
   "action.sign_out": {
     "message": "Sign out"
@@ -59,11 +65,38 @@
   "header.user_menu.title": {
     "message": "Account menu"
   },
+  "marketing.also_available_in_pro.description": {
+    "message": "<p><link>ESS Pro</link> is the commercial backend distribution from Element.</p> <p>It includes everything in ESS Community plus additional features and services that are tailored to professional environments with more than 100 users up to massive scale in the millions.</p> <p>It is designed to support enterprise requirements in terms of advanced IAM, compliance, scalability, high availability and multi-tenancy.</p>"
+  },
+  "marketing.also_available_in_pro.title": {
+    "message": "Also available in Pro…"
+  },
+  "marketing.also_available_in_pro.upgrade": {
+    "message": "Upgrade to Pro"
+  },
+  "marketing.auditing.description": {
+    "message": "<p>Auditing gives organizations the ability to keep records of end-to-end encrypted conversations and room events to meet compliance or legal requirements.</p> <p>When enabled, it is visible to all end users which rooms are being recorded to ensure transparency of the auditing process.</p> <p>Auditing can be configured to suit an organization’s specific requirements. For instance direct messages between two individuals can be excluded so that only group conversations are recorded.</p> <p>Audit data is being stored as a stream of machine-readable events in the JSON format either on file storage or S3 and can be forwarded to log analyzer tooling for further filtering and analysis.</p>"
+  },
+  "marketing.auditing.title": {
+    "message": "Auditing"
+  },
+  "marketing.moderation.description": {
+    "message": "<p>Moderation enables an organisation to administer all rooms from a central point. A ‘moderator’ account will join defined rooms with room admin privileges. Server administrators can seamlessly impersonate the account from the admin console to manage and moderate their rooms.</p> <ul> <li>Manage rooms and their settings (name, topic, permissions, etc.)</li> <li>Manage room memberships</li> <li>Remove unwanted messages and uploaded media</li> <li>Recover abandoned rooms (all users have left)</li> <li>Moderator account can or cannot read encrypted message contents (configurable)</li> </ul>"
+  },
+  "marketing.moderation.title": {
+    "message": "Moderation"
+  },
+  "navigation.auditing": {
+    "message": "Auditing"
+  },
   "navigation.dashboard": {
     "message": "Dashboard"
   },
   "navigation.documentation": {
     "message": "Documentation"
+  },
+  "navigation.moderation": {
+    "message": "Moderation"
   },
   "navigation.personal_tokens": {
     "message": "Personal tokens"
@@ -76,6 +109,15 @@
   },
   "navigation.users": {
     "message": "Users"
+  },
+  "pages.auditing.title": {
+    "message": "Auditing"
+  },
+  "pages.auditing.unavailable_alert.description": {
+    "message": "This feature is not available in ESS Community. Upgrade to ESS Pro to enable it."
+  },
+  "pages.auditing.unavailable_alert.title": {
+    "message": "Auditing is a feature available in ESS Pro"
   },
   "pages.dashboard.current_ess_version": {
     "message": "ESS version"
@@ -136,6 +178,57 @@
   },
   "pages.login.title": {
     "message": "Login"
+  },
+  "pages.moderation.description": {
+    "message": "Sign in as <b>{mxid}</b> to perform administrative actions in any room."
+  },
+  "pages.moderation.disabled_alert.description": {
+    "message": "This feature is part of your subscription. You can ask an administrator to enable it."
+  },
+  "pages.moderation.disabled_alert.title": {
+    "message": "Moderation is currently disabled"
+  },
+  "pages.moderation.errors.cant_open.description": {
+    "message": "Your browser is blocking the opening of pop-up windows. Please make sure you allow pop-ups from this site."
+  },
+  "pages.moderation.errors.cant_open.title": {
+    "message": "Failed to open the moderation interface in a new window"
+  },
+  "pages.moderation.errors.closed.description": {
+    "message": "Failed to sign in the moderation interface, as it closed before it could finish signing in"
+  },
+  "pages.moderation.errors.closed.title": {
+    "message": "The moderation interface was closed too quickly"
+  },
+  "pages.moderation.errors.generic.title": {
+    "message": "An unexpected error occurred whilst opening the moderation interface"
+  },
+  "pages.moderation.missing_ui_address.description": {
+    "message": "Moderation is enabled in your deployment, but not Element Web, which is required for the moderation interface to work."
+  },
+  "pages.moderation.missing_ui_address.title": {
+    "message": "The moderation interface requires Element Web to be enabled"
+  },
+  "pages.moderation.recovery_key.copied": {
+    "message": "Recovery key copied"
+  },
+  "pages.moderation.recovery_key.copy_failed": {
+    "message": "Could not copy recovery key"
+  },
+  "pages.moderation.recovery_key.help": {
+    "message": "This is the recovery key used to unlock backups of encrypted messages for the {mxid} account"
+  },
+  "pages.moderation.recovery_key.label": {
+    "message": "Recovery key"
+  },
+  "pages.moderation.title": {
+    "message": "Moderation"
+  },
+  "pages.moderation.unavailable_alert.description": {
+    "message": "This feature is not available in ESS Community. Upgrade to ESS Pro to enable it."
+  },
+  "pages.moderation.unavailable_alert.title": {
+    "message": "Moderation is a feature available in ESS Pro"
   },
   "pages.personal_tokens.acting_user_column": {
     "message": "Acting User"
