@@ -685,15 +685,7 @@
   "pages.moderation.recovery_key.help": [
     {
       "type": 0,
-      "value": "Il s'agit de la clé de récupération utilisée pour déverrouiller les sauvegardes des messages chiffrés pour le compte "
-    },
-    {
-      "type": 1,
-      "value": "mxid"
-    },
-    {
-      "type": 0,
-      "value": "."
+      "value": "Il s'agit de la clé de récupération utilisée pour permettre la lecture des messages chiffrés."
     }
   ],
   "pages.moderation.recovery_key.label": [

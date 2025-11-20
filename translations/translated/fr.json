@@ -216,7 +216,7 @@
     "message": "Impossible de copier la clé de récupération"
   },
   "pages.moderation.recovery_key.help": {
-    "message": "Il s'agit de la clé de récupération utilisée pour déverrouiller les sauvegardes des messages chiffrés pour le compte {mxid}."
+    "message": "Il s'agit de la clé de récupération utilisée pour permettre la lecture des messages chiffrés."
   },
   "pages.moderation.recovery_key.label": {
     "message": "Clé de récupération"

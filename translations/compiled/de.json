@@ -697,15 +697,7 @@
   "pages.moderation.recovery_key.help": [
     {
       "type": 0,
-      "value": "Dies ist der Wiederherstellungsschlüssel, der zum Entschlüsseln verschlüsselter Nachrichten des "
-    },
-    {
-      "type": 1,
-      "value": "mxid"
-    },
-    {
-      "type": 0,
-      "value": " Kontos verwendet wird."
+      "value": "Dies ist der Wiederherstellungsschlüssel, der zum Lesen verschlüsselter Nachrichten benötigt wird."
     }
   ],
   "pages.moderation.recovery_key.label": [
