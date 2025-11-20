@@ -343,10 +343,7 @@ function AdminbotContent({ config, synapseRoot }: AdminbotContentProps) {
         )}
 
         {config.secure_passphrase && (
-          <SecurePassphrase
-            value={config.secure_passphrase}
-            mxid={config.mxid}
-          />
+          <SecurePassphrase value={config.secure_passphrase} />
         )}
       </div>
     </>
@@ -355,10 +352,9 @@ function AdminbotContent({ config, synapseRoot }: AdminbotContentProps) {
 
 interface SecurePassphraseProps {
   value: string;
-  mxid: string;
 }
 
-function SecurePassphrase({ value, mxid }: SecurePassphraseProps) {
+function SecurePassphrase({ value }: SecurePassphraseProps) {
   const intl = useIntl();
   const onCopyClick = useCallback(
     async (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -422,10 +418,7 @@ function SecurePassphrase({ value, mxid }: SecurePassphraseProps) {
           <FormattedMessage
             id="pages.moderation.recovery_key.help"
             description="On the moderation page, help text for the recovery key readonly input field"
-            defaultMessage="This is the recovery key used to unlock backups of encrypted messages for the {mxid} account"
-            values={{
-              mxid,
-            }}
+            defaultMessage="This is the recovery key used to enable reading encrypted messages."
           />
         </Form.HelpMessage>
       </Form.Field>
