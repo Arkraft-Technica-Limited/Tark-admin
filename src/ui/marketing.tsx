@@ -2,7 +2,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 
-import { AdminIcon } from "@vector-im/compound-design-tokens/assets/web/icons";
+import {
+  AdminIcon,
+  ExportArchiveIcon,
+} from "@vector-im/compound-design-tokens/assets/web/icons";
 import { Button } from "@vector-im/compound-web";
 import { FormattedMessage } from "react-intl";
 
@@ -95,5 +98,43 @@ console to manage and moderate their rooms.</p>
       }}
       description="Description of the card explaining what moderation is"
     />
+  </Card.Root>
+);
+
+export const AuditingCard = ({ proBadge }: { proBadge?: boolean }) => (
+  <Card.Root kind="secondary">
+    <Card.Header>
+      <Card.Icon icon={ExportArchiveIcon} />
+      <Card.Title>
+        <FormattedMessage
+          id="marketing.auditing.title"
+          defaultMessage="Auditing"
+          description="Title of the card explaining what auditing is"
+        />
+      </Card.Title>
+      {proBadge && <ProBadge />}
+    </Card.Header>
+
+    <Card.Body>
+      <FormattedMessage
+        id="marketing.auditing.description"
+        defaultMessage="
+<p>Auditing gives organizations the ability to keep records of end-to-end
+encrypted conversations and room events to meet compliance or legal
+requirements.</p>
+<p>When enabled, it is visible to all end users which rooms are being recorded
+to ensure transparency of the auditing process.</p>
+<p>Auditing can be configured to suit an organization’s specific requirements.
+For instance direct messages between two individuals can be excluded so that
+only group conversations are recorded.</p>
+<p>Audit data is being stored as a stream of machine-readable events in the JSON
+format either on file storage or S3 and can be forwarded to log analyzer tooling
+for further filtering and analysis.</p>"
+        values={{
+          p: (chunks) => <p>{...chunks}</p>,
+        }}
+        description="Description of the card explaining what auditing is"
+      />
+    </Card.Body>
   </Card.Root>
 );
