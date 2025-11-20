@@ -367,20 +367,20 @@ function SecurePassphrase({ value, mxid }: SecurePassphraseProps) {
         await navigator.clipboard.writeText(value);
         toast.success(
           intl.formatMessage({
-            id: "pages.moderation.passphrase.copied",
+            id: "pages.moderation.recovery_key.copied",
             description:
-              "On the moderation page, message displayed when the secure backup passphrase is copied to the clipboard",
-            defaultMessage: "Secure backup passphrase copied",
+              "On the moderation page, message displayed when the recovery key is copied to the clipboard",
+            defaultMessage: "Recovery key copied",
           }),
         );
       } catch (error) {
-        console.error("Could not copy passphrase to the clipboard", error);
+        console.error("Could not copy recovery key to the clipboard", error);
         toast.error(
           intl.formatMessage({
-            id: "pages.moderation.passphrase.copy_failed",
+            id: "pages.moderation.recovery_key.copy_failed",
             description:
-              "On the moderation page, message displayed when the secure backup passphrase could not be copied to the clipboard",
-            defaultMessage: "Could not copy secure backup passphrase",
+              "On the moderation page, message displayed when the recovery key could not be copied to the clipboard",
+            defaultMessage: "Could not copy recovery key",
           }),
         );
       }
@@ -396,9 +396,9 @@ function SecurePassphrase({ value, mxid }: SecurePassphraseProps) {
       <Form.Field name="passphrase">
         <Form.Label>
           <FormattedMessage
-            id="pages.moderation.passphrase.label"
-            description="On the moderation page, label for the secure backup passphrase readonly input field"
-            defaultMessage="Secure backup passphrase"
+            id="pages.moderation.recovery_key.label"
+            description="On the moderation page, label for the recovery key readonly input field"
+            defaultMessage="Recovery key"
           />
         </Form.Label>
         <div className="flex items-center gap-3">
@@ -420,9 +420,9 @@ function SecurePassphrase({ value, mxid }: SecurePassphraseProps) {
         </div>
         <Form.HelpMessage className="text-pretty">
           <FormattedMessage
-            id="pages.moderation.passphrase.help"
-            description="On the moderation page, help text for the secure backup passphrase readonly input field"
-            defaultMessage="This is the passphrase used to unlock backups of encrypted messages for the {mxid} account"
+            id="pages.moderation.recovery_key.help"
+            description="On the moderation page, help text for the recovery key readonly input field"
+            defaultMessage="This is the recovery key used to unlock backups of encrypted messages for the {mxid} account"
             values={{
               mxid,
             }}
