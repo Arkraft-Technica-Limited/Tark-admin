@@ -289,7 +289,7 @@
   },
   "pages.moderation.recovery_key.help": {
     "description": "On the moderation page, help text for the recovery key readonly input field",
-    "message": "This is the recovery key used to unlock backups of encrypted messages for the {mxid} account"
+    "message": "This is the recovery key used to enable reading encrypted messages."
   },
   "pages.moderation.recovery_key.label": {
     "description": "On the moderation page, label for the recovery key readonly input field",
