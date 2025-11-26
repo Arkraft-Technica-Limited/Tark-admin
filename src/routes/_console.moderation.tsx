@@ -106,7 +106,7 @@ async function openModeration({
   controller.signal.addEventListener(
     "abort",
     () => clearInterval(checkInterval),
-    { signal: controller.signal },
+    { once: true },
   );
 
   globalThis.window.addEventListener(
@@ -148,15 +148,26 @@ async function openModeration({
         }
 
         case "loaded": {
-          loginWindow.postMessage(
-            {
-              hostname,
-              userId,
-              accessToken,
-              deviceId,
-            },
-            instance.origin,
+          const payload = {
+            hostname,
+            userId,
+            accessToken,
+            deviceId,
+          };
+
+          // Send the config right away, then try sending the config in a loop.
+          // Sometimes sending it too early doesn't work for some reason
+          loginWindow.postMessage(payload, instance.origin);
+          const configInterval = setInterval(() => {
+            loginWindow.postMessage(payload, instance.origin);
+          }, 500);
+
+          controller.signal.addEventListener(
+            "abort",
+            () => clearInterval(configInterval),
+            { once: true },
           );
+
           break;
         }
 
