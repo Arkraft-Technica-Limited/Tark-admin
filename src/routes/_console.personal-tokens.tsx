@@ -288,8 +288,10 @@ const PersonalTokenAddButton = ({
       });
 
       await navigate({
-        to: "/personal-tokens/$tokenId",
+        to: "./$tokenId",
         params: { tokenId: result.data.id },
+        // Keep existing search parameters
+        search: (previous) => previous,
       });
     },
   });
@@ -666,7 +668,10 @@ const UserCell = ({ userId, serverName }: UserCellProps) => {
 };
 
 const PersonalTokenCount = ({ serverName }: { serverName: string }) => {
-  const { data } = useSuspenseQuery(personalSessionsCountQuery(serverName));
+  const { parameters } = Route.useLoaderDeps();
+  const { data } = useSuspenseQuery(
+    personalSessionsCountQuery(serverName, parameters),
+  );
 
   return (
     <FormattedMessage
