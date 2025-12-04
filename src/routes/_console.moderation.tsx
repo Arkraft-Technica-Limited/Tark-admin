@@ -56,7 +56,9 @@ export const Route = createFileRoute("/_console/moderation")({
     const synapseRoot = wellKnown["m.homeserver"].base_url;
 
     await Promise.all([
-      queryClient.ensureQueryData(adminbotQuery(synapseRoot)),
+      // We use prefetchQuery and not ensureQueryData here to avoid failing the
+      // load if the adminbot endpoint fails to fetch
+      queryClient.prefetchQuery(adminbotQuery(synapseRoot)),
       queryClient.ensureQueryData(essVersionQuery(synapseRoot)),
     ]);
   },
@@ -438,12 +440,11 @@ function SecurePassphrase({ value }: SecurePassphraseProps) {
 }
 
 interface AdminbotDisabledProps {
-  variant: "pro" | "community" | null;
+  isPro?: boolean;
 }
 
-function AdminbotDisabled({ variant }: AdminbotDisabledProps) {
+function AdminbotDisabled({ isPro }: AdminbotDisabledProps) {
   const intl = useIntl();
-  const isPro = variant === "pro";
   return (
     <>
       {isPro ? (
@@ -490,6 +491,15 @@ function AdminbotDisabled({ variant }: AdminbotDisabledProps) {
   );
 }
 
+const MaybeAdminbotContent = ({ synapseRoot }: { synapseRoot: string }) => {
+  const { data: adminbot } = useSuspenseQuery(adminbotQuery(synapseRoot));
+  return adminbot ? (
+    <AdminbotContent config={adminbot} synapseRoot={synapseRoot} />
+  ) : (
+    <AdminbotDisabled isPro />
+  );
+};
+
 function RouteComponent() {
   const { credentials } = Route.useRouteContext();
   const { data: wellKnown } = useSuspenseQuery(
@@ -497,15 +507,14 @@ function RouteComponent() {
   );
   const synapseRoot = wellKnown["m.homeserver"].base_url;
   const variant = useEssVariant(synapseRoot);
-  const { data: adminbot } = useSuspenseQuery(adminbotQuery(synapseRoot));
 
   return (
     <Navigation.Content>
       <Navigation.Main>
-        {adminbot ? (
-          <AdminbotContent config={adminbot} synapseRoot={synapseRoot} />
+        {variant === "pro" ? (
+          <MaybeAdminbotContent synapseRoot={synapseRoot} />
         ) : (
-          <AdminbotDisabled variant={variant} />
+          <AdminbotDisabled />
         )}
       </Navigation.Main>
       <AppFooter />
