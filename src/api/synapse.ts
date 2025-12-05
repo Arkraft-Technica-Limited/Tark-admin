@@ -270,3 +270,97 @@ export const roomMembersQuery = (synapseRoot: string, roomId: string) =>
       return roomMembers;
     },
   });
+
+const RoomDeletionResponse = v.object({
+  delete_id: v.string(),
+});
+
+export interface DeleteRoomParameters {
+  block: boolean;
+}
+
+export const deleteRoom = async (
+  client: QueryClient,
+  synapseRoot: string,
+  roomId: string,
+  parameters: DeleteRoomParameters,
+  signal?: AbortSignal,
+): Promise<string> => {
+  const url = new URL(
+    `/_synapse/admin/v2/rooms/${encodeURIComponent(roomId)}`,
+    synapseRoot,
+  );
+
+  const baseOptions_ = await baseOptions(client, signal);
+  const response = await fetch(url, {
+    ...baseOptions_,
+    method: "DELETE",
+    body: JSON.stringify({
+      block: parameters.block,
+      purge: true,
+    }),
+    headers: {
+      ...baseOptions_.headers,
+      "Content-Type": "application/json",
+    },
+  });
+
+  await ensureNotError(response);
+
+  const result = v.parse(RoomDeletionResponse, await response.json());
+
+  return result.delete_id;
+};
+
+const ScheduledTask = v.object({
+  id: v.string(),
+  action: v.string(),
+  status: v.union([
+    v.literal("scheduled"),
+    v.literal("active"),
+    v.literal("complete"),
+    v.literal("failed"),
+  ]),
+  timestamp_ms: v.number(),
+  resource_id: v.nullable(v.string()),
+  result: v.nullable(v.record(v.string(), v.any())),
+  error: v.nullable(v.string()),
+});
+
+export type ScheduledTask = v.InferOutput<typeof ScheduledTask>;
+
+const ScheduledTaskList = v.object({
+  scheduled_tasks: v.array(ScheduledTask),
+});
+
+export const scheduledTasksForResource = (
+  synapseRoot: string,
+  resourceId: string,
+) =>
+  queryOptions({
+    queryKey: ["synapse", "scheduledTasks", synapseRoot, resourceId],
+    queryFn: async ({ client, signal }) => {
+      const url = new URL(
+        `/_synapse/admin/v1/scheduled_tasks?resource_id=${encodeURIComponent(resourceId)}`,
+        synapseRoot,
+      );
+
+      const response = await fetch(url, await baseOptions(client, signal));
+
+      await ensureNotError(response);
+
+      const statusList = v.parse(ScheduledTaskList, await response.json());
+
+      return statusList;
+    },
+    refetchInterval: (result) => {
+      const tasks = result.state.data?.scheduled_tasks ?? [];
+
+      // Refetch every second if there are any scheduled or active tasks
+      return tasks.some(
+        (task) => task.status == "scheduled" || task.status == "active",
+      )
+        ? 1000
+        : false;
+    },
+  });
