@@ -105,7 +105,8 @@ export const DynamicValue = ({ children, ...props }: DynamicValueProps) => {
 // Component to display a numeric value, formatted according to the current
 // locale, and with a proper aria-label fallback
 interface NumericValueProps
-  extends Omit<ValueProps, "children" | "aria-label" | "style">,
+  extends
+    Omit<ValueProps, "children" | "aria-label" | "style">,
     Pick<Intl.NumberFormatOptions, "unit" | "style" | "currency"> {
   value: number | bigint;
 }

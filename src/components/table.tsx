@@ -174,8 +174,10 @@ const ListHeader = forwardRef<HTMLTableSectionElement, ListHeaderProps>(
   },
 );
 
-interface ListHeaderCellProps
-  extends Omit<React.ComponentProps<"th">, "children"> {
+interface ListHeaderCellProps extends Omit<
+  React.ComponentProps<"th">,
+  "children"
+> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   header: THeader<any, any>;
 }
@@ -195,8 +197,10 @@ const ListHeaderCell = forwardRef<HTMLTableCellElement, ListHeaderCellProps>(
   },
 );
 
-interface VirtualizedListProps
-  extends Omit<React.ComponentProps<"div">, "children"> {
+interface VirtualizedListProps extends Omit<
+  React.ComponentProps<"div">,
+  "children"
+> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   table: Table<any>;
   fetchNextPage?: () => void;
