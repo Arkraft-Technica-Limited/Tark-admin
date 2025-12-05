@@ -29,6 +29,12 @@
       "value": "Copier"
     }
   ],
+  "action.delete": [
+    {
+      "type": 0,
+      "value": "Supprimer"
+    }
+  ],
   "action.go_back": [
     {
       "type": 0,
@@ -1501,6 +1507,148 @@
     {
       "type": 0,
       "value": "Valable jusqu'à"
+    }
+  ],
+  "pages.rooms.delete_room.alert.description": [
+    {
+      "type": 0,
+      "value": "Cette action supprimera définitivement tous les messages ou fichiers multimédias téléchargés sur le serveur et supprimera ce salon du répertoire. Les membres perdront l'accès à leurs messages et le salon sera supprimée de leur liste de salons."
+    }
+  ],
+  "pages.rooms.delete_room.alert.title": [
+    {
+      "type": 0,
+      "value": "Vous êtes sur le point de supprimer les données du salon."
+    }
+  ],
+  "pages.rooms.delete_room.block.help": [
+    {
+      "type": 0,
+      "value": "Empêcher les utilisateurs de rejoindre à nouveau le salon après sa suppression."
+    }
+  ],
+  "pages.rooms.delete_room.block.label": [
+    {
+      "type": 0,
+      "value": "Bloquer le salon"
+    }
+  ],
+  "pages.rooms.delete_room.button": [
+    {
+      "type": 0,
+      "value": "Supprimer définitivement"
+    }
+  ],
+  "pages.rooms.delete_room.error": [
+    {
+      "type": 0,
+      "value": "Impossible de démarrer la suppression du salon"
+    }
+  ],
+  "pages.rooms.delete_room.success": [
+    {
+      "type": 0,
+      "value": "Suppression du salon démarée"
+    }
+  ],
+  "pages.rooms.delete_room.title": [
+    {
+      "type": 0,
+      "value": "Supprimer ce salon ?"
+    }
+  ],
+  "pages.rooms.deletion.failure.description": [
+    {
+      "type": 0,
+      "value": "La tâche de suppression de la salle a échoué le "
+    },
+    {
+      "style": "short",
+      "type": 3,
+      "value": "timestamp"
+    },
+    {
+      "type": 0,
+      "value": " à "
+    },
+    {
+      "style": "short",
+      "type": 4,
+      "value": "timestamp"
+    },
+    {
+      "type": 0,
+      "value": " avec erreur : "
+    },
+    {
+      "type": 1,
+      "value": "error"
+    }
+  ],
+  "pages.rooms.deletion.failure.title": [
+    {
+      "type": 0,
+      "value": "La suppression a échoué"
+    }
+  ],
+  "pages.rooms.deletion.in_progress.description": [
+    {
+      "type": 0,
+      "value": "La suppression des salles est en cours depuis le "
+    },
+    {
+      "style": "short",
+      "type": 3,
+      "value": "timestamp"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "style": "short",
+      "type": 4,
+      "value": "timestamp"
+    },
+    {
+      "type": 0,
+      "value": " ."
+    }
+  ],
+  "pages.rooms.deletion.in_progress.title": [
+    {
+      "type": 0,
+      "value": "Suppression en cours"
+    }
+  ],
+  "pages.rooms.deletion.success.description": [
+    {
+      "type": 0,
+      "value": "Suppression du salon effectuée avec succès le "
+    },
+    {
+      "style": "short",
+      "type": 3,
+      "value": "timestamp"
+    },
+    {
+      "type": 0,
+      "value": " à "
+    },
+    {
+      "style": "short",
+      "type": 4,
+      "value": "timestamp"
+    },
+    {
+      "type": 0,
+      "value": " ."
+    }
+  ],
+  "pages.rooms.deletion.success.title": [
+    {
+      "type": 0,
+      "value": "Suppression réussie"
     }
   ],
   "pages.rooms.filters.empty_rooms": [

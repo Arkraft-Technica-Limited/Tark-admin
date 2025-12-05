@@ -29,6 +29,12 @@
       "value": "Kopieren"
     }
   ],
+  "action.delete": [
+    {
+      "type": 0,
+      "value": "Delete"
+    }
+  ],
   "action.go_back": [
     {
       "type": 0,
@@ -1513,6 +1519,148 @@
     {
       "type": 0,
       "value": "Gültig bis"
+    }
+  ],
+  "pages.rooms.delete_room.alert.description": [
+    {
+      "type": 0,
+      "value": "This will permanently delete all messages or media uploaded to the server and remove this room from the directory. Members will lose access to their messages and the room will be removed from their room list."
+    }
+  ],
+  "pages.rooms.delete_room.alert.title": [
+    {
+      "type": 0,
+      "value": "You’re about to delete room data"
+    }
+  ],
+  "pages.rooms.delete_room.block.help": [
+    {
+      "type": 0,
+      "value": "Prevent users from rejoining the room after deletion."
+    }
+  ],
+  "pages.rooms.delete_room.block.label": [
+    {
+      "type": 0,
+      "value": "Block room"
+    }
+  ],
+  "pages.rooms.delete_room.button": [
+    {
+      "type": 0,
+      "value": "Delete permanently"
+    }
+  ],
+  "pages.rooms.delete_room.error": [
+    {
+      "type": 0,
+      "value": "Failed to schedule room deletion"
+    }
+  ],
+  "pages.rooms.delete_room.success": [
+    {
+      "type": 0,
+      "value": "Room deletion scheduled"
+    }
+  ],
+  "pages.rooms.delete_room.title": [
+    {
+      "type": 0,
+      "value": "Delete this room?"
+    }
+  ],
+  "pages.rooms.deletion.failure.description": [
+    {
+      "type": 0,
+      "value": "Room deletion task failed on "
+    },
+    {
+      "style": "short",
+      "type": 3,
+      "value": "timestamp"
+    },
+    {
+      "type": 0,
+      "value": " at "
+    },
+    {
+      "style": "short",
+      "type": 4,
+      "value": "timestamp"
+    },
+    {
+      "type": 0,
+      "value": " with error: "
+    },
+    {
+      "type": 1,
+      "value": "error"
+    }
+  ],
+  "pages.rooms.deletion.failure.title": [
+    {
+      "type": 0,
+      "value": "Deletion failed"
+    }
+  ],
+  "pages.rooms.deletion.in_progress.description": [
+    {
+      "type": 0,
+      "value": "Room deletion task is in progress since "
+    },
+    {
+      "style": "short",
+      "type": 3,
+      "value": "timestamp"
+    },
+    {
+      "type": 0,
+      "value": " at "
+    },
+    {
+      "style": "short",
+      "type": 4,
+      "value": "timestamp"
+    },
+    {
+      "type": 0,
+      "value": "."
+    }
+  ],
+  "pages.rooms.deletion.in_progress.title": [
+    {
+      "type": 0,
+      "value": "Deletion in progress"
+    }
+  ],
+  "pages.rooms.deletion.success.description": [
+    {
+      "type": 0,
+      "value": "Room deletion task completed successfully on "
+    },
+    {
+      "style": "short",
+      "type": 3,
+      "value": "timestamp"
+    },
+    {
+      "type": 0,
+      "value": " at "
+    },
+    {
+      "style": "short",
+      "type": 4,
+      "value": "timestamp"
+    },
+    {
+      "type": 0,
+      "value": "."
+    }
+  ],
+  "pages.rooms.deletion.success.title": [
+    {
+      "type": 0,
+      "value": "Deletion successful"
     }
   ],
   "pages.rooms.filters.empty_rooms": [

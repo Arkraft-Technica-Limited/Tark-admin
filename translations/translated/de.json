@@ -14,6 +14,9 @@
   "action.copy": {
     "message": "Kopieren"
   },
+  "action.delete": {
+    "message": "Delete"
+  },
   "action.go_back": {
     "message": "Zurück"
   },
@@ -571,6 +574,48 @@
   },
   "pages.registration_tokens.valid_until_column": {
     "message": "Gültig bis"
+  },
+  "pages.rooms.delete_room.alert.description": {
+    "message": "This will permanently delete all messages or media uploaded to the server and remove this room from the directory. Members will lose access to their messages and the room will be removed from their room list."
+  },
+  "pages.rooms.delete_room.alert.title": {
+    "message": "You’re about to delete room data"
+  },
+  "pages.rooms.delete_room.block.help": {
+    "message": "Prevent users from rejoining the room after deletion."
+  },
+  "pages.rooms.delete_room.block.label": {
+    "message": "Block room"
+  },
+  "pages.rooms.delete_room.button": {
+    "message": "Delete permanently"
+  },
+  "pages.rooms.delete_room.error": {
+    "message": "Failed to schedule room deletion"
+  },
+  "pages.rooms.delete_room.success": {
+    "message": "Room deletion scheduled"
+  },
+  "pages.rooms.delete_room.title": {
+    "message": "Delete this room?"
+  },
+  "pages.rooms.deletion.failure.description": {
+    "message": "Room deletion task failed on {timestamp, date, short} at {timestamp, time, short} with error: {error}"
+  },
+  "pages.rooms.deletion.failure.title": {
+    "message": "Deletion failed"
+  },
+  "pages.rooms.deletion.in_progress.description": {
+    "message": "Room deletion task is in progress since {timestamp, date, short} at {timestamp, time, short}."
+  },
+  "pages.rooms.deletion.in_progress.title": {
+    "message": "Deletion in progress"
+  },
+  "pages.rooms.deletion.success.description": {
+    "message": "Room deletion task completed successfully on {timestamp, date, short} at {timestamp, time, short}."
+  },
+  "pages.rooms.deletion.success.title": {
+    "message": "Deletion successful"
   },
   "pages.rooms.filters.empty_rooms": {
     "message": "Leere Chats"
