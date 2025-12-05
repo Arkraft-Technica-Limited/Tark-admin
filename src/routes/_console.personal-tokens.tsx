@@ -215,8 +215,7 @@ const PersonalTokenAddButton = ({
 
   const queryClient = useQueryClient();
   const intl = useIntl();
-  const from = useCurrentChildRoutePath(Route.id);
-  const navigate = useNavigate({ from });
+  const navigate = Route.useNavigate();
   const [missingActor, setMissingActor] = useState(false);
 
   // Checkbox handlers with dependency logic
@@ -388,26 +387,24 @@ const PersonalTokenAddButton = ({
 
       {mutationData?.data.attributes.access_token ? (
         <>
-          <Dialog.Description className="space-y-4">
-            <Text className="text-text-secondary">
-              <FormattedMessage
-                id="pages.personal_tokens.token_created_description"
-                defaultMessage="Your personal token has been created. Copy it now as it will not be shown again."
-                description="Description shown when a personal token is created"
-              />
-            </Text>
-
-            <div className="flex gap-4 items-center">
-              <Form.TextInput
-                className="flex-1"
-                readOnly
-                value={mutationData?.data.attributes.access_token}
-              />
-              <CopyToClipboard
-                value={mutationData?.data.attributes.access_token || ""}
-              />
-            </div>
+          <Dialog.Description className="text-text-secondary">
+            <FormattedMessage
+              id="pages.personal_tokens.token_created_description"
+              defaultMessage="Your personal token has been created. Copy it now as it will not be shown again."
+              description="Description shown when a personal token is created"
+            />
           </Dialog.Description>
+
+          <div className="flex gap-4 pt-2 items-center">
+            <Form.TextInput
+              className="flex-1"
+              readOnly
+              value={mutationData?.data.attributes.access_token}
+            />
+            <CopyToClipboard
+              value={mutationData?.data.attributes.access_token || ""}
+            />
+          </div>
 
           <Dialog.Close asChild>
             <Button type="button" kind="tertiary" disabled={isPending}>

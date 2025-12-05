@@ -1541,11 +1541,15 @@ function RouteComponent() {
       <div className="flex flex-col gap-8">
         <div className="flex flex-col items-center gap-4">
           <UserAvatar synapseRoot={synapseRoot} userId={mxid} size="88px" />
-          <div className="flex flex-col gap-2 items-center text-text-primary">
-            <Text size="lg" weight="semibold">
+          <div className="flex flex-col gap-2 overflow-hidden self-stretch text-center text-text-primary">
+            <Text size="lg" weight="semibold" className="truncate">
               {mxid}
             </Text>
-            {displayName && <Text size="md">{displayName}</Text>}
+            {displayName && (
+              <Text size="md" className="truncate">
+                {displayName}
+              </Text>
+            )}
           </div>
           <AdminCheckbox
             mxid={mxid}

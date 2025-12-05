@@ -263,15 +263,23 @@ interface UserAvatarProps {
   synapseRoot: string;
   userId: string;
   size: string;
+  className?: string;
 }
 export const UserAvatar: React.FC<UserAvatarProps> = ({
   synapseRoot,
   userId,
   size,
+  className,
 }: UserAvatarProps) => {
   const avatar = useUserAvatar(synapseRoot, userId);
   const displayName = useUserDisplayName(synapseRoot, userId);
   return (
-    <Avatar id={userId} src={avatar} name={displayName || userId} size={size} />
+    <Avatar
+      id={userId}
+      src={avatar}
+      name={displayName || userId}
+      size={size}
+      className={className}
+    />
   );
 };

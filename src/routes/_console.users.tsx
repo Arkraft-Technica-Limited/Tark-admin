@@ -168,18 +168,26 @@ const UserCell = ({ userId, mxid, synapseRoot }: UserCellProps) => {
       className="flex items-center gap-3"
     >
       <Avatar id={mxid} name={displayName || mxid} src={avatar} size="32px" />
-      <div className="flex flex-1 flex-col min-w-0">
+      <div className="flex flex-1 flex-col min-w-0 max-w-96">
         {displayName ? (
           <>
-            <Text size="md" weight="semibold" className="text-text-primary">
+            <Text
+              size="md"
+              weight="semibold"
+              className="text-text-primary truncate"
+            >
               {displayName}
             </Text>
-            <Text size="sm" className="text-text-secondary">
+            <Text size="sm" className="text-text-secondary truncate">
               {mxid}
             </Text>
           </>
         ) : (
-          <Text size="md" weight="semibold" className="text-text-primary">
+          <Text
+            size="md"
+            weight="semibold"
+            className="text-text-primary truncate"
+          >
             {mxid}
           </Text>
         )}

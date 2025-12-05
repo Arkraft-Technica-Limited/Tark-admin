@@ -26,17 +26,23 @@
   flex-direction: column;
   block-size: var(--cpd-space-10x);
   justify-content: center;
+  overflow: hidden;
+  white-space: nowrap;
 
   .primary {
     color: var(--cpd-color-text-primary);
     font: var(--cpd-font-body-md-semibold);
     letter-spacing: var(--cpd-letter-spacing-body-md);
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .secondary {
     color: var(--cpd-color-text-secondary);
     font: var(--cpd-font-body-sm-regular);
     letter-spacing: var(--cpd-letter-spacing-body-sm);
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
