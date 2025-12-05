@@ -6,8 +6,7 @@ import { createLink } from "@tanstack/react-router";
 import { Button, Link } from "@vector-im/compound-web";
 import { type PropsWithChildren, forwardRef } from "react";
 
-interface ButtonLinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+interface ButtonLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   kind?: "primary" | "secondary" | "tertiary";
   size?: "sm" | "lg";
   Icon?: React.ComponentType<React.SVGAttributes<SVGElement>>;
