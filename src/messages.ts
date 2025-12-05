@@ -34,6 +34,12 @@ export const actionCopy = defineMessage({
   description: "Label for a copy action/button",
 });
 
+export const actionDelete = defineMessage({
+  id: "action.delete",
+  defaultMessage: "Delete",
+  description: "Label for a delete action/button",
+});
+
 export const actionGoBack = defineMessage({
   id: "action.go_back",
   defaultMessage: "Go back",

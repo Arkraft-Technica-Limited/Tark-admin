@@ -19,6 +19,10 @@
     "description": "Label for a copy action/button",
     "message": "Copy"
   },
+  "action.delete": {
+    "description": "Label for a delete action/button",
+    "message": "Delete"
+  },
   "action.go_back": {
     "description": "Label for a go back action/button",
     "message": "Go back"
@@ -762,6 +766,62 @@
   "pages.registration_tokens.valid_until_column": {
     "description": "Column header for valid until column",
     "message": "Valid Until"
+  },
+  "pages.rooms.delete_room.alert.description": {
+    "description": "Description of the alert in the delete room dialog",
+    "message": "This will permanently delete all messages or media uploaded to the server and remove this room from the directory. Members will lose access to their messages and the room will be removed from their room list."
+  },
+  "pages.rooms.delete_room.alert.title": {
+    "description": "Title of the alert in the delete room dialog",
+    "message": "You’re about to delete room data"
+  },
+  "pages.rooms.delete_room.block.help": {
+    "description": "Help message for the block users checkbox in the delete room dialog",
+    "message": "Prevent users from rejoining the room after deletion."
+  },
+  "pages.rooms.delete_room.block.label": {
+    "description": "Label for the block users checkbox in the delete room dialog",
+    "message": "Block room"
+  },
+  "pages.rooms.delete_room.button": {
+    "description": "Label for the button to delete a room",
+    "message": "Delete permanently"
+  },
+  "pages.rooms.delete_room.error": {
+    "description": "Toast message shown when room deletion scheduling fails",
+    "message": "Failed to schedule room deletion"
+  },
+  "pages.rooms.delete_room.success": {
+    "description": "Toast message shown when room deletion is successfully scheduled",
+    "message": "Room deletion scheduled"
+  },
+  "pages.rooms.delete_room.title": {
+    "description": "Title for the delete room dialog",
+    "message": "Delete this room?"
+  },
+  "pages.rooms.deletion.failure.description": {
+    "description": "When there is a room deletion task that has failed, this is the description of the alert shown.",
+    "message": "Room deletion task failed on {timestamp, date, short} at {timestamp, time, short} with error: {error}"
+  },
+  "pages.rooms.deletion.failure.title": {
+    "description": "When there is a room deletion task that has failed, this is the title of the alert shown.",
+    "message": "Deletion failed"
+  },
+  "pages.rooms.deletion.in_progress.description": {
+    "description": "When there is a room deletion task that is in progress, this is the description of the alert shown.",
+    "message": "Room deletion task is in progress since {timestamp, date, short} at {timestamp, time, short}."
+  },
+  "pages.rooms.deletion.in_progress.title": {
+    "description": "When there is a room deletion task that is in progress, this is the title of the alert shown.",
+    "message": "Deletion in progress"
+  },
+  "pages.rooms.deletion.success.description": {
+    "description": "When there is a room deletion task that has completed successfully, this is the description of the alert shown.",
+    "message": "Room deletion task completed successfully on {timestamp, date, short} at {timestamp, time, short}."
+  },
+  "pages.rooms.deletion.success.title": {
+    "description": "When there is a room deletion task that has completed successfully, this is the title of the alert shown.",
+    "message": "Deletion successful"
   },
   "pages.rooms.filters.empty_rooms": {
     "description": "Filter option for empty rooms",
