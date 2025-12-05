@@ -43,13 +43,22 @@ updates:
           - "react-i18next"
       tanstack-router:
         patterns:
-          - "@tanstack/react-router"
-          - "@tanstack/react-router-*"
-          - "@tanstack/router-*"
+          - "@tanstack/react-router*"
+          - "@tanstack/router*"
+          - "@tanstack/eslint-plugin-router"
       tanstack-query:
         patterns:
-          - "@tanstack/react-query"
-          - "@tanstack/react-query-*"
+          - "@tanstack/react-query*"
+          - "@tanstack/query*"
+          - "@tanstack/eslint-plugin-query"
+      tanstack-pacer:
+        patterns:
+          - "@tanstack/react-pacer*"
+          - "@tanstack/parce*"
+      tanstack-devtools:
+        patterns:
+          - "@tanstack/react-devtools*"
+          - "@tanstack/devtools*"
       types:
         patterns:
           - "@types/*"
