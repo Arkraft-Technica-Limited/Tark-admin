@@ -260,7 +260,7 @@ function DeleteRoomDialog(props: RoomCommonProps) {
           >
             <FormattedMessage
               id="pages.rooms.delete_room.alert.description"
-              defaultMessage="This will permanently delete all messages or media uploaded to the server and remove this room from the directory. Members will loose access to their messages and the room will be removed from their room list."
+              defaultMessage="This will permanently delete all messages or media uploaded to the server and remove this room from the directory. Members will lose access to their messages and the room will be removed from their room list."
               description="Description of the alert in the delete room dialog"
             />
           </Alert>

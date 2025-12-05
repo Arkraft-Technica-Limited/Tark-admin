@@ -358,7 +358,7 @@ export const scheduledTasksForResource = (
 
       // Refetch every second if there are any scheduled or active tasks
       return tasks.some(
-        (task) => task.status == "scheduled" || task.status == "active",
+        (task) => task.status === "scheduled" || task.status === "active",
       )
         ? 1000
         : false;
