@@ -442,7 +442,7 @@ function RouteComponent() {
           />
         </div>
 
-        <div className="flex flex-col gap-1 items-center">
+        <div className="flex flex-col gap-1 text-center">
           <H3>
             <RoomDisplayName
               roomId={room.room_id}
@@ -454,15 +454,15 @@ function RouteComponent() {
             />
           </H3>
           {room.canonical_alias && (
-            <Text size="md" className="text-text-primary">
+            <Text size="md" className="text-text-primary truncate">
               {room.canonical_alias}
             </Text>
           )}
-          <Text size="md" className="text-text-secondary">
+          <Text size="md" className="text-text-secondary truncate">
             {room.room_id}
           </Text>
           {room.topic && (
-            <Text size="sm" className="text-text-secondary">
+            <Text size="sm" className="text-text-secondary truncate">
               {room.topic}
             </Text>
           )}
