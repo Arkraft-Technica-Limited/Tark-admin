@@ -2,14 +2,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 
+import { Composite, CompositeItem } from "@floating-ui/react";
 import { PublicIcon } from "@vector-im/compound-design-tokens/assets/web/icons";
 import { Button, Tooltip } from "@vector-im/compound-web";
-import { forwardRef, useMemo, useState, useTransition } from "react";
+import { forwardRef, useCallback, useMemo, useTransition } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 
 import * as Dialog from "@/components/dialog";
 import { AVAILABLE_LOCALES, useBestLocale } from "@/intl";
-import * as messages from "@/messages";
 import { useLocaleStore } from "@/stores/locale";
 
 import styles from "./language-switcher.module.css";
@@ -59,30 +59,33 @@ const LanguageName: React.FC<LanguageNameProps> = ({
   return displayNameFormatter.of(locale);
 };
 
+const CHOICES = [null, ...AVAILABLE_LOCALES];
+
 export const LanguageSwitcher: React.FC = () => {
-  const [open, setOpen] = useState(false);
+  const intl = useIntl();
   const [pending, startTransition] = useTransition();
   const { selectedLocale, setLocale, clearLocale } = useLocaleStore();
   const bestLocale = useBestLocale();
 
-  const handleLanguageSelect = (locale: string) => {
-    if (locale !== selectedLocale) {
-      startTransition(() => setLocale(locale));
-    }
-  };
+  const selectItem = useCallback(
+    (index: number) => {
+      const locale = CHOICES[index];
+      if (locale === selectedLocale) return;
+      startTransition(() => {
+        if (locale) setLocale(locale);
+        else clearLocale();
+      });
+    },
+    [setLocale, clearLocale, selectedLocale],
+  );
 
-  const handleClearSelection = () => {
-    if (selectedLocale !== null) {
-      startTransition(() => clearLocale());
-    }
-  };
+  const activeIndex = useMemo(() => {
+    const index = CHOICES.indexOf(selectedLocale);
+    return index === -1 ? 0 : index;
+  }, [selectedLocale]);
 
   return (
-    <Dialog.Root
-      open={open}
-      onOpenChange={setOpen}
-      trigger={<LanguageSwitcherButton />}
-    >
+    <Dialog.Root trigger={<LanguageSwitcherButton />}>
       <Dialog.Title>
         <FormattedMessage
           id="ui.language_switcher.title"
@@ -99,41 +102,42 @@ export const LanguageSwitcher: React.FC = () => {
         />
       </Dialog.Description>
 
-      <div className={styles["language-row-list"]} data-pending={pending}>
-        <button
-          type="button"
-          className={styles["language-row"]}
-          data-selected={selectedLocale === null}
-          onClick={handleClearSelection}
-        >
-          <FormattedMessage
-            id="ui.language_switcher.browser_default"
-            defaultMessage="Use browser settings ({language})"
-            description="Option to use browser's default language in the language switcher"
-            values={{
-              language: <LanguageName locale={bestLocale} />,
-            }}
-          />
-        </button>
-
-        {AVAILABLE_LOCALES.map((locale) => (
-          <button
+      <Composite
+        orientation="vertical"
+        activeIndex={activeIndex}
+        onNavigate={selectItem}
+        role="listbox"
+        className={styles["language-row-list"]}
+        aria-busy={pending}
+        aria-label={intl.formatMessage({
+          id: "ui.language_switcher.language_list_label",
+          defaultMessage: "List of available languages",
+          description:
+            "Aria label for the list of available languages in the language switcher",
+        })}
+      >
+        {CHOICES.map((locale, index) => (
+          <CompositeItem
             key={locale}
-            type="button"
+            role="option"
+            aria-selected={index === activeIndex}
             className={styles["language-row"]}
-            data-selected={selectedLocale === locale}
-            onClick={() => handleLanguageSelect(locale)}
           >
-            <LanguageName locale={locale} />
-          </button>
+            {locale === null ? (
+              <FormattedMessage
+                id="ui.language_switcher.browser_default"
+                defaultMessage="Use browser settings ({language})"
+                description="Option to use browser's default language in the language switcher"
+                values={{
+                  language: <LanguageName locale={bestLocale} />,
+                }}
+              />
+            ) : (
+              <LanguageName locale={locale} />
+            )}
+          </CompositeItem>
         ))}
-      </div>
-
-      <Dialog.Close asChild>
-        <Button type="button" kind="tertiary">
-          <FormattedMessage {...messages.actionClose} />
-        </Button>
-      </Dialog.Close>
+      </Composite>
     </Dialog.Root>
   );
 };

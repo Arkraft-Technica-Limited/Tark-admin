@@ -1215,6 +1215,10 @@
     "description": "Description text in the language switcher modal",
     "message": "Choose your preferred language for the interface."
   },
+  "ui.language_switcher.language_list_label": {
+    "description": "Aria label for the list of available languages in the language switcher",
+    "message": "List of available languages"
+  },
   "ui.language_switcher.title": {
     "description": "Title of the language switcher modal",
     "message": "Language settings"

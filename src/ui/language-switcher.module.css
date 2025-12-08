@@ -7,24 +7,39 @@
 .language-row-list {
   display: flex;
   flex-direction: column;
-  transition: background-color 0.1s;
+  transition:
+    background-color 0.1s,
+    color 0.1s;
+  gap: var(--cpd-space-1x);
+  border-radius: var(--cpd-space-2x);
 
-  &[data-pending="true"] {
+  &:focus-visible {
+    outline: 2px solid var(--cpd-color-border-focused);
+  }
+
+  &[aria-busy="true"] {
     background-color: var(--cpd-color-bg-canvas-disabled);
     color: var(--cpd-color-text-disabled);
   }
 
   & .language-row {
     cursor: pointer;
-    padding: var(--cpd-space-2x);
-    transition: background-color 0.1s;
+    padding: var(--cpd-space-1x) var(--cpd-space-2x);
+    border-radius: var(--cpd-space-2x);
+    font: var(--cpd-font-body-md-semibold);
+    letter-spacing: var(--cpd-letter-spacing-body-md);
 
     &:hover {
       background-color: var(--cpd-color-bg-subtle-secondary);
     }
 
-    &[data-selected="true"],
-    &[data-selected="true"]:hover {
+    &:focus-visible {
+      outline: 2px solid var(--cpd-color-border-focused);
+      outline-offset: 2px;
+    }
+
+    &[aria-selected="true"],
+    &[aria-selected="true"]:hover {
       background-color: var(--cpd-color-bg-subtle-primary);
     }
   }
