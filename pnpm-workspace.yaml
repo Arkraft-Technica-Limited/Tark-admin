@@ -3,3 +3,14 @@
 # SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 
 trustPolicy: no-downgrade
+
+trustPolicyExclude:
+  - semver@6.3.1
+  - chokidar@4.0.3
+  - undici-types@6.21.0
+
+strictDepBuilds: true
+
+ignoredBuiltDependencies:
+  - esbuild
+  - unrs-resolver
