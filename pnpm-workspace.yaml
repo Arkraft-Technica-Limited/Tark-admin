@@ -3,3 +3,9 @@
 # SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 
 trustPolicy: no-downgrade
+
+strictDepBuilds: true
+
+ignoredBuiltDependencies:
+  - esbuild
+  - unrs-resolver

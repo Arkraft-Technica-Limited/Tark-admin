@@ -32,18 +32,12 @@
     "@formatjs/intl-localematcher": "0.6.2",
     "@js-temporal/polyfill": "0.5.1",
     "@radix-ui/react-dialog": "1.1.15",
-    "@tailwindcss/vite": "4.1.17",
     "@tanstack/query-persist-client-core": "5.91.11",
-    "@tanstack/react-devtools": "0.8.2",
     "@tanstack/react-pacer": "0.17.3",
-    "@tanstack/react-pacer-devtools": "0.4.0",
     "@tanstack/react-query": "5.90.12",
-    "@tanstack/react-query-devtools": "5.91.1",
     "@tanstack/react-router": "1.139.14",
-    "@tanstack/react-router-devtools": "1.139.14",
     "@tanstack/react-table": "8.21.3",
     "@tanstack/react-virtual": "3.13.12",
-    "@tanstack/router-plugin": "1.139.14",
     "@vector-im/compound-design-tokens": "6.4.2",
     "@vector-im/compound-web": "8.3.1",
     "classnames": "2.5.1",
@@ -66,9 +60,15 @@
     "@hey-api/openapi-ts": "0.88.0",
     "@localazy/cli": "2.0.8",
     "@playwright/test": "1.57.0",
+    "@tailwindcss/vite": "4.1.17",
     "@tanstack/devtools-vite": "0.3.11",
     "@tanstack/eslint-plugin-query": "5.91.2",
     "@tanstack/eslint-plugin-router": "1.139.0",
+    "@tanstack/react-devtools": "0.8.2",
+    "@tanstack/react-pacer-devtools": "0.4.0",
+    "@tanstack/react-query-devtools": "5.91.1",
+    "@tanstack/react-router-devtools": "1.139.14",
+    "@tanstack/router-plugin": "1.139.14",
     "@tsconfig/strictest": "2.0.8",
     "@tsconfig/vite-react": "7.0.2",
     "@types/node": "24.10.1",
@@ -128,5 +128,5 @@
       "openapi-ts.config.ts"
     ]
   },
-  "packageManager": "pnpm@10.24.0+sha512.01ff8ae71b4419903b65c60fb2dc9d34cf8bb6e06d03bde112ef38f7a34d6904c424ba66bea5cdcf12890230bf39f9580473140ed9c946fef328b6e5238a345a"
+  "packageManager": "pnpm@10.25.0+sha512.5e82639027af37cf832061bcc6d639c219634488e0f2baebe785028a793de7b525ffcd3f7ff574f5e9860654e098fe852ba8ac5dd5cefe1767d23a020a92f501"
 }
