@@ -2433,6 +2433,12 @@
       "value": "Choisissez la langue préférée pour l'interface."
     }
   ],
+  "ui.language_switcher.language_list_label": [
+    {
+      "type": 0,
+      "value": "Liste des langues disponibles"
+    }
+  ],
   "ui.language_switcher.title": [
     {
       "type": 0,

@@ -911,6 +911,9 @@
   "ui.language_switcher.description": {
     "message": "Choisissez la langue préférée pour l'interface."
   },
+  "ui.language_switcher.language_list_label": {
+    "message": "Liste des langues disponibles"
+  },
   "ui.language_switcher.title": {
     "message": "Paramètres de langue"
   },
