@@ -18,7 +18,7 @@ RUN pnpm run build
 RUN gzip -k /app/dist/**/*
 RUN ln -s /tmp/index.runtime.html dist/
 
-FROM ghcr.io/nginx/nginx-unprivileged:1.29.1-alpine
+FROM ghcr.io/nginx/nginx-unprivileged:1.29.3-alpine
 
 COPY --from=builder /app/dist /dist
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
