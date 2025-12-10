@@ -2433,6 +2433,12 @@
       "value": "Velg ditt foretrukne språk for grensesnittet."
     }
   ],
+  "ui.language_switcher.language_list_label": [
+    {
+      "type": 0,
+      "value": "List of available languages"
+    }
+  ],
   "ui.language_switcher.title": [
     {
       "type": 0,

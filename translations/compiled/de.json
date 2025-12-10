@@ -2445,6 +2445,12 @@
       "value": "Wähle deine bevorzugte Sprache für die Benutzeroberfläche"
     }
   ],
+  "ui.language_switcher.language_list_label": [
+    {
+      "type": 0,
+      "value": "List of available languages"
+    }
+  ],
   "ui.language_switcher.title": [
     {
       "type": 0,

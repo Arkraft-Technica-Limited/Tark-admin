@@ -2427,6 +2427,12 @@
       "value": "为界面更改你偏好的语言。"
     }
   ],
+  "ui.language_switcher.language_list_label": [
+    {
+      "type": 0,
+      "value": "List of available languages"
+    }
+  ],
   "ui.language_switcher.title": [
     {
       "type": 0,
