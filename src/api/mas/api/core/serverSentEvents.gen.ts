@@ -169,6 +169,8 @@ export const createSseClient = <TData = unknown>({
             const { done, value } = await reader.read();
             if (done) break;
             buffer += value;
+            // Normalize line endings: CRLF -> LF, then CR -> LF
+            buffer = buffer.replaceAll("\r\n", "\n").replaceAll("\r", "\n");
 
             const chunks = buffer.split("\n\n");
             buffer = chunks.pop() ?? "";
